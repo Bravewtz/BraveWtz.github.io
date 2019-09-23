@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[git本地仓库更新至github]]></title>
+    <url>%2F2019%2F09%2F23%2Fgit%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%E6%9B%B4%E6%96%B0%E8%87%B3github%2F</url>
+    <content type="text"><![CDATA[git本地仓库更新至github1:右键需要更新的项目2:git add . (注意这里有一个空格)3:git commit -m “更新信息”4:git remote rm origin5:git remote add origin ssh或者HTTPS地址6:git push -u origin master/mastercpp]]></content>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F2019%2F09%2F21%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+  </entry>
+</search>
