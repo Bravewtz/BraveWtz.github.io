@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[git本地仓库更新至github]]></title>
     <url>%2F2019%2F09%2F23%2Fgit%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%E6%9B%B4%E6%96%B0%E8%87%B3github%2F</url>
-    <content type="text"><![CDATA[git本地仓库更新至github1:右键需要更新的项目2:git add . (注意这里有一个空格)3:git commit -m “更新信息”4:git remote rm origin5:git remote add origin ssh或者HTTPS地址6:git push -u origin master/mastercpp]]></content>
+    <content type="text"><![CDATA[git本地仓库更新至github 右键需要更新的项目 git add .(注意这里有一个空格) git commit -m &quot;更新信息&quot; git remote rm origin &#39;git remote add origin ssh或者HTTPS地址 git push -u origin master/mastercpp 如果推送不成功的话，肯能是本地项目缺少README.md文件，在保证安全的情况下，可以考虑强推 git push -f origin master/mastercpp]]></content>
       <tags>
         <tag>git</tag>
       </tags>
