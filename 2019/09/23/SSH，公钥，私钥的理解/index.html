@@ -55,20 +55,22 @@
   };
 </script>
 
-  <meta name="description" content="‘这世界本就不公平，所以我们更要奋力追赶’ 关于博主： Wu 在校生本科生一枚 邮箱：1658794070@qq.com QQ：1658794070 博客园：Brave_WTZ GitHub：BraveWtz">
-<meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="http://www.bravewtz.top/about/index.html">
+  <meta name="description" content="首先我们需要区分加密和认证这两个基本概念。　　加密是将数据资料加密，使得非法用户即使取得加密过的资料，也无法获取正确的资料内容，所以数据加密可以保护数据，防止监听攻击。其重点在于数据的安全性。身份认证是用来判断某个身份的真实性，确认身份后，系统才可以依不同的身份给予不同的权限。其重点在于用户的真实性。两者的侧重点是不同的。">
+<meta name="keywords" content="git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SSH，公钥，私钥的理解">
+<meta property="og:url" content="http://www.bravewtz.top/2019/09/23/SSH，公钥，私钥的理解/index.html">
 <meta property="og:site_name" content="Bravewtz">
-<meta property="og:description" content="‘这世界本就不公平，所以我们更要奋力追赶’ 关于博主： Wu 在校生本科生一枚 邮箱：1658794070@qq.com QQ：1658794070 博客园：Brave_WTZ GitHub：BraveWtz">
+<meta property="og:description" content="首先我们需要区分加密和认证这两个基本概念。　　加密是将数据资料加密，使得非法用户即使取得加密过的资料，也无法获取正确的资料内容，所以数据加密可以保护数据，防止监听攻击。其重点在于数据的安全性。身份认证是用来判断某个身份的真实性，确认身份后，系统才可以依不同的身份给予不同的权限。其重点在于用户的真实性。两者的侧重点是不同的。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://www.bravewtz.top/about/sishen.jpg">
-<meta property="og:updated_time" content="2019-09-23T11:57:01.468Z">
+<meta property="og:image" content="http://www.bravewtz.top/2019/09/23/SSH，公钥，私钥的理解/20190923/1.jpg">
+<meta property="og:image" content="http://www.bravewtz.top/2019/09/23/SSH，公钥，私钥的理解/20190923/2.jpg">
+<meta property="og:updated_time" content="2019-09-23T12:35:20.079Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
-<meta name="twitter:description" content="‘这世界本就不公平，所以我们更要奋力追赶’ 关于博主： Wu 在校生本科生一枚 邮箱：1658794070@qq.com QQ：1658794070 博客园：Brave_WTZ GitHub：BraveWtz">
-<meta name="twitter:image" content="http://www.bravewtz.top/about/sishen.jpg">
-  <link rel="canonical" href="http://www.bravewtz.top/about/">
+<meta name="twitter:title" content="SSH，公钥，私钥的理解">
+<meta name="twitter:description" content="首先我们需要区分加密和认证这两个基本概念。　　加密是将数据资料加密，使得非法用户即使取得加密过的资料，也无法获取正确的资料内容，所以数据加密可以保护数据，防止监听攻击。其重点在于数据的安全性。身份认证是用来判断某个身份的真实性，确认身份后，系统才可以依不同的身份给予不同的权限。其重点在于用户的真实性。两者的侧重点是不同的。">
+<meta name="twitter:image" content="http://www.bravewtz.top/2019/09/23/SSH，公钥，私钥的理解/20190923/1.jpg">
+  <link rel="canonical" href="http://www.bravewtz.top/2019/09/23/SSH，公钥，私钥的理解/">
 
 
 <script id="page-configurations">
@@ -76,13 +78,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false,
-    isPage: true,
+    isPost: true,
+    isPage: false,
     isArchive: false
   };
 </script>
 
-  <title>about | Bravewtz</title>
+  <title>SSH，公钥，私钥的理解 | Bravewtz</title>
   
 
 
@@ -241,68 +243,134 @@
         <div class="content-wrap">
             
 
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-  
-
           <div id="content" class="content">
             
 
   <div id="posts" class="posts-expand">
-    
-    
-    
-    <div class="post-block page">
-      <header class="post-header">
-
-<h1 class="post-title" itemprop="name headline">about
-
-</h1>
-
-<div class="post-meta">
+      <article itemscope itemtype="http://schema.org/Article">
   
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://www.bravewtz.top/2019/09/23/SSH，公钥，私钥的理解/">
 
-</div>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bravewtz">
+      <meta itemprop="description" content="但我知道<br>鼓起勇气往前走<br>会让我成为更好的人">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
 
-</header>
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bravewtz">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">SSH，公钥，私钥的理解
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-23 20:10:57 / 修改时间：20:35:20" itemprop="dateCreated datePublished" datetime="2019-09-23T20:10:57+08:00">2019-09-23</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-      
-      
-      <div class="post-body">
-        
-          <h1 id="‘这世界本就不公平，所以我们更要奋力追赶’"><a href="#‘这世界本就不公平，所以我们更要奋力追赶’" class="headerlink" title="‘这世界本就不公平，所以我们更要奋力追赶’"></a>‘这世界本就不公平，所以我们更要奋力追赶’</h1><ul>
-<li>关于博主：</li>
-<li>Wu<br></li>
-<li>在校生本科生一枚<br></li>
-<li>邮箱：<a href="mailto:1658794070@qq.com" target="_blank" rel="noopener">1658794070@qq.com</a><br></li>
-<li>QQ：1658794070<br></li>
-<li>博客园：<a href="https://www.cnblogs.com/Bravewtz/" style="color:red;text-decoration:none;" target="_blank" rel="noopener">Brave_WTZ</a><br></li>
-<li>GitHub：<a href="https://github.com/Bravewtz" style="color:red;text-decoration:none;" target="_blank" rel="noopener">BraveWtz</a><br><img src="sishen.jpg" alt="author"></li>
+        <h2 id="首先我们需要区分加密和认证这两个基本概念。"><a href="#首先我们需要区分加密和认证这两个基本概念。" class="headerlink" title="首先我们需要区分加密和认证这两个基本概念。"></a>首先我们需要区分加密和认证这两个基本概念。</h2><p>　　加密是将数据资料加密，使得非法用户即使取得加密过的资料，也无法获取正确的资料内容，所以数据加密可以保护数据，防止监听攻击。其重点在于数据的安全性。身份认证是用来判断某个身份的真实性，确认身份后，系统才可以依不同的身份给予不同的权限。其重点在于用户的真实性。两者的侧重点是不同的。</p><a id="more"></a>
+<h3 id="公钥和私钥"><a href="#公钥和私钥" class="headerlink" title="公钥和私钥"></a>公钥和私钥</h3><pre><code>其次我们还要了解公钥和私钥的概念和作用。</code></pre><p>　　在现代密码体制中加密和解密是采用不同的密钥（公开密钥），也就是非对称密钥密码系统，每个通信方均需要两个密钥，即公钥和私钥，这两把密钥可以互为加解密。公钥是公开的，不需要保密，而私钥是由个人自己持有，并且必须妥善保管和注意保密。<br>　　公钥私钥的原则：<br>一个公钥对应一个私钥。<br>密钥对中，让大家都知道的是公钥，不告诉大家，只有自己知道的，是私钥。<br>如果用其中一个密钥加密数据，则只有对应的那个密钥才可以解密。<br>如果用其中一个密钥可以进行解密数据，则该数据必然是对应的那个密钥进行的加密。<br>　　非对称密钥密码的主要应用就是公钥加密和公钥认证，而公钥加密的过程和公钥认证的过程是不一样的，下面我就详细讲解一下两者的区别。</p>
+<h3 id="基于公开密钥的加密过程"><a href="#基于公开密钥的加密过程" class="headerlink" title="基于公开密钥的加密过程"></a>基于公开密钥的加密过程</h3><p>   比如有两个用户Alice和Bob，Alice想把一段明文通过双钥加密的技术发送给Bob，Bob有一对公钥和私钥，那么加密解密的过程如下：</p>
+<ul>
+<li>Bob将他的公开密钥传送给Alice。</li>
+<li>Alice用Bob的公开密钥加密她的消息，然后传送给Bob。</li>
+<li>Bob用他的私人密钥解密Alice的消息。<br>　　上面的过程可以用下图表示，Alice使用Bob的公钥进行加密，Bob用自己的私钥进行解密。</li>
 </ul>
+<p><img src="20190923/1.jpg" alt="演示过程1"></p>
+<h3 id="基于公开密钥的认证过程"><a href="#基于公开密钥的认证过程" class="headerlink" title="基于公开密钥的认证过程"></a>基于公开密钥的认证过程</h3><p>   身份认证和加密就不同了，主要用户鉴别用户的真伪。这里我们只要能够鉴别一个用户的私钥是正确的，就可以鉴别这个用户的真伪。<br>　　还是Alice和Bob这两个用户，Alice想让Bob知道自己是真实的Alice，而不是假冒的，因此Alice只要使用公钥密码学对文件签名发送给Bob，Bob使用Alice的公钥对文件进行解密，如果可以解密成功，则证明Alice的私钥是正确的，因而就完成了对Alice的身份鉴别。整个身份认证的过程如下：</p>
+<ul>
+<li>Alice用她的私人密钥对文件加密，从而对文件签名。</li>
+<li>Alice将签名的文件传送给Bob。</li>
+<li>Bob用Alice的公钥解密文件，从而验证签名。<br>　　上面的过程可以用下图表示，Alice使用自己的私钥加密，Bob用Alice的公钥进行解密。</li>
+</ul>
+<p><img src="20190923/2.jpg" alt="演示过程2"></p>
 
-        
-      </div>
+    </div>
+
+    
+    
+    
+
+    <div>
       
-      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
       
     </div>
-    
+        
+      
 
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/git/" rel="tag"># git</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/09/23/git本地仓库更新至github/" rel="next" title="git本地仓库更新至github">
+                  <i class="fa fa-chevron-left"></i> git本地仓库更新至github
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
     
-    
-    
+  </div>
+  
+  
+  
+  </article>
+
   </div>
 
 
@@ -339,7 +407,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#‘这世界本就不公平，所以我们更要奋力追赶’"><span class="nav-number">1.</span> <span class="nav-text">‘这世界本就不公平，所以我们更要奋力追赶’</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#首先我们需要区分加密和认证这两个基本概念。"><span class="nav-number">1.</span> <span class="nav-text">首先我们需要区分加密和认证这两个基本概念。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#公钥和私钥"><span class="nav-number">1.1.</span> <span class="nav-text">公钥和私钥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于公开密钥的加密过程"><span class="nav-number">1.2.</span> <span class="nav-text">基于公开密钥的加密过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于公开密钥的认证过程"><span class="nav-number">1.3.</span> <span class="nav-text">基于公开密钥的认证过程</span></a></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->
