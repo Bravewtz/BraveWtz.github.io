@@ -63,13 +63,13 @@
 <meta property="og:site_name" content="Bravewtz">
 <meta property="og:description" content="首先我们需要区分加密和认证这两个基本概念。　　加密是将数据资料加密，使得非法用户即使取得加密过的资料，也无法获取正确的资料内容，所以数据加密可以保护数据，防止监听攻击。其重点在于数据的安全性。身份认证是用来判断某个身份的真实性，确认身份后，系统才可以依不同的身份给予不同的权限。其重点在于用户的真实性。两者的侧重点是不同的。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://www.bravewtz.top/.top//1.jpg">
-<meta property="og:image" content="http://www.bravewtz.top/.top//2.jpg">
-<meta property="og:updated_time" content="2019-09-25T11:29:14.606Z">
+<meta property="og:image" content="http://www.bravewtz.top/images/2019092501.jpg">
+<meta property="og:image" content="http://www.bravewtz.top/images/2019092502.jpg">
+<meta property="og:updated_time" content="2019-09-25T11:39:08.296Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SSH,公钥,私钥的理解">
 <meta name="twitter:description" content="首先我们需要区分加密和认证这两个基本概念。　　加密是将数据资料加密，使得非法用户即使取得加密过的资料，也无法获取正确的资料内容，所以数据加密可以保护数据，防止监听攻击。其重点在于数据的安全性。身份认证是用来判断某个身份的真实性，确认身份后，系统才可以依不同的身份给予不同的权限。其重点在于用户的真实性。两者的侧重点是不同的。">
-<meta name="twitter:image" content="http://www.bravewtz.top/.top//1.jpg">
+<meta name="twitter:image" content="http://www.bravewtz.top/images/2019092501.jpg">
   <link rel="canonical" href="http://www.bravewtz.top/2019/09/25/SSH-公钥-私钥的理解/">
 
 
@@ -280,7 +280,7 @@
                 
               
 
-              <time title="创建时间：2019-09-25 19:03:10 / 修改时间：19:29:14" itemprop="dateCreated datePublished" datetime="2019-09-25T19:03:10+08:00">2019-09-25</time>
+              <time title="创建时间：2019-09-25 19:03:10 / 修改时间：19:39:08" itemprop="dateCreated datePublished" datetime="2019-09-25T19:03:10+08:00">2019-09-25</time>
             </span>
           
             
@@ -305,7 +305,7 @@
 <ul>
 <li>Bob将他的公开密钥传送给Alice。</li>
 <li>Alice用Bob的公开密钥加密她的消息，然后传送给Bob。</li>
-<li>Bob用他的私人密钥解密Alice的消息。<br>　　上面的过程可以用下图表示，Alice使用Bob的公钥进行加密，Bob用自己的私钥进行解密。<br><img src="/.top//1.jpg" alt="author"></li>
+<li>Bob用他的私人密钥解密Alice的消息。<br>　　上面的过程可以用下图表示，Alice使用Bob的公钥进行加密，Bob用自己的私钥进行解密。<br><img src="/images/2019092501.jpg" alt="author"></li>
 </ul>
 <h3 id="基于公开密钥的认证过程"><a href="#基于公开密钥的认证过程" class="headerlink" title="基于公开密钥的认证过程"></a>基于公开密钥的认证过程</h3><p>   身份认证和加密就不同了，主要用户鉴别用户的真伪。这里我们只要能够鉴别一个用户的私钥是正确的，就可以鉴别这个用户的真伪。<br>　　还是Alice和Bob这两个用户，Alice想让Bob知道自己是真实的Alice，而不是假冒的，因此Alice只要使用公钥密码学对文件签名发送给Bob，Bob使用Alice的公钥对文件进行解密，如果可以解密成功，则证明Alice的私钥是正确的，因而就完成了对Alice的身份鉴别。整个身份认证的过程如下：</p>
 <ul>
@@ -313,7 +313,7 @@
 <li>Alice将签名的文件传送给Bob。</li>
 <li>Bob用Alice的公钥解密文件，从而验证签名。<br>　　上面的过程可以用下图表示，Alice使用自己的私钥加密，Bob用Alice的公钥进行解密。</li>
 </ul>
-<p><img src="/.top//2.jpg" alt="author"></p>
+<p><img src="/images/2019092502.jpg" alt="author"></p>
 
     </div>
 
