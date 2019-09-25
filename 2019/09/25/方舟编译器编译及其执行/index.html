@@ -55,19 +55,26 @@
   };
 </script>
 
-  <meta name="description" content="今天在从本地仓库推送到github的过程中由于操作不当，导致本地代码被覆盖。瞬间泪崩。一度以为自己写了好几天的代码就断送了。不过一想到git是分布式的，本身就是因为版本控制而开发的呀，所以一定有办法恢复以前版本。方法如下：  查看以往版本号git reflog 找到想要恢复的版本号(黄色)git reset --hard 版本号">
-<meta name="keywords" content="git">
+  <meta name="description" content="华为开发者相关网站 华为鸿蒙系统开发者论坛 华为开发者联盟 方舟编译器 华为 DevEco Studio 华为开源平台 华为云 华为应用市场 方舟编译器编译 环境准备  开发环境推荐您需要安装一个64位版本的Ubuntu（推荐Ubuntu 16.04） 12sudo apt-get -y install openjdk-8-jdk git-core gnupg flex bison gperf b">
+<meta name="keywords" content="方舟编译器">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git本地项目恢复">
-<meta property="og:url" content="http://www.bravewtz.top/2019/09/23/git本地项目恢复/index.html">
+<meta property="og:title" content="方舟编译器编译及其执行">
+<meta property="og:url" content="http://www.bravewtz.top/2019/09/25/方舟编译器编译及其执行/index.html">
 <meta property="og:site_name" content="Bravewtz">
-<meta property="og:description" content="今天在从本地仓库推送到github的过程中由于操作不当，导致本地代码被覆盖。瞬间泪崩。一度以为自己写了好几天的代码就断送了。不过一想到git是分布式的，本身就是因为版本控制而开发的呀，所以一定有办法恢复以前版本。方法如下：  查看以往版本号git reflog 找到想要恢复的版本号(黄色)git reset --hard 版本号">
+<meta property="og:description" content="华为开发者相关网站 华为鸿蒙系统开发者论坛 华为开发者联盟 方舟编译器 华为 DevEco Studio 华为开源平台 华为云 华为应用市场 方舟编译器编译 环境准备  开发环境推荐您需要安装一个64位版本的Ubuntu（推荐Ubuntu 16.04） 12sudo apt-get -y install openjdk-8-jdk git-core gnupg flex bison gperf b">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-23T15:54:00.840Z">
+<meta property="og:image" content="http://www.bravewtz.top/images/2019092503.jpg">
+<meta property="og:image" content="http://www.bravewtz.top/images/2019092504.jpg">
+<meta property="og:image" content="http://www.bravewtz.top/images/2019092505.jpg">
+<meta property="og:image" content="http://www.bravewtz.top/images/2019092506.jpg">
+<meta property="og:image" content="http://www.bravewtz.top/images/2019092507.jpg">
+<meta property="og:image" content="http://www.bravewtz.top/images/2019092508.jpg">
+<meta property="og:updated_time" content="2019-09-25T15:52:20.874Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git本地项目恢复">
-<meta name="twitter:description" content="今天在从本地仓库推送到github的过程中由于操作不当，导致本地代码被覆盖。瞬间泪崩。一度以为自己写了好几天的代码就断送了。不过一想到git是分布式的，本身就是因为版本控制而开发的呀，所以一定有办法恢复以前版本。方法如下：  查看以往版本号git reflog 找到想要恢复的版本号(黄色)git reset --hard 版本号">
-  <link rel="canonical" href="http://www.bravewtz.top/2019/09/23/git本地项目恢复/">
+<meta name="twitter:title" content="方舟编译器编译及其执行">
+<meta name="twitter:description" content="华为开发者相关网站 华为鸿蒙系统开发者论坛 华为开发者联盟 方舟编译器 华为 DevEco Studio 华为开源平台 华为云 华为应用市场 方舟编译器编译 环境准备  开发环境推荐您需要安装一个64位版本的Ubuntu（推荐Ubuntu 16.04） 12sudo apt-get -y install openjdk-8-jdk git-core gnupg flex bison gperf b">
+<meta name="twitter:image" content="http://www.bravewtz.top/images/2019092503.jpg">
+  <link rel="canonical" href="http://www.bravewtz.top/2019/09/25/方舟编译器编译及其执行/">
 
 
 <script id="page-configurations">
@@ -81,7 +88,7 @@
   };
 </script>
 
-  <title>git本地项目恢复 | Bravewtz</title>
+  <title>方舟编译器编译及其执行 | Bravewtz</title>
   
 
 
@@ -249,7 +256,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="http://www.bravewtz.top/2019/09/23/git本地项目恢复/">
+    <link itemprop="mainEntityOfPage" href="http://www.bravewtz.top/2019/09/25/方舟编译器编译及其执行/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Bravewtz">
@@ -261,7 +268,7 @@
       <meta itemprop="name" content="Bravewtz">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">git本地项目恢复
+        <h1 class="post-title" itemprop="name headline">方舟编译器编译及其执行
 
           
         </h1>
@@ -277,7 +284,7 @@
                 
               
 
-              <time title="创建时间：2019-09-23 23:45:09 / 修改时间：23:54:00" itemprop="dateCreated datePublished" datetime="2019-09-23T23:45:09+08:00">2019-09-23</time>
+              <time title="创建时间：2019-09-25 23:04:39 / 修改时间：23:52:20" itemprop="dateCreated datePublished" datetime="2019-09-25T23:04:39+08:00">2019-09-25</time>
             </span>
           
             
@@ -286,7 +293,7 @@
           
 
           
-            <span id="/2019/09/23/git本地项目恢复/" class="post-meta-item leancloud_visitors" data-flag-title="git本地项目恢复" title="阅读次数">
+            <span id="/2019/09/25/方舟编译器编译及其执行/" class="post-meta-item leancloud_visitors" data-flag-title="方舟编译器编译及其执行" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -304,7 +311,7 @@
       
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2019/09/23/git本地项目恢复/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/09/23/git本地项目恢复/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2019/09/25/方舟编译器编译及其执行/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/09/25/方舟编译器编译及其执行/" itemprop="commentCount"></span></a>
   </span>
   
   
@@ -318,11 +325,66 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>今天在从本地仓库推送到github的过程中由于操作不当，导致本地代码被覆盖。瞬间泪崩。一度以为自己写了好几天的代码就断送了。<br>不过一想到git是分布式的，本身就是因为版本控制而开发的呀，所以一定有办法恢复以前版本。<br>方法如下：</p>
+        <h1 id="华为开发者相关网站"><a href="#华为开发者相关网站" class="headerlink" title="华为开发者相关网站"></a>华为开发者相关网站</h1><ol>
+<li><a href="http://hmdevelop.com" target="_blank" rel="noopener">华为鸿蒙系统开发者论坛</a></li>
+<li><a href="https://developer.huawei.com/consumer/cn/" target="_blank" rel="noopener">华为开发者联盟</a></li>
+<li><a href="https://www.openarkcompiler.cn/home" target="_blank" rel="noopener">方舟编译器</a></li>
+<li><a href="https://deveco.huawei.com/v2/" target="_blank" rel="noopener">华为 DevEco Studio</a></li>
+<li><a href="https://code.opensource.huaweicloud.com/home" target="_blank" rel="noopener">华为开源平台</a></li>
+<li><a href="https://www.huaweicloud.com/" target="_blank" rel="noopener">华为云</a></li>
+<li><a href="https://appstore.huawei.com/" target="_blank" rel="noopener">华为应用市场</a></li>
+</ol><h1 id="方舟编译器编译"><a href="#方舟编译器编译" class="headerlink" title="方舟编译器编译"></a>方舟编译器编译</h1><ol>
+<li><h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2></li>
+</ol><ul>
+<li><p>开发环境推荐您需要安装一个64位版本的Ubuntu（推荐Ubuntu 16.04）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get -y install openjdk-8-jdk git-core gnupg flex bison gperf build-essential zip curl zlib1g-dev libc6-dev-i386 lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z-dev ccache libgl1-mesa-dev libxml2-utils xsltproc unzip lib32z1-dev qemu g++-multilib gcc-multilib libglib2.0-dev libpixman-1-dev linux-libc-dev:i386</span><br><span class="line">sudo apt-get -y install gcc-5-aarch64-linux-gnu g++-5-aarch64-linux-gnu</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装Clang编译器并完成配置（用于编译方舟编译器代码）下载clang+llvm-8.0.0-x86_64-linux-gnu-ubuntu-16.04<br>LLVM下载地址：<a href="http://releases.llvm.org/download.html#8.0.0" target="_blank" rel="noopener">LLVM</a><br>放置到openarkcompiler/tools目录，打开openarkcompiler/build/config/BUILDCONFIG.gn文件，将GN_C_COMPILER、GN_CXX_COMPILER和GN_AR_COMPILER三个变量配置为Clang编译器所在路径，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">GN_C_COMPILER = &quot;$&#123;MAPLE_ROOT&#125;/tools/clang_llvm-8.0.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang&quot;</span><br><span class="line">GN_CXX_COMPILER = &quot;$&#123;MAPLE_ROOT&#125;/tools/clang_llvm-8.0.0-x86_64-linux-gnu-ubuntu-16.04/bin/clang++&quot;</span><br><span class="line">GN_AR_COMPILER = &quot;$&#123;MAPLE_ROOT&#125;/tools/clang_llvm-8.0.0-x86_64-linux-gnu-ubuntu-16.04/bin/llvm-ar&quot;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul><a id="more"></a>
+
+
+<p><strong>其中${MAPLE_ROOT}为openarkcompiler源码根目录。</strong></p>
 <ul>
-<li>查看以往版本号<br><code>git reflog</code></li>
-<li>找到想要恢复的版本号(黄色)<br><code>git reset --hard 版本号</code></li>
+<li>安装Ninja、GN并完成配置下载Ninja(v1.9.0)及GN(Linux Version)<br>Ninja下载地址：<a href="https://github.com/ninja-build/ninja/releases" target="_blank" rel="noopener">Ninja</a><br>GN下载地址：<a href="https://archive.softwareheritage.org/browse/content/sha1_git:2dc0d5b26caef44f467de8120b26f8aad8b878be/raw/?filename=gn" target="_blank" rel="noopener">gn</a><br>将GN和Ninja可执行程序放置到openarkcompiler/tools目录，打开openarkcompiler/Makefile文件，将GN和NINJA两个变量配置为GN和Ninja可执行程序所在路径。例如：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GN := $&#123;MAPLE_ROOT&#125;/tools/gn/gn</span><br><span class="line">NINJA := $&#123;MAPLE_ROOT&#125;/tools/ninja_1.9.0/ninja</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
+<ol start="2">
+<li><h2 id="编译器编译"><a href="#编译器编译" class="headerlink" title="编译器编译"></a>编译器编译</h2></li>
+</ol>
+<ul>
+<li><p>源码下载下载地址：<a href="https://code.opensource.huaweicloud.com/HarmonyOS/OpenArkCompiler/home" target="_blank" rel="noopener">源码</a>可以通过Clone or Download的方式下载openarkcompiler</p>
+</li>
+<li><p>源码注：默认源码下载目录为openarkcompiler源码编译在openarkcompiler目录下执行以下命令，编译出OpenArkCompiler，默认输出路径 openarkcompiler/out/bin。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">source build/envsetup.sh</span><br><span class="line">make</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>命令说明：source build/envsetup.sh 初始化环境，将OpenArkCompiler工具链路径openarkcompiler/src/bin设置到环境变量中make 编译OpenArkCompiler的Release版本make BUILD_TYPE=DEBUG 编译OpenArkCompiler的Debug版本</p>
+</li>
+</ul>
+<ol start="3">
+<li><h2 id="编译结果展示"><a href="#编译结果展示" class="headerlink" title="编译结果展示"></a>编译结果展示</h2> <img src="/images/2019092503.jpg" alt="编译结果1"><br> <img src="/images/2019092504.jpg" alt="编译结果2"></li>
+</ol>
+<h1 id="方舟编译器执行过程"><a href="#方舟编译器执行过程" class="headerlink" title="方舟编译器执行过程"></a>方舟编译器执行过程</h1><ul>
+<li><p>在博主跑helloworld的过程中，发现抱错显示少java-core.jar包，在几经周折后在码云上找到了jar包,<a href="https://gitee.com/mirrors/java-core" target="_blank" rel="noopener">java-core.jar地址</a>.</p>
+</li>
+<li><p>在openarkcompiler文件夹下新建文件夹libjava-core，将jar包拷贝至目录下<br><img src="/images/2019092505.jpg" alt="java-core放置图片"></p>
+</li>
+<li><p>在openarkcompiler目录下执行</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source build/envsetup.sh</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>cd 至samples文件夹下的helloworld</p>
+</li>
+<li><p>执行</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make</span><br></pre></td></tr></table></figure>
+
+<p>  <img src="/images/2019092506.jpg" alt="helloworld执行结果"></p>
+</li>
+<li><p>执行其他samples样例如图所示（在执行过程中找了一个杨辉三角的java代码，跑了一下)</p>
+</li>
+</ul>
+<p><img src="/images/2019092507.jpg" alt="yanghuisanjiao"><br><img src="/images/2019092508.jpg" alt="terminal"></p>
 
     </div>
 
@@ -348,7 +410,7 @@
           
           <div class="post-tags">
             
-              <a href="/tags/git/" rel="tag"># git</a>
+              <a href="/tags/方舟编译器/" rel="tag"># 方舟编译器</a>
             
           </div>
         
@@ -358,8 +420,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/09/23/git本地仓库更新至github/" rel="next" title="git本地仓库更新至github">
-                  <i class="fa fa-chevron-left"></i> git本地仓库更新至github
+                <a href="/2019/09/25/SSH-公钥-私钥的理解/" rel="next" title="SSH,公钥,私钥的理解">
+                  <i class="fa fa-chevron-left"></i> SSH,公钥,私钥的理解
                 </a>
               
             </div>
@@ -367,10 +429,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/09/25/SSH-公钥-私钥的理解/" rel="prev" title="SSH,公钥,私钥的理解">
-                  SSH,公钥,私钥的理解 <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -422,6 +480,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#华为开发者相关网站"><span class="nav-number">1.</span> <span class="nav-text">华为开发者相关网站</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方舟编译器编译"><span class="nav-number">2.</span> <span class="nav-text">方舟编译器编译</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#环境准备"><span class="nav-number">2.1.</span> <span class="nav-text">环境准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译器编译"><span class="nav-number">2.2.</span> <span class="nav-text">编译器编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译结果展示"><span class="nav-number">2.3.</span> <span class="nav-text">编译结果展示</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方舟编译器执行过程"><span class="nav-number">3.</span> <span class="nav-text">方舟编译器执行过程</span></a></li></ol></div>
+        
       </div>
       <!--/noindex-->
 
