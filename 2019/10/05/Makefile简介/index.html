@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="Makefile 简介Makefile 是和 make 命令一起配合使用的.很多大型项目的编译都是通过 Makefile 来组织的, 如果没有 Makefile, 那很多项目中各种库和代码之间的依赖关系不知会多复杂.Makefile的组织流程的能力如此之强, 不仅可以用来编译项目, 还可以用来组织我们平时的一些日常操作. 这个需要大家发挥自己的想象力.">
+<meta name="keywords" content="Makefile">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Makefile简介">
+<meta property="og:url" content="http://www.bravewtz.top/2019/10/05/Makefile简介/index.html">
+<meta property="og:site_name" content="Bravewtz">
+<meta property="og:description" content="Makefile 简介Makefile 是和 make 命令一起配合使用的.很多大型项目的编译都是通过 Makefile 来组织的, 如果没有 Makefile, 那很多项目中各种库和代码之间的依赖关系不知会多复杂.Makefile的组织流程的能力如此之强, 不仅可以用来编译项目, 还可以用来组织我们平时的一些日常操作. 这个需要大家发挥自己的想象力.">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-10-05T06:16:41.520Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Makefile简介">
+<meta name="twitter:description" content="Makefile 简介Makefile 是和 make 命令一起配合使用的.很多大型项目的编译都是通过 Makefile 来组织的, 如果没有 Makefile, 那很多项目中各种库和代码之间的依赖关系不知会多复杂.Makefile的组织流程的能力如此之强, 不仅可以用来编译项目, 还可以用来组织我们平时的一些日常操作. 这个需要大家发挥自己的想象力.">
+  <link rel="canonical" href="http://www.bravewtz.top/2019/10/05/Makefile简介/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Makefile简介 | Bravewtz</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+
+    <a href="https://github.com/Bravewtz" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bravewtz</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://www.bravewtz.top/2019/10/05/Makefile简介/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bravewtz">
+      <meta itemprop="description" content="但我知道<br>鼓起勇气往前走<br>会让我成为更好的人">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bravewtz">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Makefile简介
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-10-05 14:15:54 / 修改时间：14:16:41" itemprop="dateCreated datePublished" datetime="2019-10-05T14:15:54+08:00">2019-10-05</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+            <span id="/2019/10/05/Makefile简介/" class="post-meta-item leancloud_visitors" data-flag-title="Makefile简介" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2019/10/05/Makefile简介/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/10/05/Makefile简介/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="Makefile-简介"><a href="#Makefile-简介" class="headerlink" title="Makefile 简介"></a>Makefile 简介</h2><p>Makefile 是和 make 命令一起配合使用的.</p><p>很多大型项目的编译都是通过 Makefile 来组织的, 如果没有 Makefile, 那很多项目中各种库和代码之间的依赖关系不知会多复杂.</p><p>Makefile的组织流程的能力如此之强, 不仅可以用来编译项目, 还可以用来组织我们平时的一些日常操作. 这个需要大家发挥自己的想象力.</p><a id="more"></a>
+
+
+<h3 id="Makefile-主要的-5个部分-显示规则-隐晦规则-变量定义-文件指示-注释"><a href="#Makefile-主要的-5个部分-显示规则-隐晦规则-变量定义-文件指示-注释" class="headerlink" title="Makefile 主要的 5个部分 (显示规则, 隐晦规则, 变量定义, 文件指示, 注释)"></a>Makefile 主要的 5个部分 (显示规则, 隐晦规则, 变量定义, 文件指示, 注释)</h3><p>Makefile基本格式如下:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">target ... : prerequisites ...</span><br><span class="line">    command</span><br><span class="line">    ...</span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
+
+<p>其中,</p>
+<p>target        - 目标文件, 可以是 Object File, 也可以是可执行文件<br>prerequisites - 生成 target 所需要的文件或者目标<br>command       - make需要执行的命令 (任意的shell命令), Makefile中的命令必须以 [tab] 开头</p>
+<p>显示规则 :: 说明如何生成一个或多个目标文件(包括 生成的文件, 文件的依赖文件, 生成的命令)<br>隐晦规则 :: make的自动推导功能所执行的规则<br>变量定义 :: Makefile中定义的变量<br>文件指示 :: Makefile中引用其他Makefile; 指定Makefile中有效部分; 定义一个多行命令<br>注释     :: Makefile只有行注释 “#”, 如果要使用或者输出”#”字符, 需要进行转义, “#“</p>
+<ul>
+<li>GNU make 的工作方式<br>读入主Makefile (主Makefile中可以引用其他Makefile)<br>读入被include的其他Makefile<br>初始化文件中的变量<br>推导隐晦规则, 并分析所有规则<br>为所有的目标文件创建依赖关系链<br>根据依赖关系, 决定哪些目标要重新生成<br>执行生成命令</li>
+</ul>
+<h3 id="Makefile-初级语法"><a href="#Makefile-初级语法" class="headerlink" title="Makefile 初级语法"></a>Makefile 初级语法</h3><ul>
+<li>Makefile 规则</li>
+</ul>
+<ul>
+<li>规则语法<br>规则主要有2部分: 依赖关系 和 生成目标的方法.</li>
+</ul>
+<p>语法有以下2种:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">target ... : prerequisites ...</span><br><span class="line">    <span class="built_in">command</span></span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">target ... : prerequisites ; <span class="built_in">command</span></span><br><span class="line">    <span class="built_in">command</span></span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
+
+<p><em>注</em> command太长, 可以用 “&quot; 作为换行符</p>
+<ul>
+<li>规则中的通配符</li>
+</ul>
+<ul>
+<li>:: 表示任意一个或多个字符<br>?     :: 表示任意一个字符<br>[…] :: ex. [abcd] 表示a,b,c,d中任意一个字符, [^abcd]表示除a,b,c,d以外的字符, [0-9]表示 0~9中任意一个数字<br>~     :: 表示用户的home目录</li>
+</ul>
+<ul>
+<li>路径搜索<br>当一个Makefile中涉及到大量源文件时(这些源文件和Makefile极有可能不在同一个目录中),</li>
+</ul>
+<p>这时, 最好将源文件的路径明确在Makefile中, 便于编译时查找. Makefile中有个特殊的变量 VPATH 就是完成这个功能的.</p>
+<p>指定了 VPATH 之后, 如果当前目录中没有找到相应文件或依赖的文件, Makefile 回到 VPATH 指定的路径中再去查找..</p>
+<p>VPATH 使用方法:</p>
+<ul>
+<li><code>vpath &lt;directories&gt;</code>            :: 当前目录中找不到文件时, 就从<directories>中搜索</directories></li>
+<li><code>vpath &lt;pattern&gt; &lt;directories&gt;</code>  :: 符合<pattern>格式的文件, 就从<directories>中搜索</directories></pattern></li>
+<li><code>vpath &lt;pattern&gt;</code>               :: 清除符合<pattern>格式的文件搜索路径</pattern></li>
+<li><code>vpath</code>                          :: 清除所有已经设置好的文件路径</li>
+</ul>
+<p>复制代码</p>
+<h3 id="示例1-当前目录中找不到文件时-按顺序从-src目录-parent-dir目录中查找文件"><a href="#示例1-当前目录中找不到文件时-按顺序从-src目录-parent-dir目录中查找文件" class="headerlink" title="示例1 - 当前目录中找不到文件时, 按顺序从 src目录 ../parent-dir目录中查找文件"></a>示例1 - 当前目录中找不到文件时, 按顺序从 src目录 ../parent-dir目录中查找文件</h3><figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">VPATH src:../parent-dir</span><br></pre></td></tr></table></figure>
+
+<h4 id="示例2-h结尾的文件都从-header-目录中查找"><a href="#示例2-h结尾的文件都从-header-目录中查找" class="headerlink" title="示例2 - .h结尾的文件都从 ./header 目录中查找"></a>示例2 - .h结尾的文件都从 ./header 目录中查找</h4><figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">VPATH %.h ./header</span><br></pre></td></tr></table></figure>
+
+<h3 id="示例3-清除示例2中设置的规则"><a href="#示例3-清除示例2中设置的规则" class="headerlink" title="示例3 - 清除示例2中设置的规则"></a>示例3 - 清除示例2中设置的规则</h3><figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">VPATH %.h</span><br></pre></td></tr></table></figure>
+
+<h4 id="示例4-清除所有VPATH的设置"><a href="#示例4-清除所有VPATH的设置" class="headerlink" title="示例4 - 清除所有VPATH的设置"></a>示例4 - 清除所有VPATH的设置</h4><figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">VPATH</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Makefile 中的变量</li>
+<li>变量定义 ( = or := )</li>
+</ul>
+<figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">OBJS = programA.o programB.o</span><br><span class="line">OBJS-ADD = $(OBJS) programC.o</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">OBJS := programA.o programB.o</span><br><span class="line">OBJS-ADD := $(OBJS) programC.o</span><br></pre></td></tr></table></figure>
+
+<p>其中 = 和 := 的区别在于, := 只能使用前面定义好的变量, = 可以使用后面定义的变量</p>
+<h3 id="Makefile内容"><a href="#Makefile内容" class="headerlink" title="Makefile内容"></a>Makefile内容</h3><figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">OBJS2 = $(OBJS1) programC.o</span><br><span class="line">OBJS1 = programA.o programB.o</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">all:</span><br><span class="line">    @echo $(OBJS2)</span><br></pre></td></tr></table></figure>
+
+<h3 id="bash中执行-make-可以看出虽然-OBJS1-是在-OBJS2-之后定义的-但在-OBJS2中可以提前使用"><a href="#bash中执行-make-可以看出虽然-OBJS1-是在-OBJS2-之后定义的-但在-OBJS2中可以提前使用" class="headerlink" title="bash中执行 make, 可以看出虽然 OBJS1 是在 OBJS2 之后定义的, 但在 OBJS2中可以提前使用"></a>bash中执行 make, 可以看出虽然 OBJS1 是在 OBJS2 之后定义的, 但在 OBJS2中可以提前使用</h3><figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ make</span><br><span class="line">programA.o programB.o programC.o</span><br></pre></td></tr></table></figure>
+
+<h3 id="Makefile内容-1"><a href="#Makefile内容-1" class="headerlink" title="Makefile内容"></a>Makefile内容</h3><figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">OBJS2 := $(OBJS1) programC.o</span><br><span class="line">OBJS1 := programA.o programB.o</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">all:</span><br><span class="line">    @echo $(OBJS2)</span><br></pre></td></tr></table></figure>
+
+<h3 id="bash中执行-make-可以看出-OBJS2-中的-OBJS1-为空"><a href="#bash中执行-make-可以看出-OBJS2-中的-OBJS1-为空" class="headerlink" title="bash中执行 make, 可以看出 OBJS2 中的 $(OBJS1) 为空"></a>bash中执行 make, 可以看出 OBJS2 中的 $(OBJS1) 为空</h3><figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ make</span><br><span class="line">programC.o</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>变量替换<h3 id="Makefile内容-2"><a href="#Makefile内容-2" class="headerlink" title="Makefile内容"></a>Makefile内容</h3></li>
+</ul>
+<figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SRCS := programA.c programB.c programC.c</span><br><span class="line">OBJS := $(SRCS:%.c=%.o)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">all:</span><br><span class="line">    @echo "SRCS: " $(SRCS)</span><br><span class="line">    @echo "OBJS: " $(OBJS)</span><br></pre></td></tr></table></figure>
+
+<h3 id="bash中运行make"><a href="#bash中运行make" class="headerlink" title="bash中运行make"></a>bash中运行make</h3><figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ make</span><br><span class="line">SRCS:  programA.c programB.c programC.c</span><br><span class="line">OBJS:  programA.o programB.o programC.o</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>变量追加值 +=</li>
+</ul>
+<h3 id="Makefile内容-3"><a href="#Makefile内容-3" class="headerlink" title="Makefile内容"></a>Makefile内容</h3><figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SRCS := programA.c programB.c programC.c</span><br><span class="line">SRCS += programD.c</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">all:</span><br><span class="line">    @echo "SRCS: " $(SRCS)</span><br></pre></td></tr></table></figure>
+
+<h3 id="bash中运行make-1"><a href="#bash中运行make-1" class="headerlink" title="bash中运行make"></a>bash中运行make</h3><figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ make</span><br><span class="line">SRCS:  programA.c programB.c programC.c programD.c</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>变量覆盖 override<br>作用是使 Makefile中定义的变量能够覆盖 make 命令参数中指定的变量</li>
+</ul>
+<p>语法:</p>
+<figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">override &lt;variable&gt; = &lt;value&gt;</span><br><span class="line">override &lt;variable&gt; := &lt;value&gt;</span><br><span class="line">override &lt;variable&gt; += &lt;value&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>下面通过一个例子体会 override 的作用：</p>
+<h3 id="Makefile内容-没有用override"><a href="#Makefile内容-没有用override" class="headerlink" title="Makefile内容 (没有用override)"></a>Makefile内容 (没有用override)</h3><figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SRCS := programA.c programB.c programC.c</span><br><span class="line"></span><br><span class="line">all:</span><br><span class="line">    @echo "SRCS: " $(SRCS)</span><br></pre></td></tr></table></figure>
+
+<h3 id="bash中运行make-2"><a href="#bash中运行make-2" class="headerlink" title="bash中运行make"></a>bash中运行make</h3><figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ make SRCS=nothing</span><br><span class="line">SRCS:  nothing</span><br></pre></td></tr></table></figure>
+
+<h1 id="Makefile内容-用override"><a href="#Makefile内容-用override" class="headerlink" title="Makefile内容 (用override)"></a>Makefile内容 (用override)</h1><figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">override SRCS := programA.c programB.c programC.c</span><br></pre></td></tr></table></figure>
+
+<p>all:<br>    @echo “SRCS: “ $(SRCS)</p>
+<h1 id="bash中运行make-3"><a href="#bash中运行make-3" class="headerlink" title="bash中运行make"></a>bash中运行make</h1><figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ make SRCS=nothing</span><br><span class="line">SRCS:  programA.c programB.c programC.c</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>目标变量<br>作用是使变量的作用域仅限于这个目标(target), 而不像之前例子中定义的变量, 对整个Makefile都有效.</li>
+</ul>
+<p>语法:</p>
+<figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;target ...&gt; :: &lt;variable-assignment&gt;</span><br><span class="line">&lt;target ...&gt; :: override &lt;variable-assignment&gt; (override作用参见 变量覆盖的介绍)</span><br></pre></td></tr></table></figure>
+
+<h1 id="Makefile-内容"><a href="#Makefile-内容" class="headerlink" title="Makefile 内容"></a>Makefile 内容</h1><figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">SRCS := programA.c programB.c programC.c</span><br><span class="line"></span><br><span class="line">target1: TARGET1-SRCS := programD.c</span><br><span class="line">target1:</span><br><span class="line">    @echo "SRCS: " $(SRCS)</span><br><span class="line">    @echo "SRCS: " $(TARGET1-SRCS)</span><br><span class="line"></span><br><span class="line">target2:</span><br><span class="line">    @echo "SRCS: " $(SRCS)</span><br><span class="line">    @echo "SRCS: " $(TARGET1-SRCS)</span><br></pre></td></tr></table></figure>
+
+<h1 id="bash中执行make"><a href="#bash中执行make" class="headerlink" title="bash中执行make"></a>bash中执行make</h1><figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ make target1</span><br><span class="line">SRCS:  programA.c programB.c programC.c</span><br><span class="line">SRCS:  programD.c</span><br><span class="line"></span><br><span class="line">$ make target2     &lt;-- target2中显示不了 $(TARGET1-SRCS)</span><br><span class="line">SRCS:  programA.c programB.c programC.c</span><br><span class="line">SRCS:</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Makefile 命令前缀<br>Makefile 中书写shell命令时可以加2种前缀 @ 和 -, 或者不用前缀.</li>
+</ul>
+<p>3种格式的shell命令区别如下:</p>
+<p>不用前缀 :: 输出执行的命令以及命令执行的结果, 出错的话停止执行<br>前缀 @   :: 只输出命令执行的结果, 出错的话停止执行<br>前缀 -   :: 命令执行有错的话, 忽略错误, 继续执行</p>
+<h1 id="Makefile-内容-不用前缀"><a href="#Makefile-内容-不用前缀" class="headerlink" title="Makefile 内容 (不用前缀)"></a>Makefile 内容 (不用前缀)</h1><figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">all:</span><br><span class="line">    echo "没有前缀"</span><br><span class="line">    cat this_file_not_exist</span><br><span class="line">    echo "错误之后的命令"       &lt;-- 这条命令不会被执行</span><br></pre></td></tr></table></figure>
+
+<h1 id="bash中执行-make"><a href="#bash中执行-make" class="headerlink" title="bash中执行 make"></a>bash中执行 make</h1><p>$ make<br>echo “没有前缀”             &lt;– 命令本身显示出来<br>没有前缀                    &lt;– 命令执行结果显示出来<br>cat this_file_not_exist<br>cat: this_file_not_exist: No such file or directory<br>make: *** [all] Error 1</p>
+<p>###########################################################</p>
+<h1 id="Makefile-内容-前缀"><a href="#Makefile-内容-前缀" class="headerlink" title="Makefile 内容 (前缀 @)"></a>Makefile 内容 (前缀 @)</h1><p>all:<br>    @echo “没有前缀”<br>    @cat this_file_not_exist<br>    @echo “错误之后的命令”       &lt;– 这条命令不会被执行</p>
+<h1 id="bash中执行-make-1"><a href="#bash中执行-make-1" class="headerlink" title="bash中执行 make"></a>bash中执行 make</h1><p>$ make<br>没有前缀                         &lt;– 只有命令执行的结果, 不显示命令本身<br>cat: this_file_not_exist: No such file or directory<br>make: *** [all] Error 1</p>
+<p>###########################################################</p>
+<h1 id="Makefile-内容-前缀-1"><a href="#Makefile-内容-前缀-1" class="headerlink" title="Makefile 内容 (前缀 -)"></a>Makefile 内容 (前缀 -)</h1><p>all:<br>    -echo “没有前缀”<br>    -cat this_file_not_exist<br>    -echo “错误之后的命令”       &lt;– 这条命令会被执行</p>
+<h1 id="bash中执行-make-2"><a href="#bash中执行-make-2" class="headerlink" title="bash中执行 make"></a>bash中执行 make</h1><p>$ make<br>echo “没有前缀”             &lt;– 命令本身显示出来<br>没有前缀                    &lt;– 命令执行结果显示出来<br>cat this_file_not_exist<br>cat: this_file_not_exist: No such file or directory<br>make: [all] Error 1 (ignored)<br>echo “错误之后的命令”       &lt;– 出错之后的命令也会显示<br>错误之后的命令              &lt;– 出错之后的命令也会执行<br>复制代码</p>
+<p>2.4 伪目标<br>伪目标并不是一个”目标(target)”, 不像真正的目标那样会生成一个目标文件.</p>
+<p>典型的伪目标是 Makefile 中用来清理编译过程中中间文件的 clean 伪目标, 一般格式如下:</p>
+<p>.PHONY: clean   &lt;– 这句没有也行, 但是最好加上<br>clean:<br>    -rm -f *.o</p>
+<p>2.5 引用其他的 Makefile<br>语法: include <filename>  (filename 可以包含通配符和路径)</filename></p>
+<p>示例:</p>
+<p>复制代码</p>
+<h1 id="Makefile-内容-1"><a href="#Makefile-内容-1" class="headerlink" title="Makefile 内容"></a>Makefile 内容</h1><p>all:<br>    @echo “主 Makefile begin”<br>    @make other-all<br>    @echo “主 Makefile end”</p>
+<p>include ./other/Makefile</p>
+<h1 id="other-Makefile-内容"><a href="#other-Makefile-内容" class="headerlink" title="./other/Makefile 内容"></a>./other/Makefile 内容</h1><p>other-all:<br>    @echo “other makefile begin”<br>    @echo “other makefile end”</p>
+<h1 id="bash中执行-make-3"><a href="#bash中执行-make-3" class="headerlink" title="bash中执行 make"></a>bash中执行 make</h1><p>$ ll<br>total 20K<br>-rw-r–r– 1 wangyubin wangyubin  125 Sep 23 16:13 Makefile<br>-rw-r–r– 1 wangyubin wangyubin  11K Sep 23 16:15 makefile.org   &lt;– 这个文件不用管<br>drwxr-xr-x 2 wangyubin wangyubin 4.0K Sep 23 16:11 other<br>$ ll other/<br>total 4.0K<br>-rw-r–r– 1 wangyubin wangyubin 71 Sep 23 16:11 Makefile</p>
+<p>$ make<br>主 Makefile begin<br>make[1]: Entering directory <code>/path/to/test/makefile&#39;
+other makefile begin
+other makefile end
+make[1]: Leaving directory</code>/path/to/test/makefile’<br>主 Makefile end<br>复制代码</p>
+<p>2.6 查看C文件的依赖关系<br>写 Makefile 的时候, 需要确定每个目标的依赖关系.</p>
+<p>GNU提供一个机制可以查看C代码文件依赖那些文件, 这样我们在写 Makefile 目标的时候就不用打开C源码来看其依赖那些文件了.</p>
+<p>比如, 下面命令显示内核源码中 virt/kvm/kvm_main.c 中的依赖关系</p>
+<p>$ cd virt/kvm/<br>$ gcc -MM kvm_main.c<br>kvm_main.o: kvm_main.c iodev.h coalesced_mmio.h async_pf.h   &lt;– 这句就可以加到 Makefile 中作为编译 kvm_main.o 的依赖关系</p>
+<p>2.7 make 退出码<br>Makefile的退出码有以下3种：</p>
+<p>0 :: 表示成功执行<br>1 :: 表示make命令出现了错误<br>2 :: 使用了 “-q” 选项, 并且make使得一些目标不需要更新</p>
+<p>2.8 指定 Makefile， 指定特定目标<br>默认执行 make 命令时, GNU make在当前目录下依次搜索下面3个文件 “GNUmakefile”, “makefile”, “Makefile”,</p>
+<p>找到对应文件之后, 就开始执行此文件中的第一个目标(target). 如果找不到这3个文件就报错.</p>
+<p>非默认情况下, 可以在 make 命令中指定特定的 Makefile 和特定的 目标.</p>
+<p>示例：</p>
+<p>复制代码</p>
+<h1 id="Makefile文件名改为-MyMake-内容"><a href="#Makefile文件名改为-MyMake-内容" class="headerlink" title="Makefile文件名改为 MyMake, 内容"></a>Makefile文件名改为 MyMake, 内容</h1><p>target1:<br>    @echo “target [1]  begin”<br>    @echo “target [1]  end”</p>
+<p>target2:<br>    @echo “target [2]  begin”<br>    @echo “target [2]  end”</p>
+<h1 id="bash-中执行-make"><a href="#bash-中执行-make" class="headerlink" title="bash 中执行 make"></a>bash 中执行 make</h1><p>$ ls<br>Makefile<br>$ mv Makefile MyMake<br>$ ls<br>MyMake<br>$ make                     &lt;– 找不到默认的 Makefile<br>make: *** No targets specified and no makefile found.  Stop.<br>$ make -f MyMake           &lt;– 指定特定的Makefile<br>target [1]  begin<br>target [1]  end<br>$ make -f MyMake target2   &lt;– 指定特定的目标(target)<br>target [2]  begin<br>target [2]  end<br>复制代码</p>
+<p>2.9 make 参数介绍<br>make 的参数有很多, 可以通过 make -h 去查看, 下面只介绍几个我认为比较有用的.</p>
+<p>参数</p>
+<p>含义</p>
+<p>–debug[=<options>]    输出make的调试信息, options 可以是 a, b, v<br>-j –jobs    同时运行的命令的个数, 也就是多线程执行 Makefile<br>-r –no-builtin-rules    禁止使用任何隐含规则<br>-R –no-builtin-variabes    禁止使用任何作用于变量上的隐含规则<br>-B –always-make    假设所有目标都有更新, 即强制重编译</options></p>
+<p>2.10 Makefile 隐含规则<br>这里只列一个和编译C相关的.</p>
+<p>编译C时，<n>.o 的目标会自动推导为 <n>.c</n></n></p>
+<p>复制代码</p>
+<h1 id="Makefile-中"><a href="#Makefile-中" class="headerlink" title="Makefile 中"></a>Makefile 中</h1><p>main : main.o<br>    gcc -o main main.o</p>
+<p>#会自动变为:<br>main : main.o<br>    gcc -o main main.o</p>
+<p>main.o: main.c    &lt;– main.o 这个目标是隐含生成的<br>    gcc -c main.c<br>复制代码</p>
+<p>2.11 隐含规则中的 命令变量 和 命令参数变量<br>2.11.1 命令变量, 书写Makefile可以直接写 shell时用这些变量.<br>下面只列出一些C相关的</p>
+<p>变量名</p>
+<p>含义</p>
+<p>RM    rm -f<br>AR    ar<br>CC    cc<br>CXX    g++<br>示例:</p>
+<p>复制代码</p>
+<h1 id="Makefile-内容-2"><a href="#Makefile-内容-2" class="headerlink" title="Makefile 内容"></a>Makefile 内容</h1><p>all:<br>    @echo $(RM)<br>    @echo $(AR)<br>    @echo $(CC)<br>    @echo $(CXX)</p>
+<h1 id="bash-中执行make-显示各个变量的值"><a href="#bash-中执行make-显示各个变量的值" class="headerlink" title="bash 中执行make, 显示各个变量的值"></a>bash 中执行make, 显示各个变量的值</h1><p>$ make<br>rm -f<br>ar<br>cc<br>g++<br>复制代码</p>
+<p>2.11.2 命令参数变量<br>变量名</p>
+<p>含义</p>
+<p>ARFLAGS    AR命令的参数<br>CFLAGS    C语言编译器的参数<br>CXXFLAGS    C++语言编译器的参数</p>
+<p>示例: 下面以 CFLAGS 为例演示</p>
+<p>复制代码</p>
+<h1 id="test-c-内容"><a href="#test-c-内容" class="headerlink" title="test.c 内容"></a>test.c 内容</h1><p>#include &lt;stdio.h&gt;</p>
+<p>int main(int argc, char *argv[])<br>{<br>    printf (“Hello Makefile\n”);<br>    return 0;<br>}</p>
+<h1 id="Makefile-内容-3"><a href="#Makefile-内容-3" class="headerlink" title="Makefile 内容"></a>Makefile 内容</h1><p>test: test.o<br>    $(CC) -o test test.o</p>
+<h1 id="bash-中用-make-来测试"><a href="#bash-中用-make-来测试" class="headerlink" title="bash 中用 make 来测试"></a>bash 中用 make 来测试</h1><p>$ ll<br>total 24K<br>-rw-r–r– 1 wangyubin wangyubin  69 Sep 23 17:31 Makefile<br>-rw-r–r– 1 wangyubin wangyubin 14K Sep 23 19:51 makefile.org   &lt;– 请忽略这个文件<br>-rw-r–r– 1 wangyubin wangyubin 392 Sep 23 17:31 test.c</p>
+<p>$ make<br>cc    -c -o test.o test.c<br>cc -o test test.o               &lt;– 这个是自动推导的</p>
+<p>$ rm -f test test.o</p>
+<p>$ make CFLAGS=-Wall             &lt;– 命令中加的编译器参数自动追加入下面的编译中了<br>cc -Wall   -c -o test.o test.c<br>cc -o test test.o<br>复制代码</p>
+<p>2.12 自动变量<br>Makefile 中很多时候通过自动变量来简化书写, 各个自动变量的含义如下:</p>
+<p>自动变量</p>
+<p>含义</p>
+<p>$@    目标集合<br>$%    当目标是函数库文件时, 表示其中的目标文件名<br>$&lt;    第一个依赖目标. 如果依赖目标是多个, 逐个表示依赖目标<br>$?    比目标新的依赖目标的集合<br>$^    所有依赖目标的集合, 会去除重复的依赖目标<br>$+    所有依赖目标的集合, 不会去除重复的依赖目标<br>$*    这个是GNU make特有的, 其它的make不一定支持</p>
+<ol start="3">
+<li>Makefile 高级语法</li>
+<li>1 嵌套Makefile<br>在 Makefile 初级语法中已经提到过引用其它 Makefile的方法. 这里有另一种写法, 并且可以向引用的其它 Makefile 传递参数.</li>
+</ol>
+<p>示例: (不传递参数, 只是调用子文件夹 other 中的Makefile)</p>
+<p>复制代码</p>
+<h1 id="Makefile-内容-4"><a href="#Makefile-内容-4" class="headerlink" title="Makefile 内容"></a>Makefile 内容</h1><p>all:<br>    @echo “主 Makefile begin”<br>    @cd ./other &amp;&amp; make<br>    @echo “主 Makefile end”</p>
+<h1 id="other-Makefile-内容-1"><a href="#other-Makefile-内容-1" class="headerlink" title="./other/Makefile 内容"></a>./other/Makefile 内容</h1><p>other-all:<br>    @echo “other makefile begin”<br>    @echo “other makefile end”</p>
+<h1 id="bash中执行-make-4"><a href="#bash中执行-make-4" class="headerlink" title="bash中执行 make"></a>bash中执行 make</h1><p>$ ll<br>total 28K<br>-rw-r–r– 1 wangyubin wangyubin  104 Sep 23 20:43 Makefile<br>-rw-r–r– 1 wangyubin wangyubin  17K Sep 23 20:44 makefile.org   &lt;– 这个文件不用管<br>drwxr-xr-x 2 wangyubin wangyubin 4.0K Sep 23 20:42 other<br>$ ll other/<br>total 4.0K<br>-rw-r–r– 1 wangyubin wangyubin 71 Sep 23 16:11 Makefile</p>
+<p>$ make<br>主 Makefile begin<br>make[1]: Entering directory <code>/path/to/test/makefile/other&#39;
+other makefile begin
+other makefile end
+make[1]: Leaving directory</code>/path/to/test/makefile/other’<br>主 Makefile end<br>复制代码</p>
+<p>示例: (用export传递参数)</p>
+<p>复制代码</p>
+<h1 id="Makefile-内容-5"><a href="#Makefile-内容-5" class="headerlink" title="Makefile 内容"></a>Makefile 内容</h1><p>export VALUE1 := export.c    &lt;– 用了 export, 此变量能够传递到 ./other/Makefile 中<br>VALUE2 := no-export.c        &lt;– 此变量不能传递到 ./other/Makefile 中</p>
+<p>all:<br>    @echo “主 Makefile begin”<br>    @cd ./other &amp;&amp; make<br>    @echo “主 Makefile end”</p>
+<h1 id="other-Makefile-内容-2"><a href="#other-Makefile-内容-2" class="headerlink" title="./other/Makefile 内容"></a>./other/Makefile 内容</h1><p>other-all:<br>    @echo “other makefile begin”<br>    @echo “VALUE1: “ $(VALUE1)<br>    @echo “VALUE2: “ $(VALUE2)<br>    @echo “other makefile end”</p>
+<h1 id="bash中执行-make-5"><a href="#bash中执行-make-5" class="headerlink" title="bash中执行 make"></a>bash中执行 make</h1><p>$ make<br>主 Makefile begin<br>make[1]: Entering directory <code>/path/to/test/makefile/other&#39;
+other makefile begin
+VALUE1:  export.c        &lt;-- VALUE1 传递成功
+VALUE2:                  &lt;-- VALUE2 传递失败
+other makefile end
+make[1]: Leaving directory</code>/path/to/test/makefile/other’<br>主 Makefile end<br>复制代码</p>
+<p><em>补充</em> export 语法格式如下:</p>
+<p>export variable = value<br>export variable := value<br>export variable += value</p>
+<p>3.2 定义命令包<br>命令包有点像是个函数, 将连续的相同的命令合成一条, 减少 Makefile 中的代码量, 便于以后维护.</p>
+<p>语法:</p>
+<p>define <command-name><br>command<br>…<br>endef</command-name></p>
+<p>示例:</p>
+<p>复制代码</p>
+<h1 id="Makefile-内容-6"><a href="#Makefile-内容-6" class="headerlink" title="Makefile 内容"></a>Makefile 内容</h1><p>define run-hello-makefile<br>@echo -n “Hello”<br>@echo “ Makefile!”<br>@echo “这里可以执行多条 Shell 命令!”<br>endef</p>
+<p>all:<br>    $(run-hello-makefile)</p>
+<h1 id="bash-中运行make"><a href="#bash-中运行make" class="headerlink" title="bash 中运行make"></a>bash 中运行make</h1><p>$ make<br>Hello Makefile!<br>这里可以执行多条 Shell 命令!<br>复制代码</p>
+<p>3.3 条件判断<br>条件判断的关键字主要有 ifeq ifneq ifdef ifndef</p>
+<p>语法:</p>
+<p>复制代码<br><conditional-directive><br><text-if-true><br>endif</text-if-true></conditional-directive></p>
+<h1 id="或者"><a href="#或者" class="headerlink" title="或者"></a>或者</h1><conditional-directive>
+<text-if-true>
+else
+<text-if-false>
+endif
+复制代码
+
+
+<p>示例: ifeq的例子, ifneq和ifeq的使用方法类似, 就是取反</p>
+<p>复制代码</p>
+<h1 id="Makefile-内容-7"><a href="#Makefile-内容-7" class="headerlink" title="Makefile 内容"></a>Makefile 内容</h1><p>all:<br>ifeq (“aa”, “bb”)<br>    @echo “equal”<br>else<br>    @echo “not equal”<br>endif</p>
+<h1 id="bash-中执行-make-1"><a href="#bash-中执行-make-1" class="headerlink" title="bash 中执行 make"></a>bash 中执行 make</h1><p>$ make<br>not equal<br>复制代码</p>
+<p>示例: ifdef的例子, ifndef和ifdef的使用方法类似, 就是取反</p>
+<p>复制代码</p>
+<h1 id="Makefile-内容-8"><a href="#Makefile-内容-8" class="headerlink" title="Makefile 内容"></a>Makefile 内容</h1><p>SRCS := program.c</p>
+<p>all:<br>ifdef SRCS<br>    @echo $(SRCS)<br>else<br>    @echo “no SRCS”<br>endif</p>
+<h1 id="bash-中执行-make-2"><a href="#bash-中执行-make-2" class="headerlink" title="bash 中执行 make"></a>bash 中执行 make</h1><p>$ make<br>program.c<br>复制代码</p>
+<p>3.4 Makefile 中的函数<br>Makefile 中自带了一些函数, 利用这些函数可以简化 Makefile 的编写.</p>
+<p>函数调用语法如下:</p>
+<p>$(<function> <arguments>)</arguments></function></p>
+<h1 id="或者-1"><a href="#或者-1" class="headerlink" title="或者"></a>或者</h1><p>${<function> <arguments>}<br><function> 是函数名<br><arguments> 是函数参数</arguments></function></arguments></function></p>
+<p>3.4.1 字符串函数<br>字符串替换函数: $(subst <from>,<to>,<text>)</text></to></from></p>
+<p>功能: 把字符串<text> 中的 <from> 替换为 <to></to></from></text></p>
+<p>返回: 替换过的字符串</p>
+<p>复制代码</p>
+<h1 id="Makefile-内容-9"><a href="#Makefile-内容-9" class="headerlink" title="Makefile 内容"></a>Makefile 内容</h1><p>all:<br>    @echo $(subst t,e,maktfilt)  &lt;– 将t替换为e</p>
+<h1 id="bash-中执行-make-3"><a href="#bash-中执行-make-3" class="headerlink" title="bash 中执行 make"></a>bash 中执行 make</h1><p>$ make<br>makefile<br>复制代码</p>
+<p>模式字符串替换函数: $(patsubst <pattern>,<replacement>,<text>)</text></replacement></pattern></p>
+<p>功能: 查找<text>中的单词(单词以”空格”, “tab”, “换行”来分割) 是否符合 <pattern>, 符合的话, 用 <replacement> 替代.</replacement></pattern></text></p>
+<p>返回: 替换过的字符串</p>
+<p>复制代码</p>
+<h1 id="Makefile-内容-10"><a href="#Makefile-内容-10" class="headerlink" title="Makefile 内容"></a>Makefile 内容</h1><p>all:<br>    @echo $(patsubst %.c,%.o,programA.c programB.c)</p>
+<h1 id="bash-中执行-make-4"><a href="#bash-中执行-make-4" class="headerlink" title="bash 中执行 make"></a>bash 中执行 make</h1><p>$ make<br>programA.o programB.o<br>复制代码</p>
+<p>去空格函数: $(strip <string>)</string></p>
+<p>功能: 去掉 <string> 字符串中开头和结尾的空字符</string></p>
+<p>返回: 被去掉空格的字符串值</p>
+<p>复制代码</p>
+<h1 id="Makefile-内容-11"><a href="#Makefile-内容-11" class="headerlink" title="Makefile 内容"></a>Makefile 内容</h1><p>VAL := “       aa  bb  cc “</p>
+<p>all:<br>    @echo “去除空格前: “ $(VAL)<br>    @echo “去除空格后: “ $(strip $(VAL))</p>
+<h1 id="bash-中执行-make-5"><a href="#bash-中执行-make-5" class="headerlink" title="bash 中执行 make"></a>bash 中执行 make</h1><p>$ make<br>去除空格前:         aa  bb  cc<br>去除空格后:   aa bb cc<br>复制代码</p>
+<p>查找字符串函数: $(findstring <find>,<in>)</in></find></p>
+<p>功能: 在字符串 <in> 中查找 <find> 字符串</find></in></p>
+<p>返回: 如果找到, 返回 <find> 字符串,  否则返回空字符串</find></p>
+<p>复制代码</p>
+<h1 id="Makefile-内容-12"><a href="#Makefile-内容-12" class="headerlink" title="Makefile 内容"></a>Makefile 内容</h1><p>VAL := “       aa  bb  cc “</p>
+<p>all:<br>    @echo $(findstring aa,$(VAL))<br>    @echo $(findstring ab,$(VAL))</p>
+<h1 id="bash-中执行-make-6"><a href="#bash-中执行-make-6" class="headerlink" title="bash 中执行 make"></a>bash 中执行 make</h1><p>$ make<br>aa<br>复制代码</p>
+<p>过滤函数: $(filter &lt;pattern…&gt;,<text>)</text></p>
+<p>功能: 以 <pattern> 模式过滤字符串 <text>, <em>保留</em> 符合模式 <pattern> 的单词, 可以有多个模式</pattern></text></pattern></p>
+<p>返回: 符合模式 <pattern> 的字符串</pattern></p>
+<p>复制代码</p>
+<h1 id="Makefile-内容-13"><a href="#Makefile-内容-13" class="headerlink" title="Makefile 内容"></a>Makefile 内容</h1><p>all:<br>    @echo $(filter %.o %.a,program.c program.o program.a)</p>
+<h1 id="bash-中执行-make-7"><a href="#bash-中执行-make-7" class="headerlink" title="bash 中执行 make"></a>bash 中执行 make</h1><p>$ make<br>program.o program.a<br>复制代码</p>
+<p>反过滤函数: $(filter-out &lt;pattern…&gt;,<text>)</text></p>
+<p>功能: 以 <pattern> 模式过滤字符串 <text>, <em>去除</em> 符合模式 <pattern> 的单词, 可以有多个模式</pattern></text></pattern></p>
+<p>返回: 不符合模式 <pattern> 的字符串</pattern></p>
+<p>复制代码</p>
+<h1 id="Makefile-内容-14"><a href="#Makefile-内容-14" class="headerlink" title="Makefile 内容"></a>Makefile 内容</h1><p>all:<br>    @echo $(filter-out %.o %.a,program.c program.o program.a)</p>
+<h1 id="bash-中执行-make-8"><a href="#bash-中执行-make-8" class="headerlink" title="bash 中执行 make"></a>bash 中执行 make</h1><p>$ make<br>program.c<br>复制代码</p>
+<p>排序函数: $(sort <list>)</list></p>
+<p>功能: 给字符串 <list> 中的单词排序 (升序)</list></p>
+<p>返回: 排序后的字符串</p>
+<p>复制代码</p>
+<h1 id="Makefile-内容-15"><a href="#Makefile-内容-15" class="headerlink" title="Makefile 内容"></a>Makefile 内容</h1><p>all:<br>    @echo $(sort bac abc acb cab)</p>
+<h1 id="bash-中执行-make-9"><a href="#bash-中执行-make-9" class="headerlink" title="bash 中执行 make"></a>bash 中执行 make</h1><p>$ make<br>abc acb bac cab<br>复制代码</p>
+<p>取单词函数: $(word <n>,<text>)</text></n></p>
+<p>功能: 取字符串 <text> 中的 第<n>个单词 (n从1开始)</n></text></p>
+<p>返回: <text> 中的第<n>个单词, 如果<n> 比 <text> 中单词个数要大, 则返回空字符串</text></n></n></text></p>
+<p>复制代码</p>
+<h1 id="Makefile-内容-16"><a href="#Makefile-内容-16" class="headerlink" title="Makefile 内容"></a>Makefile 内容</h1><p>all:<br>    @echo $(word 1,aa bb cc dd)<br>    @echo $(word 5,aa bb cc dd)<br>    @echo $(word 4,aa bb cc dd)</p>
+<h1 id="bash-中执行-make-10"><a href="#bash-中执行-make-10" class="headerlink" title="bash 中执行 make"></a>bash 中执行 make</h1><p>$ make<br>aa</p>
+<p>dd<br>复制代码</p>
+<p>取单词串函数: $(wordlist <s>,<e>,<text>)</text></e></s></p>
+<p>功能: 从字符串<text>中取从<s>开始到<e>的单词串. <s>和<e>是一个数字.</e></s></e></s></text></p>
+<p>返回: 从<s>到<e>的字符串</e></s></p>
+<p>复制代码</p>
+<h1 id="Makefile-内容-17"><a href="#Makefile-内容-17" class="headerlink" title="Makefile 内容"></a>Makefile 内容</h1><p>all:<br>    @echo $(wordlist 1,3,aa bb cc dd)<br>    @echo $(word 5,6,aa bb cc dd)<br>    @echo $(word 2,5,aa bb cc dd)</p>
+<h1 id="bash-中执行-make-11"><a href="#bash-中执行-make-11" class="headerlink" title="bash 中执行 make"></a>bash 中执行 make</h1><p>$ make<br>aa bb cc</p>
+<p>bb<br>复制代码</p>
+<p>单词个数统计函数: $(words <text>)</text></p>
+<p>功能: 统计字符串 <text> 中单词的个数</text></p>
+<p>返回: 单词个数</p>
+<p>复制代码</p>
+<h1 id="Makefile-内容-18"><a href="#Makefile-内容-18" class="headerlink" title="Makefile 内容"></a>Makefile 内容</h1><p>all:<br>    @echo $(words aa bb cc dd)<br>    @echo $(words aabbccdd)<br>    @echo $(words )</p>
+<h1 id="bash-中执行-make-12"><a href="#bash-中执行-make-12" class="headerlink" title="bash 中执行 make"></a>bash 中执行 make</h1><p>$ make<br>4<br>1<br>0<br>复制代码</p>
+<p>首单词函数: $(firstword <text>)</text></p>
+<p>功能: 取字符串 <text> 中的第一个单词</text></p>
+<p>返回: 字符串 <text> 中的第一个单词</text></p>
+<p>复制代码</p>
+<h1 id="Makefile-内容-19"><a href="#Makefile-内容-19" class="headerlink" title="Makefile 内容"></a>Makefile 内容</h1><p>all:<br>    @echo $(firstword aa bb cc dd)<br>    @echo $(firstword aabbccdd)<br>    @echo $(firstword )</p>
+<h1 id="bash-中执行-make-13"><a href="#bash-中执行-make-13" class="headerlink" title="bash 中执行 make"></a>bash 中执行 make</h1><p>$ make<br>aa<br>aabbccdd<br>复制代码</p>
+<p>3.4.2 文件名函数<br>取目录函数: $(dir &lt;names…&gt;)</p>
+<p>功能: 从文件名序列 <names> 中取出目录部分</names></p>
+<p>返回: 文件名序列 <names> 中的目录部分</names></p>
+<p>复制代码</p>
+<h1 id="Makefile-内容-20"><a href="#Makefile-内容-20" class="headerlink" title="Makefile 内容"></a>Makefile 内容</h1><p>all:<br>    @echo $(dir /home/a.c ./bb.c ../c.c d.c)</p>
+<h1 id="bash-中执行-make-14"><a href="#bash-中执行-make-14" class="headerlink" title="bash 中执行 make"></a>bash 中执行 make</h1><p>$ make<br>/home/ ./ ../ ./<br>复制代码</p>
+<p>取文件函数: $(notdir &lt;names…&gt;)</p>
+<p>功能: 从文件名序列 <names> 中取出非目录部分</names></p>
+<p>返回: 文件名序列 <names> 中的非目录部分</names></p>
+<p>复制代码</p>
+<h1 id="Makefile-内容-21"><a href="#Makefile-内容-21" class="headerlink" title="Makefile 内容"></a>Makefile 内容</h1><p>all:<br>    @echo $(notdir /home/a.c ./bb.c ../c.c d.c)</p>
+<h1 id="bash-中执行-make-15"><a href="#bash-中执行-make-15" class="headerlink" title="bash 中执行 make"></a>bash 中执行 make</h1><p>$ make<br>a.c bb.c c.c d.c<br>复制代码</p>
+<p>取后缀函数: $(suffix &lt;names…&gt;)</p>
+<p>功能: 从文件名序列 <names> 中取出各个文件名的后缀</names></p>
+<p>返回: 文件名序列 <names> 中各个文件名的后缀, 没有后缀则返回空字符串</names></p>
+<p>复制代码</p>
+<h1 id="Makefile-内容-22"><a href="#Makefile-内容-22" class="headerlink" title="Makefile 内容"></a>Makefile 内容</h1><p>all:<br>    @echo $(suffix /home/a.c ./b.o ../c.a d)</p>
+<h1 id="bash-中执行-make-16"><a href="#bash-中执行-make-16" class="headerlink" title="bash 中执行 make"></a>bash 中执行 make</h1><p>$ make<br>.c .o .a<br>复制代码</p>
+<p>取前缀函数: $(basename &lt;names…&gt;)</p>
+<p>功能: 从文件名序列 <names> 中取出各个文件名的前缀</names></p>
+<p>返回: 文件名序列 <names> 中各个文件名的前缀, 没有前缀则返回空字符串</names></p>
+<p>复制代码</p>
+<h1 id="Makefile-内容-23"><a href="#Makefile-内容-23" class="headerlink" title="Makefile 内容"></a>Makefile 内容</h1><p>all:<br>    @echo $(basename /home/a.c ./b.o ../c.a /home/.d .e)</p>
+<h1 id="bash-中执行-make-17"><a href="#bash-中执行-make-17" class="headerlink" title="bash 中执行 make"></a>bash 中执行 make</h1><p>$ make<br>/home/a ./b ../c /home/<br>复制代码</p>
+<p>加后缀函数: $(addsuffix <suffix>,&lt;names…&gt;)</suffix></p>
+<p>功能: 把后缀 <suffix> 加到 <names> 中的每个单词后面</names></suffix></p>
+<p>返回: 加过后缀的文件名序列</p>
+<p>复制代码</p>
+<h1 id="Makefile-内容-24"><a href="#Makefile-内容-24" class="headerlink" title="Makefile 内容"></a>Makefile 内容</h1><p>all:<br>    @echo $(addsuffix .c,/home/a b ./c.o ../d.c)</p>
+<h1 id="bash-中执行-make-18"><a href="#bash-中执行-make-18" class="headerlink" title="bash 中执行 make"></a>bash 中执行 make</h1><p>$ make<br>/home/a.c b.c ./c.o.c ../d.c.c<br>复制代码</p>
+<p>加前缀函数: $(addprefix <prefix>,&lt;names…&gt;)</prefix></p>
+<p>功能: 把前缀 <prefix> 加到 <names> 中的每个单词前面</names></prefix></p>
+<p>返回: 加过前缀的文件名序列</p>
+<p>复制代码</p>
+<h1 id="Makefile-内容-25"><a href="#Makefile-内容-25" class="headerlink" title="Makefile 内容"></a>Makefile 内容</h1><p>all:<br>    @echo $(addprefix test_,/home/a.c b.c ./d.c)</p>
+<h1 id="bash-中执行-make-19"><a href="#bash-中执行-make-19" class="headerlink" title="bash 中执行 make"></a>bash 中执行 make</h1><p>$ make<br>test_/home/a.c test_b.c test_./d.c<br>复制代码</p>
+<p>连接函数: $(join <list1>,<list2>)</list2></list1></p>
+<p>功能: <list2> 中对应的单词加到 <list1> 后面</list1></list2></p>
+<p>返回: 连接后的字符串</p>
+<p>复制代码</p>
+<h1 id="Makefile-内容-26"><a href="#Makefile-内容-26" class="headerlink" title="Makefile 内容"></a>Makefile 内容</h1><p>all:<br>    @echo $(join a b c d,1 2 3 4)<br>    @echo $(join a b c d,1 2 3 4 5)<br>    @echo $(join a b c d e,1 2 3 4)</p>
+<h1 id="bash-中执行-make-20"><a href="#bash-中执行-make-20" class="headerlink" title="bash 中执行 make"></a>bash 中执行 make</h1><p>$ make<br>a1 b2 c3 d4<br>a1 b2 c3 d4 5<br>a1 b2 c3 d4 e<br>复制代码</p>
+<p>3.4.3 foreach<br>语法:</p>
+<p>$(foreach <var>,<list>,<text>)</text></list></var></p>
+<p>示例:</p>
+<p>复制代码</p>
+<h1 id="Makefile-内容-27"><a href="#Makefile-内容-27" class="headerlink" title="Makefile 内容"></a>Makefile 内容</h1><p>targets := a b c d<br>objects := $(foreach i,$(targets),$(i).o)</p>
+<p>all:<br>    @echo $(targets)<br>    @echo $(objects)</p>
+<h1 id="bash-中执行-make-21"><a href="#bash-中执行-make-21" class="headerlink" title="bash 中执行 make"></a>bash 中执行 make</h1><p>$ make<br>a b c d<br>a.o b.o c.o d.o<br>复制代码</p>
+<p>3.4.4 if<br>这里的if是个函数, 和前面的条件判断不一样, 前面的条件判断属于Makefile的关键字</p>
+<p>语法:</p>
+<p>$(if <condition>,<then-part>)</then-part></condition></p>
+<p>$(if <condition>,<then-part>,<else-part>)</else-part></then-part></condition></p>
+<p>示例:</p>
+<p>复制代码</p>
+<h1 id="Makefile-内容-28"><a href="#Makefile-内容-28" class="headerlink" title="Makefile 内容"></a>Makefile 内容</h1><p>val := a<br>objects := $(if $(val),$(val).o,nothing)<br>no-objects := $(if $(no-val),$(val).o,nothing)</p>
+<p>all:<br>    @echo $(objects)<br>    @echo $(no-objects)</p>
+<h1 id="bash-中执行-make-22"><a href="#bash-中执行-make-22" class="headerlink" title="bash 中执行 make"></a>bash 中执行 make</h1><p>$ make<br>a.o<br>nothing<br>复制代码</p>
+<p>3.4.5 call - 创建新的参数化函数<br>语法:</p>
+<p>$(call <expression>,<parm1>,<parm2>,<parm3>…)</parm3></parm2></parm1></expression></p>
+<p>示例:</p>
+<p>复制代码</p>
+<h1 id="Makefile-内容-29"><a href="#Makefile-内容-29" class="headerlink" title="Makefile 内容"></a>Makefile 内容</h1><p>log = “====debug====” $(1) “====end====”</p>
+<p>all:<br>    @echo $(call log,”正在 Make”)</p>
+<h1 id="bash-中执行-make-23"><a href="#bash-中执行-make-23" class="headerlink" title="bash 中执行 make"></a>bash 中执行 make</h1><p>$ make<br>====debug==== 正在 Make ====end====<br>复制代码</p>
+<p>3.4.6 origin - 判断变量的来源<br>语法:</p>
+<p>$(origin <variable>)</variable></p>
+<p>返回值有如下类型:</p>
+<p>类型</p>
+<p>含义</p>
+<p>undefined    <variable> 没有定义过<br>default    <variable> 是个默认的定义, 比如 CC 变量<br>environment    <variable> 是个环境变量, 并且 make时没有使用 -e 参数<br>file    <variable> 定义在Makefile中<br>command line    <variable> 定义在命令行中<br>override    <variable> 被 override 重新定义过<br>automatic    <variable> 是自动化变量</variable></variable></variable></variable></variable></variable></variable></p>
+<p>示例:</p>
+<p>复制代码</p>
+<h1 id="Makefile-内容-30"><a href="#Makefile-内容-30" class="headerlink" title="Makefile 内容"></a>Makefile 内容</h1><p>val-in-file := test-file<br>override val-override := test-override</p>
+<p>all:<br>    @echo $(origin not-define)    # not-define 没有定义<br>    @echo $(origin CC)            # CC 是Makefile默认定义的变量<br>    @echo $(origin PATH)         # PATH 是 bash 环境变量<br>    @echo $(origin val-in-file)    # 此Makefile中定义的变量<br>    @echo $(origin val-in-cmd)    # 这个变量会加在 make 的参数中<br>    @echo $(origin val-override) # 此Makefile中定义的override变量<br>    @echo $(origin @)             # 自动变量, 具体前面的介绍</p>
+<h1 id="bash-中执行-make-24"><a href="#bash-中执行-make-24" class="headerlink" title="bash 中执行 make"></a>bash 中执行 make</h1><p>$ make val-in-cmd=val-cmd<br>undefined<br>default<br>environment<br>file<br>command line<br>override<br>automatic<br>复制代码</p>
+<p>3.4.7 shell<br>语法:</p>
+<p>$(shell <shell command>)</shell></p>
+<p>它的作用就是执行一个shell命令, 并将shell命令的结果作为函数的返回.</p>
+<p>作用和 <code>&lt;shell command&gt;</code> 一样, ` 是反引号</p>
+<p>3.4.8 make 控制函数<br>产生一个致命错误: $(error &lt;text …&gt;)</p>
+<p>功能: 输出错误信息, 停止Makefile的运行</p>
+<p>复制代码</p>
+<h1 id="Makefile-内容-31"><a href="#Makefile-内容-31" class="headerlink" title="Makefile 内容"></a>Makefile 内容</h1><p>all:<br>    $(error there is an error!)<br>    @echo “这里不会执行!”</p>
+<h1 id="bash-中执行-make-25"><a href="#bash-中执行-make-25" class="headerlink" title="bash 中执行 make"></a>bash 中执行 make</h1><p>$ make<br>Makefile:2: *** there is an error!.  Stop.<br>复制代码</p>
+<p>输出警告: $(warning &lt;text …&gt;)</p>
+<p>功能: 输出警告信息, Makefile继续运行</p>
+<p>复制代码</p>
+<h1 id="Makefile-内容-32"><a href="#Makefile-内容-32" class="headerlink" title="Makefile 内容"></a>Makefile 内容</h1><p>all:<br>    $(warning there is an warning!)<br>    @echo “这里会执行!”</p>
+<h1 id="bash-中执行-make-26"><a href="#bash-中执行-make-26" class="headerlink" title="bash 中执行 make"></a>bash 中执行 make</h1><p>$ make<br>Makefile:2: there is an warning!<br>这里会执行!<br>复制代码</p>
+<p>3.5 Makefile中一些GNU约定俗成的伪目标<br>如果有过在Linux上, 从源码安装软件的经历的话, 就会对 make clean, make install 比较熟悉.</p>
+<p>像 clean, install 这些伪目标, 广为人知</p>
+<p>下面列举一些常用的伪目标, 如果在自己项目的Makefile合理使用这些伪目标的话, 可以让我们自己的Makefile看起来更专业, 呵呵 :)</p>
+<p>含义</p>
+<p>all    所有目标的目标，其功能一般是编译所有的目标<br>clean    删除所有被make创建的文件<br>install    安装已编译好的程序，其实就是把目标可执行文件拷贝到指定的目录中去<br>print    列出改变过的源文件<br>tar    把源程序打包备份. 也就是一个tar文件<br>dist    创建一个压缩文件, 一般是把tar文件压成Z文件. 或是gz文件<br>TAGS    更新所有的目标, 以备完整地重编译使用<br>check 或 test    一般用来测试makefile的流程</p>
+</text-if-false></text-if-true></conditional-directive>
+    </div>
+
+    
+    
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/Makefile/" rel="tag"># Makefile</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/09/29/LIS/" rel="next" title="LIS">
+                  <i class="fa fa-chevron-left"></i> LIS
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+    
+    <div class="comments" id="comments"></div>
+  
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Makefile-简介"><span class="nav-number">1.</span> <span class="nav-text">Makefile 简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Makefile-主要的-5个部分-显示规则-隐晦规则-变量定义-文件指示-注释"><span class="nav-number">1.1.</span> <span class="nav-text">Makefile 主要的 5个部分 (显示规则, 隐晦规则, 变量定义, 文件指示, 注释)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Makefile-初级语法"><span class="nav-number">1.2.</span> <span class="nav-text">Makefile 初级语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例1-当前目录中找不到文件时-按顺序从-src目录-parent-dir目录中查找文件"><span class="nav-number">1.3.</span> <span class="nav-text">示例1 - 当前目录中找不到文件时, 按顺序从 src目录 ../parent-dir目录中查找文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例2-h结尾的文件都从-header-目录中查找"><span class="nav-number">1.3.1.</span> <span class="nav-text">示例2 - .h结尾的文件都从 ./header 目录中查找</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例3-清除示例2中设置的规则"><span class="nav-number">1.4.</span> <span class="nav-text">示例3 - 清除示例2中设置的规则</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例4-清除所有VPATH的设置"><span class="nav-number">1.4.1.</span> <span class="nav-text">示例4 - 清除所有VPATH的设置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Makefile内容"><span class="nav-number">1.5.</span> <span class="nav-text">Makefile内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bash中执行-make-可以看出虽然-OBJS1-是在-OBJS2-之后定义的-但在-OBJS2中可以提前使用"><span class="nav-number">1.6.</span> <span class="nav-text">bash中执行 make, 可以看出虽然 OBJS1 是在 OBJS2 之后定义的, 但在 OBJS2中可以提前使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Makefile内容-1"><span class="nav-number">1.7.</span> <span class="nav-text">Makefile内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bash中执行-make-可以看出-OBJS2-中的-OBJS1-为空"><span class="nav-number">1.8.</span> <span class="nav-text">bash中执行 make, 可以看出 OBJS2 中的 $(OBJS1) 为空</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Makefile内容-2"><span class="nav-number">1.9.</span> <span class="nav-text">Makefile内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bash中运行make"><span class="nav-number">1.10.</span> <span class="nav-text">bash中运行make</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Makefile内容-3"><span class="nav-number">1.11.</span> <span class="nav-text">Makefile内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bash中运行make-1"><span class="nav-number">1.12.</span> <span class="nav-text">bash中运行make</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Makefile内容-没有用override"><span class="nav-number">1.13.</span> <span class="nav-text">Makefile内容 (没有用override)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bash中运行make-2"><span class="nav-number">1.14.</span> <span class="nav-text">bash中运行make</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Makefile内容-用override"><span class="nav-number"></span> <span class="nav-text">Makefile内容 (用override)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bash中运行make-3"><span class="nav-number"></span> <span class="nav-text">bash中运行make</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Makefile-内容"><span class="nav-number"></span> <span class="nav-text">Makefile 内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bash中执行make"><span class="nav-number"></span> <span class="nav-text">bash中执行make</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Makefile-内容-不用前缀"><span class="nav-number"></span> <span class="nav-text">Makefile 内容 (不用前缀)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bash中执行-make"><span class="nav-number"></span> <span class="nav-text">bash中执行 make</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Makefile-内容-前缀"><span class="nav-number"></span> <span class="nav-text">Makefile 内容 (前缀 @)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bash中执行-make-1"><span class="nav-number"></span> <span class="nav-text">bash中执行 make</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Makefile-内容-前缀-1"><span class="nav-number"></span> <span class="nav-text">Makefile 内容 (前缀 -)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bash中执行-make-2"><span class="nav-number"></span> <span class="nav-text">bash中执行 make</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Makefile-内容-1"><span class="nav-number"></span> <span class="nav-text">Makefile 内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#other-Makefile-内容"><span class="nav-number"></span> <span class="nav-text">./other/Makefile 内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bash中执行-make-3"><span class="nav-number"></span> <span class="nav-text">bash中执行 make</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Makefile文件名改为-MyMake-内容"><span class="nav-number"></span> <span class="nav-text">Makefile文件名改为 MyMake, 内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bash-中执行-make"><span class="nav-number"></span> <span class="nav-text">bash 中执行 make</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Makefile-中"><span class="nav-number"></span> <span class="nav-text">Makefile 中</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Makefile-内容-2"><span class="nav-number"></span> <span class="nav-text">Makefile 内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bash-中执行make-显示各个变量的值"><span class="nav-number"></span> <span class="nav-text">bash 中执行make, 显示各个变量的值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#test-c-内容"><span class="nav-number"></span> <span class="nav-text">test.c 内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Makefile-内容-3"><span class="nav-number"></span> <span class="nav-text">Makefile 内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bash-中用-make-来测试"><span class="nav-number"></span> <span class="nav-text">bash 中用 make 来测试</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Makefile-内容-4"><span class="nav-number"></span> <span class="nav-text">Makefile 内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#other-Makefile-内容-1"><span class="nav-number"></span> <span class="nav-text">./other/Makefile 内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bash中执行-make-4"><span class="nav-number"></span> <span class="nav-text">bash中执行 make</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Makefile-内容-5"><span class="nav-number"></span> <span class="nav-text">Makefile 内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#other-Makefile-内容-2"><span class="nav-number"></span> <span class="nav-text">./other/Makefile 内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bash中执行-make-5"><span class="nav-number"></span> <span class="nav-text">bash中执行 make</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Makefile-内容-6"><span class="nav-number"></span> <span class="nav-text">Makefile 内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bash-中运行make"><span class="nav-number"></span> <span class="nav-text">bash 中运行make</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#或者"><span class="nav-number"></span> <span class="nav-text">或者</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Makefile-内容-7"><span class="nav-number"></span> <span class="nav-text">Makefile 内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bash-中执行-make-1"><span class="nav-number"></span> <span class="nav-text">bash 中执行 make</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Makefile-内容-8"><span class="nav-number"></span> <span class="nav-text">Makefile 内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bash-中执行-make-2"><span class="nav-number"></span> <span class="nav-text">bash 中执行 make</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#或者-1"><span class="nav-number"></span> <span class="nav-text">或者</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Makefile-内容-9"><span class="nav-number"></span> <span class="nav-text">Makefile 内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bash-中执行-make-3"><span class="nav-number"></span> <span class="nav-text">bash 中执行 make</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Makefile-内容-10"><span class="nav-number"></span> <span class="nav-text">Makefile 内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bash-中执行-make-4"><span class="nav-number"></span> <span class="nav-text">bash 中执行 make</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Makefile-内容-11"><span class="nav-number"></span> <span class="nav-text">Makefile 内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bash-中执行-make-5"><span class="nav-number"></span> <span class="nav-text">bash 中执行 make</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Makefile-内容-12"><span class="nav-number"></span> <span class="nav-text">Makefile 内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bash-中执行-make-6"><span class="nav-number"></span> <span class="nav-text">bash 中执行 make</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Makefile-内容-13"><span class="nav-number"></span> <span class="nav-text">Makefile 内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bash-中执行-make-7"><span class="nav-number"></span> <span class="nav-text">bash 中执行 make</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Makefile-内容-14"><span class="nav-number"></span> <span class="nav-text">Makefile 内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bash-中执行-make-8"><span class="nav-number"></span> <span class="nav-text">bash 中执行 make</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Makefile-内容-15"><span class="nav-number"></span> <span class="nav-text">Makefile 内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bash-中执行-make-9"><span class="nav-number"></span> <span class="nav-text">bash 中执行 make</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Makefile-内容-16"><span class="nav-number"></span> <span class="nav-text">Makefile 内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bash-中执行-make-10"><span class="nav-number"></span> <span class="nav-text">bash 中执行 make</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Makefile-内容-17"><span class="nav-number"></span> <span class="nav-text">Makefile 内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bash-中执行-make-11"><span class="nav-number"></span> <span class="nav-text">bash 中执行 make</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Makefile-内容-18"><span class="nav-number"></span> <span class="nav-text">Makefile 内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bash-中执行-make-12"><span class="nav-number"></span> <span class="nav-text">bash 中执行 make</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Makefile-内容-19"><span class="nav-number"></span> <span class="nav-text">Makefile 内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bash-中执行-make-13"><span class="nav-number"></span> <span class="nav-text">bash 中执行 make</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Makefile-内容-20"><span class="nav-number"></span> <span class="nav-text">Makefile 内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bash-中执行-make-14"><span class="nav-number"></span> <span class="nav-text">bash 中执行 make</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Makefile-内容-21"><span class="nav-number"></span> <span class="nav-text">Makefile 内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bash-中执行-make-15"><span class="nav-number"></span> <span class="nav-text">bash 中执行 make</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Makefile-内容-22"><span class="nav-number"></span> <span class="nav-text">Makefile 内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bash-中执行-make-16"><span class="nav-number"></span> <span class="nav-text">bash 中执行 make</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Makefile-内容-23"><span class="nav-number"></span> <span class="nav-text">Makefile 内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bash-中执行-make-17"><span class="nav-number"></span> <span class="nav-text">bash 中执行 make</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Makefile-内容-24"><span class="nav-number"></span> <span class="nav-text">Makefile 内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bash-中执行-make-18"><span class="nav-number"></span> <span class="nav-text">bash 中执行 make</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Makefile-内容-25"><span class="nav-number"></span> <span class="nav-text">Makefile 内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bash-中执行-make-19"><span class="nav-number"></span> <span class="nav-text">bash 中执行 make</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Makefile-内容-26"><span class="nav-number"></span> <span class="nav-text">Makefile 内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bash-中执行-make-20"><span class="nav-number"></span> <span class="nav-text">bash 中执行 make</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Makefile-内容-27"><span class="nav-number"></span> <span class="nav-text">Makefile 内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bash-中执行-make-21"><span class="nav-number"></span> <span class="nav-text">bash 中执行 make</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Makefile-内容-28"><span class="nav-number"></span> <span class="nav-text">Makefile 内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bash-中执行-make-22"><span class="nav-number"></span> <span class="nav-text">bash 中执行 make</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Makefile-内容-29"><span class="nav-number"></span> <span class="nav-text">Makefile 内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bash-中执行-make-23"><span class="nav-number"></span> <span class="nav-text">bash 中执行 make</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Makefile-内容-30"><span class="nav-number"></span> <span class="nav-text">Makefile 内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bash-中执行-make-24"><span class="nav-number"></span> <span class="nav-text">bash 中执行 make</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Makefile-内容-31"><span class="nav-number"></span> <span class="nav-text">Makefile 内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bash-中执行-make-25"><span class="nav-number"></span> <span class="nav-text">bash 中执行 make</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Makefile-内容-32"><span class="nav-number"></span> <span class="nav-text">Makefile 内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bash-中执行-make-26"><span class="nav-number"></span> <span class="nav-text">bash 中执行 make</span></a></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.gif"
+      alt="Bravewtz">
+  <p class="site-author-name" itemprop="name">Bravewtz</p>
+  <div class="site-description" itemprop="description">但我知道<br>鼓起勇气往前走<br>会让我成为更好的人</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bravewtz</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.0</div>
+
+
+
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i>
+<span id="busuanzi_container_site_uv">
+  本站总访客数:<span id="busuanzi_value_site_uv"></span>&nbsp;&nbsp;| 
+</span>
+<span id="busuanzi_container_site_pv">
+    &nbsp;本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+</div>
+</div>
+
+
+
+
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("21/09/2019 12:00:00");//此处修改你的建站时间或者网站上线时间 
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: '0dST0zWDXVpdz4m5MOxC4Ter-gzGzoHsz',
+    appKey: '1xp6CsdVsjB2ypOvPWcwyI4T',
+    placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true,
+    lang: 'zh-cn' || 'zh-cn',
+    path: location.pathname
+  });
+}, window.Valine);
+</script>
+
+
+
+
+  
+<script type="text/javascript"
+color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":210,"height":360},"mobile":{"show":true,"search":null},"path":"search.xml","field":"post","format":"html","limit":10000,"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+
+
