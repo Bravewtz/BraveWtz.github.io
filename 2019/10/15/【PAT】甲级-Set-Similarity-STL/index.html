@@ -55,19 +55,19 @@
   };
 </script>
 
-  <meta name="description" content="题目链接  The task is simple: given any positive integer N, you are supposed to count the total number of 1’s in the decimal form of the integers from 1 to N. For example, given N being 12, there are fiv">
+  <meta name="description" content="题目链接  Given two sets of integers, the similarity of the sets is defined to be Nc​​/N​t​​×100%, where Nc​​is the number of distinct common numbers shared by the two sets, and Nt ​​is the total number">
 <meta name="keywords" content="算法之路">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【PAT】甲级-1049 Counting Ones数学">
-<meta property="og:url" content="http://www.bravewtz.top/2019/10/14/【PAT】甲级-1049-Counting-Ones数学/index.html">
+<meta property="og:title" content="【PAT】甲级-Set Similarity (STL)">
+<meta property="og:url" content="http://www.bravewtz.top/2019/10/15/【PAT】甲级-Set-Similarity-STL/index.html">
 <meta property="og:site_name" content="Bravewtz">
-<meta property="og:description" content="题目链接  The task is simple: given any positive integer N, you are supposed to count the total number of 1’s in the decimal form of the integers from 1 to N. For example, given N being 12, there are fiv">
+<meta property="og:description" content="题目链接  Given two sets of integers, the similarity of the sets is defined to be Nc​​/N​t​​×100%, where Nc​​is the number of distinct common numbers shared by the two sets, and Nt ​​is the total number">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-14T13:09:10.595Z">
+<meta property="og:updated_time" content="2019-10-15T13:42:31.430Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【PAT】甲级-1049 Counting Ones数学">
-<meta name="twitter:description" content="题目链接  The task is simple: given any positive integer N, you are supposed to count the total number of 1’s in the decimal form of the integers from 1 to N. For example, given N being 12, there are fiv">
-  <link rel="canonical" href="http://www.bravewtz.top/2019/10/14/【PAT】甲级-1049-Counting-Ones数学/">
+<meta name="twitter:title" content="【PAT】甲级-Set Similarity (STL)">
+<meta name="twitter:description" content="题目链接  Given two sets of integers, the similarity of the sets is defined to be Nc​​/N​t​​×100%, where Nc​​is the number of distinct common numbers shared by the two sets, and Nt ​​is the total number">
+  <link rel="canonical" href="http://www.bravewtz.top/2019/10/15/【PAT】甲级-Set-Similarity-STL/">
 
 
 <script id="page-configurations">
@@ -81,7 +81,7 @@
   };
 </script>
 
-  <title>【PAT】甲级-1049 Counting Ones数学 | Bravewtz</title>
+  <title>【PAT】甲级-Set Similarity (STL) | Bravewtz</title>
   
 
 
@@ -249,7 +249,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="http://www.bravewtz.top/2019/10/14/【PAT】甲级-1049-Counting-Ones数学/">
+    <link itemprop="mainEntityOfPage" href="http://www.bravewtz.top/2019/10/15/【PAT】甲级-Set-Similarity-STL/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Bravewtz">
@@ -261,7 +261,7 @@
       <meta itemprop="name" content="Bravewtz">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">【PAT】甲级-1049 Counting Ones数学
+        <h1 class="post-title" itemprop="name headline">【PAT】甲级-Set Similarity (STL)
 
           
         </h1>
@@ -277,7 +277,7 @@
                 
               
 
-              <time title="创建时间：2019-10-14 21:01:21 / 修改时间：21:09:10" itemprop="dateCreated datePublished" datetime="2019-10-14T21:01:21+08:00">2019-10-14</time>
+              <time title="创建时间：2019-10-15 21:40:01 / 修改时间：21:42:31" itemprop="dateCreated datePublished" datetime="2019-10-15T21:40:01+08:00">2019-10-15</time>
             </span>
           
             
@@ -286,7 +286,7 @@
           
 
           
-            <span id="/2019/10/14/【PAT】甲级-1049-Counting-Ones数学/" class="post-meta-item leancloud_visitors" data-flag-title="【PAT】甲级-1049 Counting Ones数学" title="阅读次数">
+            <span id="/2019/10/15/【PAT】甲级-Set-Similarity-STL/" class="post-meta-item leancloud_visitors" data-flag-title="【PAT】甲级-Set Similarity (STL)" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -304,7 +304,7 @@
       
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2019/10/14/【PAT】甲级-1049-Counting-Ones数学/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/10/14/【PAT】甲级-1049-Counting-Ones数学/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2019/10/15/【PAT】甲级-Set-Similarity-STL/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/10/15/【PAT】甲级-Set-Similarity-STL/" itemprop="commentCount"></span></a>
   </span>
   
   
@@ -319,33 +319,25 @@
 
       
         <ul>
-<li><a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805430595731456" target="_blank" rel="noopener">题目链接</a></li>
+<li><a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805409175420928" target="_blank" rel="noopener">题目链接</a></li>
 </ul><blockquote>
-<p>The task is simple: given any positive integer N, you are supposed to count the total number of 1’s in the decimal form of the integers from 1 to N. For example, given N being 12, there are five 1’s in 1, 10, 11, and 12.</p>
+<p>Given two sets of integers, the similarity of the sets is defined to be Nc​​/N​t<br>​​×100%, where Nc​​is the number of distinct common numbers shared by the two sets, and Nt ​​is the total number of distinct numbers in the two sets. Your job is to calculate the similarity of any given pair of sets.</p>
 </blockquote><a id="more"></a>
 
 <ul>
 <li>Input Specification:</li>
 </ul>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Each input file contains one test <span class="keyword">case</span> which gives the positive <span class="title">N</span> <span class="params">(≤<span class="number">2</span></span></span></span><br><span class="line"><span class="function"><span class="params">​<span class="number">30</span></span></span></span><br><span class="line">​​ ).</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Each input file contains one test case. Each case first gives a positive integer N (≤50) which is the total number of sets. Then N lines follow, each gives a set with a positive M (≤10</span><br><span class="line">​<span class="number">4</span></span><br><span class="line">​​) <span class="keyword">and</span> followed by M integers in the range [<span class="number">0</span>,<span class="number">10</span></span><br><span class="line">​<span class="number">9</span></span><br><span class="line">​​]. After the input of sets, a positive integer K (≤2000) is given, followed by K lines of queries. Each query gives a pair of set numbers (the sets are numbered from 1 to N). All the numbers in a line are separated by a space.</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>Output Specification:</li>
 </ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">For each test <span class="keyword">case</span>, print the number of <span class="number">1'</span>s in one line.</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">For each query, print in one line the similarity of the sets, in the percentage form accurate up to <span class="number">1</span> decimal place.</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>分析</li>
-</ul>
-<ul>
-<li>从第一位到最高位，设now为当前位的数字，left为now左边的所有数字构成的数字，right为now右边所有构成的数字。只需要一次次累加对于当前位now来说可能出现1的个数，然后把他们累加即可。</li>
-<li>对于now==0,那么ans+=left*a; //因为now==0说明now位只有在left从0~left-11的时候会产⽣1，所以会产</li>
-<li>⽣left次，但是⼜因为右边会重复从0~999…出现a次<br>其他同理</li>
-</ul>
 <ul>
 <li>AC代码</li>
 </ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1e5</span>+<span class="number">10</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LL long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,left=<span class="number">0</span>,right=<span class="number">0</span>,a=<span class="number">1</span>,pos,now,ans;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    <span class="keyword">while</span>(n/a)&#123;</span><br><span class="line">        left=n/(a*<span class="number">10</span>),now=n/a%<span class="number">10</span>,right=n%a;</span><br><span class="line">        <span class="keyword">if</span>(now==<span class="number">0</span>) ans+=left*a;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(now==<span class="number">1</span>) ans+=left*a+right+<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span> ans+=(left+<span class="number">1</span>)*a;</span><br><span class="line">        a*=<span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>,ans);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1e5</span>+<span class="number">10</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LL long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"><span class="keyword">int</span> n,m,k,tmp,a,b;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt; &gt;V(n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;m);</span><br><span class="line">        <span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt; S;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;m;j++)&#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;tmp);</span><br><span class="line">            S.insert(tmp);</span><br><span class="line">        &#125;</span><br><span class="line">        V[i]=S;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;k);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;k;i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;a,&amp;b);</span><br><span class="line">        <span class="keyword">int</span> nc=<span class="number">0</span>,nt=V[b<span class="number">-1</span>].size();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> it=V[a<span class="number">-1</span>].begin();it!=V[a<span class="number">-1</span>].end();it++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(V[b<span class="number">-1</span>].find(*it)==V[b<span class="number">-1</span>].end())&#123;</span><br><span class="line">                nt++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> nc++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">double</span> ans=(<span class="keyword">double</span>)nc/nt*<span class="number">100</span>;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%.1f%%\n"</span>,ans);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -382,8 +374,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/10/10/【PAT】甲级-1072-Gas-Station-最短路/" rel="next" title="【PAT】甲级 1072 Gas Station 最短路">
-                  <i class="fa fa-chevron-left"></i> 【PAT】甲级 1072 Gas Station 最短路
+                <a href="/2019/10/14/【PAT】甲级-1049-Counting-Ones数学/" rel="next" title="【PAT】甲级-1049 Counting Ones数学">
+                  <i class="fa fa-chevron-left"></i> 【PAT】甲级-1049 Counting Ones数学
                 </a>
               
             </div>
@@ -391,10 +383,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/10/15/【PAT】甲级-Set-Similarity-STL/" rel="prev" title="【PAT】甲级-Set Similarity (STL)">
-                  【PAT】甲级-Set Similarity (STL) <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
