@@ -55,19 +55,28 @@
   };
 </script>
 
-  <meta name="description" content="题目链接 https://vjudge.net/problem/POJ-2785  The SUM problem can be formulated as follows: given four lists A, B, C, D of integer values, compute how many quadruplet (a, b, c, d ) ∈ A x B x C x D are su">
-<meta name="keywords" content="算法之路">
+  <meta name="description" content="双线性插值假设源图像大小为mxn，目标图像为axb。那么两幅图像的边长比分别为：m/a和n/b。注意，通常这个比例不是整数，编程存储的时候要用浮点型。目标图像的第（i,j）个像素点（i行j列）可以通过边长比对应回源图像。其对应坐标为（im/a,jn/b）。显然，这个对应坐标一般来说不是整数，而非整数的坐标是无法在图像这种离散数据上使用的。双线性插值通过寻找距离这个对应坐标最近的四个像素点，来计算">
+<meta name="keywords" content="双线性插值法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【POJ - 2785】4 Values whose Sum is 0(折半枚举|双向搜索)">
-<meta property="og:url" content="http://www.bravewtz.top/2019/10/08/【POJ-2785】4-Values-whose-Sum-is-0-折半枚举-双向搜索/index.html">
+<meta property="og:title" content="双线型插值法及其py缩放实现">
+<meta property="og:url" content="http://www.bravewtz.top/2019/10/22/双线型插值法及其py缩放实现/index.html">
 <meta property="og:site_name" content="Bravewtz">
-<meta property="og:description" content="题目链接 https://vjudge.net/problem/POJ-2785  The SUM problem can be formulated as follows: given four lists A, B, C, D of integer values, compute how many quadruplet (a, b, c, d ) ∈ A x B x C x D are su">
+<meta property="og:description" content="双线性插值假设源图像大小为mxn，目标图像为axb。那么两幅图像的边长比分别为：m/a和n/b。注意，通常这个比例不是整数，编程存储的时候要用浮点型。目标图像的第（i,j）个像素点（i行j列）可以通过边长比对应回源图像。其对应坐标为（im/a,jn/b）。显然，这个对应坐标一般来说不是整数，而非整数的坐标是无法在图像这种离散数据上使用的。双线性插值通过寻找距离这个对应坐标最近的四个像素点，来计算">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-08T13:12:37.752Z">
+<meta property="og:image" content="http://www.bravewtz.top/images/2019102201.png">
+<meta property="og:image" content="http://www.bravewtz.top/images/2019102202.png">
+<meta property="og:image" content="http://www.bravewtz.top/images/2019102203.png">
+<meta property="og:image" content="http://www.bravewtz.top/images/2019102204.png">
+<meta property="og:image" content="http://www.bravewtz.top/images/2019102205.png">
+<meta property="og:image" content="http://www.bravewtz.top/images/2019102206.png">
+<meta property="og:image" content="http://www.bravewtz.top/images/2019102207.png">
+<meta property="og:image" content="http://www.bravewtz.top/images/2019102208.png">
+<meta property="og:updated_time" content="2019-10-22T12:28:39.327Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【POJ - 2785】4 Values whose Sum is 0(折半枚举|双向搜索)">
-<meta name="twitter:description" content="题目链接 https://vjudge.net/problem/POJ-2785  The SUM problem can be formulated as follows: given four lists A, B, C, D of integer values, compute how many quadruplet (a, b, c, d ) ∈ A x B x C x D are su">
-  <link rel="canonical" href="http://www.bravewtz.top/2019/10/08/【POJ-2785】4-Values-whose-Sum-is-0-折半枚举-双向搜索/">
+<meta name="twitter:title" content="双线型插值法及其py缩放实现">
+<meta name="twitter:description" content="双线性插值假设源图像大小为mxn，目标图像为axb。那么两幅图像的边长比分别为：m/a和n/b。注意，通常这个比例不是整数，编程存储的时候要用浮点型。目标图像的第（i,j）个像素点（i行j列）可以通过边长比对应回源图像。其对应坐标为（im/a,jn/b）。显然，这个对应坐标一般来说不是整数，而非整数的坐标是无法在图像这种离散数据上使用的。双线性插值通过寻找距离这个对应坐标最近的四个像素点，来计算">
+<meta name="twitter:image" content="http://www.bravewtz.top/images/2019102201.png">
+  <link rel="canonical" href="http://www.bravewtz.top/2019/10/22/双线型插值法及其py缩放实现/">
 
 
 <script id="page-configurations">
@@ -81,7 +90,7 @@
   };
 </script>
 
-  <title>【POJ - 2785】4 Values whose Sum is 0(折半枚举|双向搜索) | Bravewtz</title>
+  <title>双线型插值法及其py缩放实现 | Bravewtz</title>
   
 
 
@@ -249,7 +258,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="http://www.bravewtz.top/2019/10/08/【POJ-2785】4-Values-whose-Sum-is-0-折半枚举-双向搜索/">
+    <link itemprop="mainEntityOfPage" href="http://www.bravewtz.top/2019/10/22/双线型插值法及其py缩放实现/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Bravewtz">
@@ -261,7 +270,7 @@
       <meta itemprop="name" content="Bravewtz">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">【POJ - 2785】4 Values whose Sum is 0(折半枚举|双向搜索)
+        <h1 class="post-title" itemprop="name headline">双线型插值法及其py缩放实现
 
           
         </h1>
@@ -277,7 +286,7 @@
                 
               
 
-              <time title="创建时间：2019-10-08 21:07:14 / 修改时间：21:12:37" itemprop="dateCreated datePublished" datetime="2019-10-08T21:07:14+08:00">2019-10-08</time>
+              <time title="创建时间：2019-10-22 20:26:43 / 修改时间：20:28:39" itemprop="dateCreated datePublished" datetime="2019-10-22T20:26:43+08:00">2019-10-22</time>
             </span>
           
             
@@ -286,7 +295,7 @@
           
 
           
-            <span id="/2019/10/08/【POJ-2785】4-Values-whose-Sum-is-0-折半枚举-双向搜索/" class="post-meta-item leancloud_visitors" data-flag-title="【POJ - 2785】4 Values whose Sum is 0(折半枚举|双向搜索)" title="阅读次数">
+            <span id="/2019/10/22/双线型插值法及其py缩放实现/" class="post-meta-item leancloud_visitors" data-flag-title="双线型插值法及其py缩放实现" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -304,7 +313,7 @@
       
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2019/10/08/【POJ-2785】4-Values-whose-Sum-is-0-折半枚举-双向搜索/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/10/08/【POJ-2785】4-Values-whose-Sum-is-0-折半枚举-双向搜索/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2019/10/22/双线型插值法及其py缩放实现/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/10/22/双线型插值法及其py缩放实现/" itemprop="commentCount"></span></a>
   </span>
   
   
@@ -319,28 +328,18 @@
 
       
         <ul>
-<li>题目链接 <a href="https://vjudge.net/problem/POJ-2785" target="_blank" rel="noopener">https://vjudge.net/problem/POJ-2785</a></li>
-</ul><blockquote>
-<p>The SUM problem can be formulated as follows: given four lists A, B, C, D of integer values, compute how many quadruplet (a, b, c, d ) ∈ A x B x C x D are such that a + b + c + d = 0 . In the following, we assume that all lists have the same size n . </p>
+<li>双线性插值<br>假设源图像大小为mxn，目标图像为axb。那么两幅图像的边长比分别为：m/a和n/b。注意，通常这个比例不是整数，编程存储的时候要用浮点型。目标图像的第（i,j）个像素点（i行j列）可以通过边长比对应回源图像。其对应坐标为（i<em>m/a,j</em>n/b）。显然，这个对应坐标一般来说不是整数，而非整数的坐标是无法在图像这种离散数据上使用的。双线性插值通过寻找距离这个对应坐标最近的四个像素点，来计算该点的值（灰度值或者RGB值）。</li>
+</ul><a id="more"></a>
+<p>若图像为灰度图像，那么（i，j）点的灰度值的数学计算模型是</p>
+<blockquote>
+<p>f(x,y)=b1+b2x+b3y+b4xy</p>
+</blockquote>
+<p>如图，已知Q12，Q22，Q11，Q21，但是要插值的点为P点，这就要用双线性插值了，首先在x轴方向上，对R1和R2两个点进行插值，这个很简单，然后根据R1和R2对P点进行插值，这就是所谓的双线性插值。在数学上，双线性插值是有两个变量的插值函数的线性插值扩展，其核心思想是在两个方向分别进行一次线性插值。</p>
+<p><img src="/images/2019102201.png" alt="author"><br>假如我们想得到未知函数 f 在点 P = (x, y) 的值，假设我们已知函数 f 在 Q11 = (x1, y1)、Q12 = (x1, y2), Q21 = (x2, y1) 以及 Q22 = (x2, y2) 四个点的值。<br>首先在 x 方向进行线性插值，得到<br><img src="/images/2019102202.png" alt="author"><br><img src="/images/2019102203.png" alt="author"><br>然后在 y 方向进行线性插值，得到<br><img src="/images/2019102204.png" alt="author"><br>这样就得到所要的结果 f(x, y)，<br><img src="/images/2019102205.png" alt="author"><br><img src="/images/2019102206.png" alt="author"><br>如果选择一个坐标系统使得  的四个已知点坐标分别为 (0, 0)、(0, 1)、(1, 0) 和 (1, 1)，那么插值公式就可以化简为<br><img src="/images/2019102207.png" alt="author"><br>或者用矩阵运算表示为<br><img src="/images/2019102208.png" alt="author"><br>这种插值方法的结果通常不是线性的，线性插值的结果与插值的顺序无关。首先进行 y 方向的插值，然后进行 x 方向的插值，所得到的结果是一样的。</p>
 <ul>
-<li>Input<br>The first line of the input file contains the size of the lists n (this value can be as large as 4000). We then have n lines containing four integer values (with absolute value as large as 2 28 ) that belong respectively to A, B, C and D . </li>
-<li>Output<br>For each input file, your program has to write the number quadruplets whose sum is zero. </li>
-<li>Sample Input</li>
+<li>python代码</li>
 </ul>
-</blockquote><a id="more"></a>
-
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">6</span></span><br><span class="line"><span class="number">-45</span> <span class="number">22</span> <span class="number">42</span> <span class="number">-16</span></span><br><span class="line"><span class="number">-41</span> <span class="number">-27</span> <span class="number">56</span> <span class="number">30</span></span><br><span class="line"><span class="number">-36</span> <span class="number">53</span> <span class="number">-37</span> <span class="number">77</span></span><br><span class="line"><span class="number">-36</span> <span class="number">30</span> <span class="number">-75</span> <span class="number">-46</span></span><br><span class="line"><span class="number">26</span> <span class="number">-38</span> <span class="number">-10</span> <span class="number">62</span></span><br><span class="line"><span class="number">-32</span> <span class="number">-54</span> <span class="number">-6</span> <span class="number">45</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>Sample Output</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>分析：<br>先从CD两个数组中枚举n^2种组合，将其和排好序，然后对AB数组进行二分搜索，复杂度   O(n^2logn)</li>
-<li>AC代码：</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">4010</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LL long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"><span class="keyword">int</span> A[maxn],B[maxn],C[maxn],D[maxn];</span><br><span class="line"><span class="keyword">int</span> CD[maxn];</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++) <span class="built_in">scanf</span>(<span class="string">"%d%d%d%d"</span>,&amp;A[i],&amp;B[i],&amp;C[i],&amp;D[i]);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++) <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">        CD[i*n+j]=C[i]+D[j];</span><br><span class="line">    &#125;</span><br><span class="line">    sort(CD,CD+n*n);</span><br><span class="line">    LL ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> sum=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++) <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">        ans=-(A[i]+B[j]);</span><br><span class="line">        <span class="keyword">int</span> cnt=upper_bound(CD,CD+n*n,ans)-lower_bound(CD,CD+n*n,ans);</span><br><span class="line">        sum+=cnt;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,sum);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">6</span></span><br><span class="line"><span class="comment">-45 22 42 -16</span></span><br><span class="line"><span class="comment">-41 -27 56 30</span></span><br><span class="line"><span class="comment">-36 53 -37 77</span></span><br><span class="line"><span class="comment">-36 30 -75 -46</span></span><br><span class="line"><span class="comment">26 -38 -10 62</span></span><br><span class="line"><span class="comment">-32 -54 -6 45</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">#--*-- encoding: utf-8 --*--</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">Date: 2019.10.22</span></span><br><span class="line"><span class="string">Content: python3 实现双线性插值图像缩放算法</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bi_linear</span><span class="params">(src, dst, target_size)</span>:</span></span><br><span class="line">    pic = cv2.imread(src)       <span class="comment"># 读取输入图像</span></span><br><span class="line">    th, tw = target_size[<span class="number">0</span>], target_size[<span class="number">1</span>]</span><br><span class="line">    emptyImage = np.zeros(target_size, np.uint8)</span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> range(<span class="number">3</span>):</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(th):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> range(tw):</span><br><span class="line">                <span class="comment"># 首先找到在原图中对应的点的(X, Y)坐标</span></span><br><span class="line">                corr_x = (i+<span class="number">0.5</span>)/th*pic.shape[<span class="number">0</span>]<span class="number">-0.5</span></span><br><span class="line">                corr_y = (j+<span class="number">0.5</span>)/tw*pic.shape[<span class="number">1</span>]<span class="number">-0.5</span></span><br><span class="line">                <span class="comment"># if i*pic.shape[0]%th==0 and j*pic.shape[1]%tw==0:     # 对应的点正好是一个像素点，直接拷贝</span></span><br><span class="line">                <span class="comment">#   emptyImage[i, j, k] = pic[int(corr_x), int(corr_y), k]</span></span><br><span class="line">                point1 = (math.floor(corr_x), math.floor(corr_y))   <span class="comment"># 左上角的点</span></span><br><span class="line">                point2 = (point1[<span class="number">0</span>], point1[<span class="number">1</span>]+<span class="number">1</span>)</span><br><span class="line">                point3 = (point1[<span class="number">0</span>]+<span class="number">1</span>, point1[<span class="number">1</span>])</span><br><span class="line">                point4 = (point1[<span class="number">0</span>]+<span class="number">1</span>, point1[<span class="number">1</span>]+<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">                fr1 = (point2[<span class="number">1</span>]-corr_y)*pic[point1[<span class="number">0</span>], point1[<span class="number">1</span>], k] + (corr_y-point1[<span class="number">1</span>])*pic[point2[<span class="number">0</span>], point2[<span class="number">1</span>], k]</span><br><span class="line">                fr2 = (point2[<span class="number">1</span>]-corr_y)*pic[point3[<span class="number">0</span>], point3[<span class="number">1</span>], k] + (corr_y-point1[<span class="number">1</span>])*pic[point4[<span class="number">0</span>], point4[<span class="number">1</span>], k]</span><br><span class="line">                emptyImage[i, j, k] = (point3[<span class="number">0</span>]-corr_x)*fr1 + (corr_x-point1[<span class="number">0</span>])*fr2</span><br><span class="line"></span><br><span class="line">    cv2.imwrite(dst, emptyImage)</span><br><span class="line">    <span class="comment"># 用 CV2 resize函数得到的缩放图像</span></span><br><span class="line">    new_img = cv2.resize(pic, (<span class="number">200</span>, <span class="number">300</span>))</span><br><span class="line">    cv2.imwrite(<span class="string">'pic/1_cv_img.png'</span>, new_img)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    src = <span class="string">'./sucai1.jpg'</span></span><br><span class="line">    dst = <span class="string">'./sucai1_linear.png'</span></span><br><span class="line">    target_size = (<span class="number">300</span>, <span class="number">200</span>, <span class="number">3</span>)     <span class="comment"># 变换后的图像大小</span></span><br><span class="line"></span><br><span class="line">    bi_linear(src, dst, target_size)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -367,7 +366,7 @@
           
           <div class="post-tags">
             
-              <a href="/tags/算法之路/" rel="tag"># 算法之路</a>
+              <a href="/tags/双线性插值法/" rel="tag"># 双线性插值法</a>
             
           </div>
         
@@ -377,8 +376,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/10/06/【POJ-3723】Conscription（Kruskal变形/" rel="next" title="【POJ - 3723】Conscription（Kruskal变形)">
-                  <i class="fa fa-chevron-left"></i> 【POJ - 3723】Conscription（Kruskal变形)
+                <a href="/2019/10/18/【PAT】甲级-1053-Path-of-Equal-Weight/" rel="next" title="【PAT】甲级-1053 Path of Equal Weight">
+                  <i class="fa fa-chevron-left"></i> 【PAT】甲级-1053 Path of Equal Weight
                 </a>
               
             </div>
@@ -386,10 +385,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/10/10/【PAT】甲级-1072-Gas-Station-最短路/" rel="prev" title="【PAT】甲级 1072 Gas Station 最短路">
-                  【PAT】甲级 1072 Gas Station 最短路 <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
