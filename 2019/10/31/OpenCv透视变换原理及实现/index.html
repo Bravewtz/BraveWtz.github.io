@@ -55,17 +55,24 @@
   };
 </script>
 
-  <meta name="description" content="但我知道鼓起勇气往前走会让我成为更好的人">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Bravewtz">
-<meta property="og:url" content="http://www.bravewtz.top/archives/index.html">
+  <meta name="description" content="OpenCV提供了两种图片变换的方式：仿射变换和透视变换，两者的区别很容易区分 前者是将矩形的图片变成平行四边形 后者是将图片变成梯形 这两种变换虽然都有各自的应用场景，但在实际的图片变换中由于透视效应的存在，后者的使用更加普遍，本文为大家详解OpenCV透视变换的透视变换原理及实例展示。简介透视变换(Perspective Transformation)是将成像投影到一个新的视平面(Viewin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenCv透视变换原理及实现">
+<meta property="og:url" content="http://www.bravewtz.top/2019/10/31/OpenCv透视变换原理及实现/index.html">
 <meta property="og:site_name" content="Bravewtz">
-<meta property="og:description" content="但我知道鼓起勇气往前走会让我成为更好的人">
+<meta property="og:description" content="OpenCV提供了两种图片变换的方式：仿射变换和透视变换，两者的区别很容易区分 前者是将矩形的图片变成平行四边形 后者是将图片变成梯形 这两种变换虽然都有各自的应用场景，但在实际的图片变换中由于透视效应的存在，后者的使用更加普遍，本文为大家详解OpenCV透视变换的透视变换原理及实例展示。简介透视变换(Perspective Transformation)是将成像投影到一个新的视平面(Viewin">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://www.bravewtz.top/images/2019103101.png">
+<meta property="og:image" content="http://www.bravewtz.top/images/2019103102.png">
+<meta property="og:image" content="http://www.bravewtz.top/images/2019103103.png">
+<meta property="og:image" content="http://www.bravewtz.top/images/2019103104.png">
+<meta property="og:image" content="http://www.bravewtz.top/images/2019103105.png">
+<meta property="og:updated_time" content="2019-10-31T07:05:13.007Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bravewtz">
-<meta name="twitter:description" content="但我知道鼓起勇气往前走会让我成为更好的人">
-  <link rel="canonical" href="http://www.bravewtz.top/archives/">
+<meta name="twitter:title" content="OpenCv透视变换原理及实现">
+<meta name="twitter:description" content="OpenCV提供了两种图片变换的方式：仿射变换和透视变换，两者的区别很容易区分 前者是将矩形的图片变成平行四边形 后者是将图片变成梯形 这两种变换虽然都有各自的应用场景，但在实际的图片变换中由于透视效应的存在，后者的使用更加普遍，本文为大家详解OpenCV透视变换的透视变换原理及实例展示。简介透视变换(Perspective Transformation)是将成像投影到一个新的视平面(Viewin">
+<meta name="twitter:image" content="http://www.bravewtz.top/images/2019103101.png">
+  <link rel="canonical" href="http://www.bravewtz.top/2019/10/31/OpenCv透视变换原理及实现/">
 
 
 <script id="page-configurations">
@@ -73,13 +80,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false,
+    isPost: true,
     isPage: false,
-    isArchive: true
+    isArchive: false
   };
 </script>
 
-  <title>归档 | Bravewtz</title>
+  <title>OpenCv透视变换原理及实现 | Bravewtz</title>
   
 
 
@@ -238,352 +245,167 @@
         <div class="content-wrap">
             
 
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-  
-
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        
-        
-        
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://www.bravewtz.top/2019/10/31/OpenCv透视变换原理及实现/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bravewtz">
+      <meta itemprop="description" content="但我知道<br>鼓起勇气往前走<br>会让我成为更好的人">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bravewtz">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">OpenCv透视变换原理及实现
+
           
-        
-        <span class="collection-header">嗯..! 目前共计 17 篇日志。 继续努力。</span>
-      </div>
-      
+        </h1>
 
-      
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
 
-  
-  
+              
+                
+              
 
+              <time title="创建时间：2019-10-31 14:56:37 / 修改时间：15:05:13" itemprop="dateCreated datePublished" datetime="2019-10-31T14:56:37+08:00">2019-10-31</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+            <span id="/2019/10/31/OpenCv透视变换原理及实现/" class="post-meta-item leancloud_visitors" data-flag-title="OpenCv透视变换原理及实现" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+          
   
+  <span class="post-meta-item">
     
-    <div class="collection-year">
-      <h1 class="collection-header">2019</h1>
-    </div>
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
         
-          <a class="post-title-link" href="/2019/10/31/OpenCv透视变换原理及实现/" itemprop="url">
-            <span itemprop="name">OpenCv透视变换原理及实现</span>
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-10-31T14:56:37+08:00"
-              content="2019-10-31">
-          10-31
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
+      
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2019/10/31/OpenCv透视变换原理及实现/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/10/31/OpenCv透视变换原理及实现/" itemprop="commentCount"></span></a>
+  </span>
   
   
 
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/10/22/双线型插值法及其py缩放实现/" itemprop="url">
-            <span itemprop="name">双线型插值法及其py缩放实现</span>
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-10-22T20:26:43+08:00"
-              content="2019-10-22">
-          10-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/10/18/【PAT】甲级-1053-Path-of-Equal-Weight/" itemprop="url">
-            <span itemprop="name">【PAT】甲级-1053 Path of Equal Weight</span>
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-10-18T17:26:17+08:00"
-              content="2019-10-18">
-          10-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/10/15/【PAT】甲级-Set-Similarity-STL/" itemprop="url">
-            <span itemprop="name">【PAT】甲级-Set Similarity (STL)</span>
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-10-15T21:40:01+08:00"
-              content="2019-10-15">
-          10-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/10/14/【PAT】甲级-1049-Counting-Ones数学/" itemprop="url">
-            <span itemprop="name">【PAT】甲级-1049 Counting Ones数学</span>
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-10-14T21:01:21+08:00"
-              content="2019-10-14">
-          10-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/10/10/【PAT】甲级-1072-Gas-Station-最短路/" itemprop="url">
-            <span itemprop="name">【PAT】甲级 1072 Gas Station 最短路</span>
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-10-10T21:32:34+08:00"
-              content="2019-10-10">
-          10-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/10/08/【POJ-2785】4-Values-whose-Sum-is-0-折半枚举-双向搜索/" itemprop="url">
-            <span itemprop="name">【POJ - 2785】4 Values whose Sum is 0(折半枚举|双向搜索)</span>
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-10-08T21:07:14+08:00"
-              content="2019-10-08">
-          10-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/10/06/【POJ-3723】Conscription（Kruskal变形/" itemprop="url">
-            <span itemprop="name">【POJ - 3723】Conscription（Kruskal变形)</span>
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-10-06T20:39:33+08:00"
-              content="2019-10-06">
-          10-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/10/06/【POJ-3255】Roadblocks（次短路-Dijkstra算法）/" itemprop="url">
-            <span itemprop="name">【POJ - 3255】Roadblocks（次短路 Dijkstra算法）</span>
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-10-06T17:24:20+08:00"
-              content="2019-10-06">
-          10-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/10/06/最短路-最小生成树板子整理/" itemprop="url">
-            <span itemprop="name">最短路&最小生成树板子整理</span>
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-10-06T17:20:07+08:00"
-              content="2019-10-06">
-          10-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>OpenCV提供了两种图片变换的方式：仿射变换和透视变换，两者的区别很容易区分</p><ul>
+<li>前者是将矩形的图片变成平行四边形</li>
+<li>后者是将图片变成梯形</li>
+</ul><p>这两种变换虽然都有各自的应用场景，但在实际的图片变换中由于透视效应的存在，后者的使用更加普遍，本文为大家详解OpenCV透视变换的透视变换原理及实例展示。</p><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>透视变换(Perspective Transformation)是将成像投影到一个新的视平面(Viewing Plane)，也称作投影映射(Projective Mapping)。如图所示<br><img src="/images/2019103101.png" alt="pp"></p><a id="more"></a>
+
+
+
+<h2 id="函数原型"><a href="#函数原型" class="headerlink" title="函数原型"></a>函数原型</h2><p>OpenCV提供了warpPerspective( )函数来实现图片的透视变换，只需要输入梯形四个顶点的坐标和目标画布四个角的坐标，即可自动完成转换。核心代码只有两行：首先读取两个坐标数组，计算变换矩阵；然后根据变换矩阵对原图进行透视变换，并输出到目标画布。</p>
+<blockquote>
+<p>cv2.getPerspectiveTransform(src, dst) → retval</p>
+</blockquote>
+<p>参数说明</p>
+<ul>
+<li>src：源图像中待测矩形的四点坐标</li>
+<li>sdt：目标图像中矩形的四点坐标<br>原图像的四个坐标顺序应与目标图像中的四个坐标一 一随影，若都是顺时针则都是顺时针，若都是 Z 字型，则都是 Z 字型。<br>返回由源图像中矩形到目标图像矩形变换的矩阵，得到矩阵得有用才行啊，所以引出下面这个函数</li>
+</ul>
+<blockquote>
+<p>cv2.warpPerspective(src, M, dsize[, dst[, flags[, borderMode[, borderValue]]]]) → dst<br>参数为：</p>
+</blockquote>
+<p>src：输入图像<br>M：变换矩阵<br>dsize：目标图像shape<br>flags：插值方式，interpolation方法INTER_LINEAR或INTER_NEAREST<br>borderMode：边界补偿方式，BORDER_CONSTANT or BORDER_REPLICATE<br>borderValue：边界补偿大小，常值，默认为0<br>或者</p>
+<blockquote>
+<p>cv2.perspectiveTransform(src, m[, dst]) → dst</p>
+</blockquote>
+<p>参数解释</p>
+<ul>
+<li>src：输入的2通道或者3通道的图片</li>
+<li>m：变换矩阵<h2 id="实例1-图片矫正"><a href="#实例1-图片矫正" class="headerlink" title="实例1 图片矫正"></a>实例1 图片矫正</h2>我们在给报纸、杂志、身份证、银行卡等矩形目标拍照时，受相机角度和高度的影响往往会拍出梯形的照片（如下图），这样的照片不仅不够美观而且给文字识别带来较大难度，将梯形的图片转换成标准的矩形就要对图片进行透视变换。<h3 id="原始图像"><a href="#原始图像" class="headerlink" title="原始图像"></a>原始图像</h3>效果如下：<br><img src="/images/2019103102.png" alt="pp"><br>转换后的效果如下图所示，效果还是很让人满意的。<br><img src="/images/2019103103.png" alt="pp"><h2 id="实例-2-头像替换广告牌"><a href="#实例-2-头像替换广告牌" class="headerlink" title="实例 2 头像替换广告牌"></a>实例 2 头像替换广告牌</h2>在实际应用中我们不仅需要将梯形矫正为矩形，有时还需要将矩形转换成梯形，warpPerspective( )当然也能胜任，下面我们再用一个例子来演示。<br><img src="/images/2019103104.png" alt="pp"><h2 id="实际效果"><a href="#实际效果" class="headerlink" title="实际效果"></a>实际效果</h2><img src="/images/2019103105.png" alt="pp"></li>
+</ul>
 
     </div>
+
+    
+    
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+        
+      
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/10/22/双线型插值法及其py缩放实现/" rel="next" title="双线型插值法及其py缩放实现">
+                  <i class="fa fa-chevron-left"></i> 双线型插值法及其py缩放实现
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
   </div>
   
   
   
+  </article>
 
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
-
+  </div>
 
 
           </div>
           
+    
+    <div class="comments" id="comments"></div>
+  
 
         </div>
           
@@ -598,6 +420,11 @@
 
   <aside class="sidebar">
     <div class="sidebar-inner">
+        
+        
+        
+        
+      
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
@@ -610,6 +437,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数原型"><span class="nav-number">2.</span> <span class="nav-text">函数原型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例1-图片矫正"><span class="nav-number">3.</span> <span class="nav-text">实例1 图片矫正</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原始图像"><span class="nav-number">3.1.</span> <span class="nav-text">原始图像</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例-2-头像替换广告牌"><span class="nav-number">4.</span> <span class="nav-text">实例 2 头像替换广告牌</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实际效果"><span class="nav-number">5.</span> <span class="nav-text">实际效果</span></a></li></ol></div>
+        
       </div>
       <!--/noindex-->
 
