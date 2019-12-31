@@ -55,17 +55,21 @@
   };
 </script>
 
-  <meta name="description" content="但我知道鼓起勇气往前走会让我成为更好的人">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Bravewtz">
-<meta property="og:url" content="http://www.bravewtz.top/archives/page/2/index.html">
+  <meta name="description" content="题目：用两个栈来实现一个队列，完成队列的Push和Pop操作。 队列中的元素为int类型。  分析：创建两个栈stack1和stack2，使用两个“先进后出”的栈实现一个“先进先出”的队列。我们通过一个具体的例子分析往该队列插入和删除元素的过程。首先插入一个元素a，不妨先把它插入到stack1，此时stack1中的元素有{a}，stack2为空。再压入两个元素b和c，还是插入到stack1中，此">
+<meta name="keywords" content="剑指offer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="05用两个栈实现队列">
+<meta property="og:url" content="http://www.bravewtz.top/2019/12/31/05用两个栈实现队列/index.html">
 <meta property="og:site_name" content="Bravewtz">
-<meta property="og:description" content="但我知道鼓起勇气往前走会让我成为更好的人">
+<meta property="og:description" content="题目：用两个栈来实现一个队列，完成队列的Push和Pop操作。 队列中的元素为int类型。  分析：创建两个栈stack1和stack2，使用两个“先进后出”的栈实现一个“先进先出”的队列。我们通过一个具体的例子分析往该队列插入和删除元素的过程。首先插入一个元素a，不妨先把它插入到stack1，此时stack1中的元素有{a}，stack2为空。再压入两个元素b和c，还是插入到stack1中，此">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://www.bravewtz.top/images/2019123102.png">
+<meta property="og:updated_time" content="2019-12-31T04:01:50.556Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bravewtz">
-<meta name="twitter:description" content="但我知道鼓起勇气往前走会让我成为更好的人">
-  <link rel="canonical" href="http://www.bravewtz.top/archives/page/2/">
+<meta name="twitter:title" content="05用两个栈实现队列">
+<meta name="twitter:description" content="题目：用两个栈来实现一个队列，完成队列的Push和Pop操作。 队列中的元素为int类型。  分析：创建两个栈stack1和stack2，使用两个“先进后出”的栈实现一个“先进先出”的队列。我们通过一个具体的例子分析往该队列插入和删除元素的过程。首先插入一个元素a，不妨先把它插入到stack1，此时stack1中的元素有{a}，stack2为空。再压入两个元素b和c，还是插入到stack1中，此">
+<meta name="twitter:image" content="http://www.bravewtz.top/images/2019123102.png">
+  <link rel="canonical" href="http://www.bravewtz.top/2019/12/31/05用两个栈实现队列/">
 
 
 <script id="page-configurations">
@@ -73,13 +77,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false,
+    isPost: true,
     isPage: false,
-    isArchive: true
+    isArchive: false
   };
 </script>
 
-  <title>归档 | Bravewtz</title>
+  <title>05用两个栈实现队列 | Bravewtz</title>
   
 
 
@@ -238,352 +242,165 @@
         <div class="content-wrap">
             
 
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-  
-
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        
-        
-        
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://www.bravewtz.top/2019/12/31/05用两个栈实现队列/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bravewtz">
+      <meta itemprop="description" content="但我知道<br>鼓起勇气往前走<br>会让我成为更好的人">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bravewtz">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">05用两个栈实现队列
+
           
-        
-        <span class="collection-header">嗯..! 目前共计 25 篇日志。 继续努力。</span>
-      </div>
-      
+        </h1>
 
-      
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
 
-  
-  
+              
+                
+              
 
+              <time title="创建时间：2019-12-31 11:59:31 / 修改时间：12:01:50" itemprop="dateCreated datePublished" datetime="2019-12-31T11:59:31+08:00">2019-12-31</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+            <span id="/2019/12/31/05用两个栈实现队列/" class="post-meta-item leancloud_visitors" data-flag-title="05用两个栈实现队列" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+          
   
+  <span class="post-meta-item">
     
-    <div class="collection-year">
-      <h1 class="collection-header">2019</h1>
-    </div>
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
         
-          <a class="post-title-link" href="/2019/10/18/【PAT】甲级-1053-Path-of-Equal-Weight/" itemprop="url">
-            <span itemprop="name">【PAT】甲级-1053 Path of Equal Weight</span>
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-10-18T17:26:17+08:00"
-              content="2019-10-18">
-          10-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
+      
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2019/12/31/05用两个栈实现队列/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/12/31/05用两个栈实现队列/" itemprop="commentCount"></span></a>
+  </span>
   
   
 
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/10/15/【PAT】甲级-Set-Similarity-STL/" itemprop="url">
-            <span itemprop="name">【PAT】甲级-Set Similarity (STL)</span>
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-10-15T21:40:01+08:00"
-              content="2019-10-15">
-          10-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/10/14/【PAT】甲级-1049-Counting-Ones数学/" itemprop="url">
-            <span itemprop="name">【PAT】甲级-1049 Counting Ones数学</span>
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-10-14T21:01:21+08:00"
-              content="2019-10-14">
-          10-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/10/10/【PAT】甲级-1072-Gas-Station-最短路/" itemprop="url">
-            <span itemprop="name">【PAT】甲级 1072 Gas Station 最短路</span>
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-10-10T21:32:34+08:00"
-              content="2019-10-10">
-          10-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/10/08/【POJ-2785】4-Values-whose-Sum-is-0-折半枚举-双向搜索/" itemprop="url">
-            <span itemprop="name">【POJ - 2785】4 Values whose Sum is 0(折半枚举|双向搜索)</span>
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-10-08T21:07:14+08:00"
-              content="2019-10-08">
-          10-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/10/06/【POJ-3723】Conscription（Kruskal变形/" itemprop="url">
-            <span itemprop="name">【POJ - 3723】Conscription（Kruskal变形)</span>
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-10-06T20:39:33+08:00"
-              content="2019-10-06">
-          10-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/10/06/【POJ-3255】Roadblocks（次短路-Dijkstra算法）/" itemprop="url">
-            <span itemprop="name">【POJ - 3255】Roadblocks（次短路 Dijkstra算法）</span>
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-10-06T17:24:20+08:00"
-              content="2019-10-06">
-          10-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/10/06/最短路-最小生成树板子整理/" itemprop="url">
-            <span itemprop="name">最短路&最小生成树板子整理</span>
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-10-06T17:20:07+08:00"
-              content="2019-10-06">
-          10-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/10/05/Makefile简介/" itemprop="url">
-            <span itemprop="name">Makefile简介</span>
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-10-05T14:15:54+08:00"
-              content="2019-10-05">
-          10-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/09/29/LIS/" itemprop="url">
-            <span itemprop="name">LIS</span>
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-09-29T20:19:07+08:00"
-              content="2019-09-29">
-          09-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <ul>
+<li><p>题目：用两个栈来实现一个队列，完成队列的Push和Pop操作。 队列中的元素为int类型。</p>
+</li>
+<li><p>分析：创建两个栈stack1和stack2，使用两个“先进后出”的栈实现一个“先进先出”的队列。<br>我们通过一个具体的例子分析往该队列插入和删除元素的过程。首先插入一个元素a，不妨先把它插入到stack1，此时stack1中的元素有{a}，stack2为空。再压入两个元素b和c，还是插入到stack1中，此时stack1的元素有{a,b,c}，其中c位于栈顶，而stack2仍然是空的。</p>
+<p>  这个时候我们试着从队列中删除一个元素。按照先入先出的规则，由于a比b、c先插入队列中，最先删除的元素应该是a。元素a存储在stack1中，但并不在栈顶，因此不能直接进行删除操作。注意stack2我们一直没有使用过，现在是让stack2发挥作用的时候了。如果我们把stack1中的元素逐个弹出压入stack2，元素在stack2中的顺序正好和原来在stack1中的顺序相反。因此经过3次弹出stack1和要入stack2操作之后，stack1为空，而stack2中的元素是{c,b,a}，这个时候就可以弹出stack2的栈顶a了。此时的stack1为空，而stack2的元素为{b,a}，其中b在栈顶。</p>
+<p>  因此我们的思路是：当stack2中不为空时，在stack2中的栈顶元素是最先进入队列的元素，可以弹出。如果stack2为空时，我们把stack1中的元素逐个弹出并压入stack2。由于先进入队列的元素被压倒stack1的栈底，经过弹出和压入之后就处于stack2的栈顶，有可以直接弹出。如果有新元素d插入，我们直接把它压入stack1即可。<br>流程示意图：<br><img src="/images/2019123102.png" alt></p>
+</li>
+<li><p>c++代码：</p>
+</li>
+</ul><a id="more"></a>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> node)</span> </span>&#123;</span><br><span class="line">        stack1.push(node);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(stack2.empty())&#123;</span><br><span class="line">            <span class="keyword">while</span>(stack1.size()&gt;<span class="number">0</span>)&#123;</span><br><span class="line">                <span class="keyword">int</span> data=stack1.top();</span><br><span class="line">                stack1.pop();</span><br><span class="line">                stack2.push(data);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> pop_element=stack2.top();</span><br><span class="line">        stack2.pop();</span><br><span class="line">        <span class="keyword">return</span> pop_element;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; stack1;</span><br><span class="line">    <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; stack2;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Python代码：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.stack1 = []</span><br><span class="line">        self.stack2 = []</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">push</span><span class="params">(self, node)</span>:</span></span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        self.stack1.append(node)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pop</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="comment"># return xx</span></span><br><span class="line">        <span class="keyword">if</span> len(self.stack2) == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">while</span> len(self.stack1) &gt; <span class="number">0</span>:</span><br><span class="line">                self.stack2.append(self.stack1.pop())</span><br><span class="line">        <span class="keyword">return</span> self.stack2.pop()</span><br></pre></td></tr></table></figure>
 
 
     </div>
+
+    
+    
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/剑指offer/" rel="tag"># 剑指offer</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/12/31/04重建二叉树/" rel="next" title="04重建二叉树">
+                  <i class="fa fa-chevron-left"></i> 04重建二叉树
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
   </div>
   
   
   
+  </article>
 
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
-
+  </div>
 
 
           </div>
           
+    
+    <div class="comments" id="comments"></div>
+  
 
         </div>
           
@@ -598,6 +415,11 @@
 
   <aside class="sidebar">
     <div class="sidebar-inner">
+        
+        
+        
+        
+      
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
