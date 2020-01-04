@@ -55,19 +55,21 @@
   };
 </script>
 
-  <meta name="description" content="LIS n^2 dp 123456789101112131415161718192021222324252627#include&amp;lt;iostream&amp;gt;#include&amp;lt;cstring&amp;gt;#include&amp;lt;cstdio&amp;gt;#include&amp;lt;algorithm&amp;gt;using namespace std;const int maxn = 40005;int a[m">
-<meta name="keywords" content="算法之路">
+  <meta name="description" content="题目：大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列的第n项。（n&amp;lt;=39） 斐波那契数列公式为： 分析：这道题递归很好写，但是存在很严重的效率问题。我们以求解f(10)为例类分析递归的求解过程。想求f(10)，需要先求得f(9)和f(8)。同样，想求得f(9)，需要先求的f(8)和f(7)….我们可以用树形结构来表示这种依赖关系，我们不难发现在这棵树中有很多结点是重">
+<meta name="keywords" content="剑指offer">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LIS">
-<meta property="og:url" content="http://www.bravewtz.top/2019/09/29/LIS/index.html">
+<meta property="og:title" content="07斐波那契数列">
+<meta property="og:url" content="http://www.bravewtz.top/2020/01/04/07斐波那契数列/index.html">
 <meta property="og:site_name" content="Bravewtz">
-<meta property="og:description" content="LIS n^2 dp 123456789101112131415161718192021222324252627#include&amp;lt;iostream&amp;gt;#include&amp;lt;cstring&amp;gt;#include&amp;lt;cstdio&amp;gt;#include&amp;lt;algorithm&amp;gt;using namespace std;const int maxn = 40005;int a[m">
+<meta property="og:description" content="题目：大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列的第n项。（n&amp;lt;=39） 斐波那契数列公式为： 分析：这道题递归很好写，但是存在很严重的效率问题。我们以求解f(10)为例类分析递归的求解过程。想求f(10)，需要先求得f(9)和f(8)。同样，想求得f(9)，需要先求的f(8)和f(7)….我们可以用树形结构来表示这种依赖关系，我们不难发现在这棵树中有很多结点是重">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-29T12:20:21.107Z">
+<meta property="og:image" content="http://www.bravewtz.top/images/2020010401.jpg">
+<meta property="og:updated_time" content="2020-01-04T13:15:35.774Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LIS">
-<meta name="twitter:description" content="LIS n^2 dp 123456789101112131415161718192021222324252627#include&amp;lt;iostream&amp;gt;#include&amp;lt;cstring&amp;gt;#include&amp;lt;cstdio&amp;gt;#include&amp;lt;algorithm&amp;gt;using namespace std;const int maxn = 40005;int a[m">
-  <link rel="canonical" href="http://www.bravewtz.top/2019/09/29/LIS/">
+<meta name="twitter:title" content="07斐波那契数列">
+<meta name="twitter:description" content="题目：大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列的第n项。（n&amp;lt;=39） 斐波那契数列公式为： 分析：这道题递归很好写，但是存在很严重的效率问题。我们以求解f(10)为例类分析递归的求解过程。想求f(10)，需要先求得f(9)和f(8)。同样，想求得f(9)，需要先求的f(8)和f(7)….我们可以用树形结构来表示这种依赖关系，我们不难发现在这棵树中有很多结点是重">
+<meta name="twitter:image" content="http://www.bravewtz.top/images/2020010401.jpg">
+  <link rel="canonical" href="http://www.bravewtz.top/2020/01/04/07斐波那契数列/">
 
 
 <script id="page-configurations">
@@ -81,7 +83,7 @@
   };
 </script>
 
-  <title>LIS | Bravewtz</title>
+  <title>07斐波那契数列 | Bravewtz</title>
   
 
 
@@ -249,7 +251,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="http://www.bravewtz.top/2019/09/29/LIS/">
+    <link itemprop="mainEntityOfPage" href="http://www.bravewtz.top/2020/01/04/07斐波那契数列/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Bravewtz">
@@ -261,7 +263,7 @@
       <meta itemprop="name" content="Bravewtz">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">LIS
+        <h1 class="post-title" itemprop="name headline">07斐波那契数列
 
           
         </h1>
@@ -277,7 +279,7 @@
                 
               
 
-              <time title="创建时间：2019-09-29 20:19:07 / 修改时间：20:20:21" itemprop="dateCreated datePublished" datetime="2019-09-29T20:19:07+08:00">2019-09-29</time>
+              <time title="创建时间：2020-01-04 21:10:25 / 修改时间：21:15:35" itemprop="dateCreated datePublished" datetime="2020-01-04T21:10:25+08:00">2020-01-04</time>
             </span>
           
             
@@ -286,7 +288,7 @@
           
 
           
-            <span id="/2019/09/29/LIS/" class="post-meta-item leancloud_visitors" data-flag-title="LIS" title="阅读次数">
+            <span id="/2020/01/04/07斐波那契数列/" class="post-meta-item leancloud_visitors" data-flag-title="07斐波那契数列" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -304,7 +306,7 @@
       
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2019/09/29/LIS/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/09/29/LIS/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2020/01/04/07斐波那契数列/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2020/01/04/07斐波那契数列/" itemprop="commentCount"></span></a>
   </span>
   
   
@@ -318,16 +320,23 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="LIS"><a href="#LIS" class="headerlink" title="LIS"></a>LIS</h1><ul>
-<li>n^2 dp</li>
-</ul><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">40005</span>;</span><br><span class="line"><span class="keyword">int</span> a[maxn];</span><br><span class="line"><span class="keyword">int</span> dp[maxn];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    <span class="keyword">for</span>( <span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n; i++ )&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,a+i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>( <span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n; i++ )&#123;</span><br><span class="line">        dp[i]=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>( <span class="keyword">int</span> j=<span class="number">0</span>; j&lt;i; j++ )&#123;</span><br><span class="line">            <span class="keyword">if</span>(a[j]&lt;a[i])&#123;</span><br><span class="line">                dp[i]=max(dp[i],dp[j]+<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        ans=max(ans,dp[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>,ans);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><a id="more"></a>
+        <ul>
+<li>题目：大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列的第n项。（n&lt;=39）</li>
+</ul><p>斐波那契数列公式为：<br><img src="/images/2020010401.jpg" alt></p><ul>
+<li>分析：这道题递归很好写，但是存在很严重的效率问题。我们以求解f(10)为例类分析递归的求解过程。想求f(10)，需要先求得f(9)和f(8)。同样，想求得f(9)，需要先求的f(8)和f(7)….我们可以用树形结构来表示这种依赖关系，我们不难发现在这棵树中有很多结点是重复的，而且重复的结点数会随着n的增加而急剧增加，这意味计算量会随着n的增加而急剧增大。事实上，递归方法计算的时间复杂度是以n的指数的方式递增的。</li>
+</ul><a id="more"></a>
 
+
+<p>所以，使用简单的循环方法来实现。</p>
+<ul>
+<li>C++代码：</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">Fibonacci</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> first=<span class="number">0</span>,second=<span class="number">1</span>,third=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++)&#123;</span><br><span class="line">            third=first+second;</span><br><span class="line">            first=second;</span><br><span class="line">            second=third;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> third;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>nlogn 二分<br>LIS的nlogn的优化：<br>LIS的优化说白了其实是贪心算法，比如说让你求一个最长上升子序列把，一起走一遍。</li>
+<li>Python代码：</li>
 </ul>
-<p>比如说（4, 2, 3, 1, 2，3，5）这个序列，求他的最长上升子序列，那么来看，如果求最长的上升序列，那么按照贪心，应该最可能的让该序列的元素整体变小，以便可以加入更多的元素。<br>现在开辟一个新的数组，arr[ 10 ]， { …….} –&gt; 这个是他的空间 ，现在开始模拟贪心算法求解最长上升子序列，第一个数是4，先加进去，那么为{ 4 }再来看下一个数2，它比4小，所以如果他与4替换是不是可以让目前子序列（他这一个元素组成的子序列）变得更小，更方便以后元素的加入呢？是的。所以现在为{ 2 } 再来看他的下一个元素3，他要比2大，所以呢加在他的后面，{ 2, 3}<br>再看下一个元素是1，它比3要小，所以呢为了保证子序列整体尽可能的小（以便可以加入更多的元素），从目前的序列中查找出第一个比他大的数替换掉，那么就变成了{ 1， 3}，继续。。 下一个数是2，那么序列变为{ 1，2}，再下一个数为3，那么序列为{1，2，3}，在下一个数为5，那么序列为{1，2，3，5}，完。 目前序列里又4个元素，所以他的最长子序列的个数为4，但是这个序列是一个伪序列，里面的元素，并不是真正的最长上升子序列，而仅仅和最长上升子序列的个数一样。因为查找的时候用的二分查找，所以时间复杂度为o（nlogn）。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> arr[<span class="number">500</span>],n,dp[<span class="number">500</span>];</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    <span class="keyword">for</span>( <span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; i++ )&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> k=<span class="number">1</span>;</span><br><span class="line">    dp[k]=arr[<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">for</span>( <span class="keyword">int</span> i=<span class="number">2</span>; i&lt;=n; i++ )&#123;</span><br><span class="line">        <span class="keyword">if</span>(arr[i]&gt;dp[k]) dp[++k]=arr[i];</span><br><span class="line">        <span class="keyword">else</span> *lower_bound(dp+<span class="number">1</span>,dp+<span class="number">1</span>+k,arr[i])=arr[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,k);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">Fibonacci</span><span class="params">(self, n)</span>:</span></span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        <span class="keyword">if</span> n &lt;= <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> n</span><br><span class="line">        first, second, third = <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>, n+<span class="number">1</span>):</span><br><span class="line">            third = first + second</span><br><span class="line">            first = second</span><br><span class="line">            second = third</span><br><span class="line">        <span class="keyword">return</span> third</span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -354,7 +363,7 @@
           
           <div class="post-tags">
             
-              <a href="/tags/算法之路/" rel="tag"># 算法之路</a>
+              <a href="/tags/剑指offer/" rel="tag"># 剑指offer</a>
             
           </div>
         
@@ -364,8 +373,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/09/25/方舟编译器编译及其执行/" rel="next" title="方舟编译器编译及其执行">
-                  <i class="fa fa-chevron-left"></i> 方舟编译器编译及其执行
+                <a href="/2020/01/02/06旋转数组的最小数字/" rel="next" title="06旋转数组的最小数字">
+                  <i class="fa fa-chevron-left"></i> 06旋转数组的最小数字
                 </a>
               
             </div>
@@ -373,10 +382,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/10/05/Makefile简介/" rel="prev" title="Makefile简介">
-                  Makefile简介 <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -428,8 +433,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#LIS"><span class="nav-number">1.</span> <span class="nav-text">LIS</span></a></li></ol></div>
-        
       </div>
       <!--/noindex-->
 
