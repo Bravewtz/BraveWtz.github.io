@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[08矩形覆盖]]></title>
+    <url>%2F2020%2F01%2F05%2F08%E7%9F%A9%E5%BD%A2%E8%A6%86%E7%9B%96%2F</url>
+    <content type="text"><![CDATA[题目：我们可以用21的小矩形横着或者竖着去覆盖更大的矩形。请问用n个21的小矩形无重叠地覆盖一个2*n的大矩形，总共有多少种方法？ 分析：以2x8的矩形为例。示意图如下：我们先把2x8的覆盖方法记为f(8)。用第一个1x2小矩阵覆盖大矩形的最左边时有两个选择，竖着放或者横着放。当竖着放的时候，右边还剩下2x7的区域，这种情况下的覆盖方法记为f(7)。接下来考虑横着放的情况。当1x2的小矩形横着放在左上角的时候，左下角和横着放一个1x2的小矩形，而在右边还剩下2x6的区域，这种情况下的覆盖方法记为f(6)。因此f(8)=f(7)+f(6)。此时我们可以看出，这仍然是斐波那契数列。 C++代码： 123456789101112131415class Solution &#123;public: int rectCover(int number) &#123; if(number &lt;= 2)&#123; return number; &#125; int first = 1, second = 2, third = 0; for(int i = 3; i &lt;= number; i++)&#123; third = first + second; first = second; second = third; &#125; return third; &#125;&#125;; Python代码： 123456789101112# -*- coding:utf-8 -*-class Solution: def rectCover(self, number): # write code here if number &lt;= 2: return number first, second, third = 1, 2, 0 for i in range(3, number+1): third = first + second first = second second = third return third]]></content>
+      <tags>
+        <tag>剑指offer</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[07斐波那契数列]]></title>
     <url>%2F2020%2F01%2F04%2F07%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97%2F</url>
     <content type="text"><![CDATA[题目：大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列的第n项。（n&lt;=39） 斐波那契数列公式为： 分析：这道题递归很好写，但是存在很严重的效率问题。我们以求解f(10)为例类分析递归的求解过程。想求f(10)，需要先求得f(9)和f(8)。同样，想求得f(9)，需要先求的f(8)和f(7)….我们可以用树形结构来表示这种依赖关系，我们不难发现在这棵树中有很多结点是重复的，而且重复的结点数会随着n的增加而急剧增加，这意味计算量会随着n的增加而急剧增大。事实上，递归方法计算的时间复杂度是以n的指数的方式递增的。 所以，使用简单的循环方法来实现。 C++代码： 1234567891011121314class Solution &#123;public: int Fibonacci(int n) &#123; if(n==0) return 0; if(n==1) return 1; int first=0,second=1,third=0; for(int i=2;i&lt;=n;i++)&#123; third=first+second; first=second; second=third; &#125; return third; &#125;&#125;; Python代码： 123456789101112# -*- coding:utf-8 -*-class Solution: def Fibonacci(self, n): # write code here if n &lt;= 1: return n first, second, third = 0, 1, 0 for i in range(2, n+1): third = first + second first = second second = third return third]]></content>
