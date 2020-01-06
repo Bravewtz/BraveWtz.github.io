@@ -4,6 +4,9 @@
     <title><![CDATA[10数值的整数次方]]></title>
     <url>%2F2020%2F01%2F06%2F10%E6%95%B0%E5%80%BC%E7%9A%84%E6%95%B4%E6%95%B0%E6%AC%A1%E6%96%B9%2F</url>
     <content type="text"><![CDATA[题目：给定一个double类型的浮点数base和int类型的整数exponent。求base的exponent次方。 分析：当指数为负数的时候，可以先对指数求绝对值，然后算出次方的结果之后再取倒数。如果底数为0，则直接返回0。此时的次方在数学上是没有意义的。 除此之外，我们要注意：由于计算机表示小数（包括float和double型小数）都有误差，我们不能直接用等号（==）判断两个小数是否相等。如果两个小数的差的绝对值很小，比如小于0.0000001，就可以认为它们相等。 在计算次方的时候，除了简单的遍历，我们可以使用如下公式进行计算，来减少计算量： C++代码： 1234567891011121314151617181920212223242526class Solution &#123;public: double Power(double base, int exponent) &#123; if(_equal(base,0.0)) return 0; int abs_exponent=abs(exponent); double result=PowerExponent(base,abs_exponent); if(exponent&lt;0) result=1.0/result; return result; &#125; private: bool _equal(double num1,double num2)&#123; if(num1-num2 &gt; -0.0000001 &amp;&amp; num1-num2 &lt; 0.0000001 )return true; else return false; &#125; double PowerExponent(double base,int exponent)&#123; if(exponent==0) return 1; if(exponent==1) return base; double _result=PowerExponent(base,exponent&gt;&gt;1); _result*=_result; if(exponent % 2==1) _result*=base; return _result; &#125;&#125;; Python代码： 123456789101112131415# -*- coding:utf-8 -*-class Solution: def Power(self, base, exponent): # write code here flag=0 result=1 if base==0: return False if exponent&lt;0: flag=1 for i in range(abs(exponent)): result*=base if flag==1: result=1/result return result]]></content>
+      <tags>
+        <tag>剑指offer</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[09二进制中1的个数]]></title>
