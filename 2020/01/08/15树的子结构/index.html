@@ -55,21 +55,19 @@
   };
 </script>
 
-  <meta name="description" content="题目：输入一个链表，输出该链表中倒数第k个结点。  分析：我们可以定义两个指针。第一个指针从链表的头指针开始遍历向前走k-1，第二个指针保持不动；从第k步开始，第二个指针也开始从链表的头指针开始遍历。由于两个指针的距离保持在k-1，当第一个（走在前面的）指针到达链表的尾结点时，第二个指针（走在后面的）指针正好是倒数第k个结点。效果示意图，以链表总共6个结点，求倒数第3个结点为例：除此之外，要注意">
+  <meta name="description" content="题目：输入两颗二叉树A，B，判断B是不是A的子结构。（PS：我们约定空树不是任意一个树的子结构）。 分析：要查找树A中是否存在和树B结构一样的子树，我们可以分为两步：第一步在树A中找到和B的根结点的值一样的结点R，第二步再判断树A中以R为根节点的子树是不是包含和树B一样的结构。这里使用递归的方法即可。 C++代码：">
 <meta name="keywords" content="剑指offer">
 <meta property="og:type" content="article">
-<meta property="og:title" content="12链表中倒数第K个结点">
-<meta property="og:url" content="http://www.bravewtz.top/2020/01/07/12链表中倒数第K个结点/index.html">
+<meta property="og:title" content="15树的子结构">
+<meta property="og:url" content="http://www.bravewtz.top/2020/01/08/15树的子结构/index.html">
 <meta property="og:site_name" content="Bravewtz">
-<meta property="og:description" content="题目：输入一个链表，输出该链表中倒数第k个结点。  分析：我们可以定义两个指针。第一个指针从链表的头指针开始遍历向前走k-1，第二个指针保持不动；从第k步开始，第二个指针也开始从链表的头指针开始遍历。由于两个指针的距离保持在k-1，当第一个（走在前面的）指针到达链表的尾结点时，第二个指针（走在后面的）指针正好是倒数第k个结点。效果示意图，以链表总共6个结点，求倒数第3个结点为例：除此之外，要注意">
+<meta property="og:description" content="题目：输入两颗二叉树A，B，判断B是不是A的子结构。（PS：我们约定空树不是任意一个树的子结构）。 分析：要查找树A中是否存在和树B结构一样的子树，我们可以分为两步：第一步在树A中找到和B的根结点的值一样的结点R，第二步再判断树A中以R为根节点的子树是不是包含和树B一样的结构。这里使用递归的方法即可。 C++代码：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://www.bravewtz.top/images/2020010701.jpg">
-<meta property="og:updated_time" content="2020-01-07T13:04:24.698Z">
+<meta property="og:updated_time" content="2020-01-08T14:27:36.209Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="12链表中倒数第K个结点">
-<meta name="twitter:description" content="题目：输入一个链表，输出该链表中倒数第k个结点。  分析：我们可以定义两个指针。第一个指针从链表的头指针开始遍历向前走k-1，第二个指针保持不动；从第k步开始，第二个指针也开始从链表的头指针开始遍历。由于两个指针的距离保持在k-1，当第一个（走在前面的）指针到达链表的尾结点时，第二个指针（走在后面的）指针正好是倒数第k个结点。效果示意图，以链表总共6个结点，求倒数第3个结点为例：除此之外，要注意">
-<meta name="twitter:image" content="http://www.bravewtz.top/images/2020010701.jpg">
-  <link rel="canonical" href="http://www.bravewtz.top/2020/01/07/12链表中倒数第K个结点/">
+<meta name="twitter:title" content="15树的子结构">
+<meta name="twitter:description" content="题目：输入两颗二叉树A，B，判断B是不是A的子结构。（PS：我们约定空树不是任意一个树的子结构）。 分析：要查找树A中是否存在和树B结构一样的子树，我们可以分为两步：第一步在树A中找到和B的根结点的值一样的结点R，第二步再判断树A中以R为根节点的子树是不是包含和树B一样的结构。这里使用递归的方法即可。 C++代码：">
+  <link rel="canonical" href="http://www.bravewtz.top/2020/01/08/15树的子结构/">
 
 
 <script id="page-configurations">
@@ -83,7 +81,7 @@
   };
 </script>
 
-  <title>12链表中倒数第K个结点 | Bravewtz</title>
+  <title>15树的子结构 | Bravewtz</title>
   
 
 
@@ -251,7 +249,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="http://www.bravewtz.top/2020/01/07/12链表中倒数第K个结点/">
+    <link itemprop="mainEntityOfPage" href="http://www.bravewtz.top/2020/01/08/15树的子结构/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Bravewtz">
@@ -263,7 +261,7 @@
       <meta itemprop="name" content="Bravewtz">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">12链表中倒数第K个结点
+        <h1 class="post-title" itemprop="name headline">15树的子结构
 
           
         </h1>
@@ -279,7 +277,7 @@
                 
               
 
-              <time title="创建时间：2020-01-07 20:48:37 / 修改时间：21:04:24" itemprop="dateCreated datePublished" datetime="2020-01-07T20:48:37+08:00">2020-01-07</time>
+              <time title="创建时间：2020-01-08 22:26:09 / 修改时间：22:27:36" itemprop="dateCreated datePublished" datetime="2020-01-08T22:26:09+08:00">2020-01-08</time>
             </span>
           
             
@@ -288,7 +286,7 @@
           
 
           
-            <span id="/2020/01/07/12链表中倒数第K个结点/" class="post-meta-item leancloud_visitors" data-flag-title="12链表中倒数第K个结点" title="阅读次数">
+            <span id="/2020/01/08/15树的子结构/" class="post-meta-item leancloud_visitors" data-flag-title="15树的子结构" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -306,7 +304,7 @@
       
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/01/07/12链表中倒数第K个结点/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2020/01/07/12链表中倒数第K个结点/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2020/01/08/15树的子结构/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2020/01/08/15树的子结构/" itemprop="commentCount"></span></a>
   </span>
   
   
@@ -321,24 +319,16 @@
 
       
         <ul>
-<li><p>题目：输入一个链表，输出该链表中倒数第k个结点。</p>
-</li>
-<li><p>分析：我们可以定义两个指针。第一个指针从链表的头指针开始遍历向前走k-1，第二个指针保持不动；从第k步开始，第二个指针也开始从链表的头指针开始遍历。由于两个指针的距离保持在k-1，当第一个（走在前面的）指针到达链表的尾结点时，第二个指针（走在后面的）指针正好是倒数第k个结点。<br>效果示意图，以链表总共6个结点，求倒数第3个结点为例：<br><img src="/images/2020010701.jpg" alt><br>除此之外，要注意代码的鲁棒性。需要判断传入参数合法性问题。</p>
-</li>
-<li><p>C++代码：</p>
-</li>
+<li>题目：输入两颗二叉树A，B，判断B是不是A的子结构。（PS：我们约定空树不是任意一个树的子结构）。</li>
+<li>分析：要查找树A中是否存在和树B结构一样的子树，我们可以分为两步：第一步在树A中找到和B的根结点的值一样的结点R，第二步再判断树A中以R为根节点的子树是不是包含和树B一样的结构。<br>这里使用递归的方法即可。</li>
+<li>C++代码：</li>
 </ul><a id="more"></a>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">struct ListNode &#123;</span></span><br><span class="line"><span class="comment">	int val;</span></span><br><span class="line"><span class="comment">	struct ListNode *next;</span></span><br><span class="line"><span class="comment">	ListNode(int x) :</span></span><br><span class="line"><span class="comment">			val(x), next(NULL) &#123;</span></span><br><span class="line"><span class="comment">	&#125;</span></span><br><span class="line"><span class="comment">&#125;;*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">FindKthToTail</span><span class="params">(ListNode* pListHead, <span class="keyword">unsigned</span> <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(pListHead==<span class="literal">NULL</span> || k==<span class="number">0</span>) <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">        pListHead* pAHead=pListHead;</span><br><span class="line">        pListHead* pBHead=pListHead;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">unsigned</span> <span class="keyword">int</span> i=<span class="number">0</span>;i&lt;k<span class="number">-1</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(pAHead-&gt;next!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">                pAHead=pAHead-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(pAHead-&gt;next!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">            pAHead=pAHead-&gt;next;</span><br><span class="line">            pBHead=pBHead-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> PBHead;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">struct TreeNode &#123;</span></span><br><span class="line"><span class="comment">	int val;</span></span><br><span class="line"><span class="comment">	struct TreeNode *left;</span></span><br><span class="line"><span class="comment">	struct TreeNode *right;</span></span><br><span class="line"><span class="comment">	TreeNode(int x) :</span></span><br><span class="line"><span class="comment">			val(x), left(NULL), right(NULL) &#123;</span></span><br><span class="line"><span class="comment">	&#125;</span></span><br><span class="line"><span class="comment">&#125;;*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">HasSubtree</span><span class="params">(TreeNode* pRoot1, TreeNode* pRoot2)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">		<span class="keyword">bool</span> result = <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">if</span>(pRoot1 != <span class="literal">NULL</span> &amp;&amp; pRoot2 != <span class="literal">NULL</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(pRoot1-&gt;val == pRoot2-&gt;val)&#123;</span><br><span class="line">                result = DoesTree1HasTree2(pRoot1, pRoot2);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(!result)&#123;</span><br><span class="line">                result = HasSubtree(pRoot1-&gt;left, pRoot2);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(!result)&#123;</span><br><span class="line">                result = HasSubtree(pRoot1-&gt;right, pRoot2);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">DoesTree1HasTree2</span><span class="params">(TreeNode* pRoot1, TreeNode* pRoot2)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(pRoot2 == <span class="literal">NULL</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">if</span>(pRoot1 == <span class="literal">NULL</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">if</span>(pRoot1-&gt;val != pRoot2-&gt;val) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">return</span> DoesTree1HasTree2(pRoot1-&gt;left, pRoot2-&gt;left) &amp;&amp; DoesTree1HasTree2(pRoot1-&gt;right, pRoot2-&gt;right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>Python代码：</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="comment"># class ListNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.next = None</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">FindKthToTail</span><span class="params">(self, head, k)</span>:</span></span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        <span class="keyword">if</span> head == <span class="literal">None</span> <span class="keyword">or</span> k == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">        pAHead = head</span><br><span class="line">        pBHead = head</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(k<span class="number">-1</span>):</span><br><span class="line">            <span class="keyword">if</span> pAHead.next == <span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                pAHead=pAHead.next</span><br><span class="line">        <span class="keyword">while</span> pAHead.next != <span class="literal">None</span>:</span><br><span class="line">            pAHead = pAHead.next</span><br><span class="line">            pBHead = pBHead.next</span><br><span class="line">        <span class="keyword">return</span> pBHead</span><br></pre></td></tr></table></figure>
-
-<h4 id="下面的做法用列表，开辟新空间了，不太好。"><a href="#下面的做法用列表，开辟新空间了，不太好。" class="headerlink" title="下面的做法用列表，开辟新空间了，不太好。"></a>下面的做法用列表，开辟新空间了，不太好。</h4><ul>
-<li>Python代码：</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="comment"># class ListNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.next = None</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">FindKthToTail</span><span class="params">(self, head, k)</span>:</span></span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        l=[]</span><br><span class="line">        <span class="keyword">while</span> head:</span><br><span class="line">            l.append(head)</span><br><span class="line">            head=head.next</span><br><span class="line">        <span class="keyword">if</span> len(l)&lt;k <span class="keyword">or</span> k&lt;<span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">        <span class="keyword">return</span> l[-k]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="comment"># class TreeNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.left = None</span></span><br><span class="line"><span class="comment">#         self.right = None</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">HasSubtree</span><span class="params">(self, pRoot1, pRoot2)</span>:</span></span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> pRoot1 <span class="keyword">or</span> <span class="keyword">not</span> pRoot2:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        <span class="keyword">return</span> self.HasSubtree(pRoot1.left, pRoot2) <span class="keyword">or</span> self.HasSubtree(pRoot1.right, pRoot2) <span class="keyword">or</span> self.is_subtree(pRoot1, pRoot2)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">is_subtree</span><span class="params">(self, A, B)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> B:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> A <span class="keyword">or</span> A.val != B.val:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        <span class="keyword">return</span> self.is_subtree(A.left, B.left) <span class="keyword">and</span> self.is_subtree(A.right, B.right)</span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -375,8 +365,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2020/01/06/11调整数组顺序使奇数位于偶数前面/" rel="next" title="11调整数组顺序使奇数位于偶数前面">
-                  <i class="fa fa-chevron-left"></i> 11调整数组顺序使奇数位于偶数前面
+                <a href="/2020/01/08/14合并两个排序的链表/" rel="next" title="14合并两个排序的链表">
+                  <i class="fa fa-chevron-left"></i> 14合并两个排序的链表
                 </a>
               
             </div>
@@ -384,10 +374,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2020/01/07/13反转链表/" rel="prev" title="13反转链表">
-                  13反转链表 <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -439,8 +425,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#下面的做法用列表，开辟新空间了，不太好。"><span class="nav-number">1.</span> <span class="nav-text">下面的做法用列表，开辟新空间了，不太好。</span></a></li></ol></div>
-        
       </div>
       <!--/noindex-->
 
