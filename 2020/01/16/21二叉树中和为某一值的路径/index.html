@@ -55,21 +55,19 @@
   };
 </script>
 
-  <meta name="description" content="题目：在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。 分析：首先选取数组中右上角的数字。如果该数字等于要查找的数字，查找过程结束；如果该数字大于要查找的数组，剔除这个数字所在的列；如果该数字小于要查找的数字，剔除这个数字所在的行。也就是说如果要查找的数字不在数组的右上角，则每一">
+  <meta name="description" content="题目：输入一颗二叉树和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。 分析：深度优先搜索。使用前序遍历，使用两个全局变量result和tmp，result来存放最终结果，tmp用来存放临时结果。 每次遍历，我们先把root的值压入tmp，然后判断当前root是否同时满足：">
 <meta name="keywords" content="剑指offer">
 <meta property="og:type" content="article">
-<meta property="og:title" content="01二维数组中的查找">
-<meta property="og:url" content="http://www.bravewtz.top/2019/12/29/01二维数组中的查找/index.html">
+<meta property="og:title" content="21二叉树中和为某一值的路径">
+<meta property="og:url" content="http://www.bravewtz.top/2020/01/16/21二叉树中和为某一值的路径/index.html">
 <meta property="og:site_name" content="Bravewtz">
-<meta property="og:description" content="题目：在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。 分析：首先选取数组中右上角的数字。如果该数字等于要查找的数字，查找过程结束；如果该数字大于要查找的数组，剔除这个数字所在的列；如果该数字小于要查找的数字，剔除这个数字所在的行。也就是说如果要查找的数字不在数组的右上角，则每一">
+<meta property="og:description" content="题目：输入一颗二叉树和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。 分析：深度优先搜索。使用前序遍历，使用两个全局变量result和tmp，result来存放最终结果，tmp用来存放临时结果。 每次遍历，我们先把root的值压入tmp，然后判断当前root是否同时满足：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://www.bravewtz.top/images/2019122904.png">
-<meta property="og:updated_time" content="2019-12-29T09:06:01.790Z">
+<meta property="og:updated_time" content="2020-01-16T14:00:01.158Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="01二维数组中的查找">
-<meta name="twitter:description" content="题目：在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。 分析：首先选取数组中右上角的数字。如果该数字等于要查找的数字，查找过程结束；如果该数字大于要查找的数组，剔除这个数字所在的列；如果该数字小于要查找的数字，剔除这个数字所在的行。也就是说如果要查找的数字不在数组的右上角，则每一">
-<meta name="twitter:image" content="http://www.bravewtz.top/images/2019122904.png">
-  <link rel="canonical" href="http://www.bravewtz.top/2019/12/29/01二维数组中的查找/">
+<meta name="twitter:title" content="21二叉树中和为某一值的路径">
+<meta name="twitter:description" content="题目：输入一颗二叉树和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。 分析：深度优先搜索。使用前序遍历，使用两个全局变量result和tmp，result来存放最终结果，tmp用来存放临时结果。 每次遍历，我们先把root的值压入tmp，然后判断当前root是否同时满足：">
+  <link rel="canonical" href="http://www.bravewtz.top/2020/01/16/21二叉树中和为某一值的路径/">
 
 
 <script id="page-configurations">
@@ -83,7 +81,7 @@
   };
 </script>
 
-  <title>01二维数组中的查找 | Bravewtz</title>
+  <title>21二叉树中和为某一值的路径 | Bravewtz</title>
   
 
 
@@ -251,7 +249,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="http://www.bravewtz.top/2019/12/29/01二维数组中的查找/">
+    <link itemprop="mainEntityOfPage" href="http://www.bravewtz.top/2020/01/16/21二叉树中和为某一值的路径/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Bravewtz">
@@ -263,7 +261,7 @@
       <meta itemprop="name" content="Bravewtz">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">01二维数组中的查找
+        <h1 class="post-title" itemprop="name headline">21二叉树中和为某一值的路径
 
           
         </h1>
@@ -279,7 +277,7 @@
                 
               
 
-              <time title="创建时间：2019-12-29 17:01:57 / 修改时间：17:06:01" itemprop="dateCreated datePublished" datetime="2019-12-29T17:01:57+08:00">2019-12-29</time>
+              <time title="创建时间：2020-01-16 21:57:52 / 修改时间：22:00:01" itemprop="dateCreated datePublished" datetime="2020-01-16T21:57:52+08:00">2020-01-16</time>
             </span>
           
             
@@ -288,7 +286,7 @@
           
 
           
-            <span id="/2019/12/29/01二维数组中的查找/" class="post-meta-item leancloud_visitors" data-flag-title="01二维数组中的查找" title="阅读次数">
+            <span id="/2020/01/16/21二叉树中和为某一值的路径/" class="post-meta-item leancloud_visitors" data-flag-title="21二叉树中和为某一值的路径" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -306,7 +304,7 @@
       
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2019/12/29/01二维数组中的查找/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/12/29/01二维数组中的查找/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2020/01/16/21二叉树中和为某一值的路径/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2020/01/16/21二叉树中和为某一值的路径/" itemprop="commentCount"></span></a>
   </span>
   
   
@@ -321,11 +319,20 @@
 
       
         <ul>
-<li>题目：在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。</li>
-<li>分析：首先选取数组中右上角的数字。如果该数字等于要查找的数字，查找过程结束；如果该数字大于要查找的数组，剔除这个数字所在的列；如果该数字小于要查找的数字，剔除这个数字所在的行。也就是说如果要查找的数字不在数组的右上角，则每一次都在数组的查找范围中剔除一行或者一列，这样每一步都可以缩小查找的范围，直到找到要查找的数字，或者查找范围为空。</li>
-<li>如果在一个二维数组中找到数字7，则返回true，如果没有找到，则返回false。<br><img src="/images/2019122904.png" alt></li>
-</ul><a id="more"></a>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">solution</span>&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">bool</span> <span class="title">Find</span><span class="params">(<span class="keyword">int</span> target,<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt;<span class="built_in">array</span>)</span></span>&#123;</span><br><span class="line">		<span class="keyword">int</span> rows=<span class="built_in">array</span>.size();</span><br><span class="line">		<span class="keyword">int</span> cols=<span class="built_in">array</span>[<span class="number">0</span>].size();</span><br><span class="line">		<span class="keyword">if</span>(!<span class="built_in">array</span>.empty()&amp;&amp;rows&gt;<span class="number">0</span>&amp;&amp;cols&gt;<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span> row=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> col=cols<span class="number">-1</span>;</span><br><span class="line">            <span class="keyword">while</span>(row&lt;=rows<span class="number">-1</span>&amp;&amp;col&gt;=<span class="number">0</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span>(<span class="built_in">array</span>[row][col]==target) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">array</span>[row][col]&gt;target) col--;</span><br><span class="line">                <span class="keyword">else</span> row++;</span><br><span class="line">            &#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<li>题目：输入一颗二叉树和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。</li>
+<li>分析：深度优先搜索。使用前序遍历，使用两个全局变量result和tmp，result来存放最终结果，tmp用来存放临时结果。</li>
+</ul><p>每次遍历，我们先把root的值压入tmp，然后判断当前root是否同时满足：</p><a id="more"></a>
+
+<p>与给定数值相减为0；<br>左子树为空；<br>右子树为空。<br>如果满足条件，就将tmp压入result中，否则，依次遍历左右子树。需要注意的是，遍历左右子树的时候，全局变量tmp是不清空的，直到到了根结点才请空tmp。</p>
+<ul>
+<li>C++代码：</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">struct TreeNode &#123;</span></span><br><span class="line"><span class="comment">	int val;</span></span><br><span class="line"><span class="comment">	struct TreeNode *left;</span></span><br><span class="line"><span class="comment">	struct TreeNode *right;</span></span><br><span class="line"><span class="comment">	TreeNode(int x) :</span></span><br><span class="line"><span class="comment">			val(x), left(NULL), right(NULL) &#123;</span></span><br><span class="line"><span class="comment">	&#125;</span></span><br><span class="line"><span class="comment">&#125;;*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; FindPath(TreeNode* root,<span class="keyword">int</span> expectNumber) &#123;</span><br><span class="line">        <span class="keyword">if</span>(root==<span class="literal">NULL</span>) <span class="keyword">return</span> res;</span><br><span class="line">        tmp.push_back(root-&gt;val);</span><br><span class="line">        <span class="keyword">if</span>((expectNumber-root-&gt;val)==<span class="number">0</span>&amp;&amp;root-&gt;left==<span class="literal">NULL</span>&amp;&amp;root-&gt;right==<span class="literal">NULL</span>)&#123;</span><br><span class="line">            res.push_back(tmp);</span><br><span class="line">        &#125;</span><br><span class="line">        FindPath(root-&gt;left,expectNumber-root-&gt;val);</span><br><span class="line">        FindPath(root-&gt;right,expectNumber-root-&gt;val);</span><br><span class="line">        </span><br><span class="line">        tmp.pop_back();</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt;res;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; tmp;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Python代码：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="comment"># class TreeNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.left = None</span></span><br><span class="line"><span class="comment">#         self.right = None</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="comment"># 返回二维列表，内部每个列表表示找到的路径</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">FindPath</span><span class="params">(self, root, expectNumber)</span>:</span></span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">            <span class="keyword">return</span> []</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> root.left <span class="keyword">and</span> <span class="keyword">not</span> root.right <span class="keyword">and</span> expectNumber == root.val:</span><br><span class="line">            <span class="keyword">return</span> [[root.val]]</span><br><span class="line">        res = []</span><br><span class="line">        left = self.FindPath(root.left, expectNumber-root.val)</span><br><span class="line">        right = self.FindPath(root.right, expectNumber-root.val)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> left+right:</span><br><span class="line">            res.append([root.val]+i)</span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -362,8 +369,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/12/29/利用urllib-urlopen向有道翻译发送数据获取翻译结果/" rel="next" title="利用urllib.urlopen向有道翻译发送数据获取翻译结果">
-                  <i class="fa fa-chevron-left"></i> 利用urllib.urlopen向有道翻译发送数据获取翻译结果
+                <a href="/2020/01/16/20二叉搜索树的后序遍历序列/" rel="next" title="20二叉搜索树的后序遍历序列">
+                  <i class="fa fa-chevron-left"></i> 20二叉搜索树的后序遍历序列
                 </a>
               
             </div>
@@ -371,10 +378,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/12/30/02替换空格/" rel="prev" title="02替换空格">
-                  02替换空格 <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
