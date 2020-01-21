@@ -65,7 +65,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.bravewtz.top/images/2020011801.jpg">
 <meta property="og:image" content="http://www.bravewtz.top/images/2020011802.jpg">
-<meta property="og:updated_time" content="2020-01-18T14:49:18.786Z">
+<meta property="og:updated_time" content="2020-01-19T11:05:10.222Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="22二叉搜索树与双向链表">
 <meta name="twitter:description" content="题目：输入一棵二叉搜索树，将该二叉搜索树转换成一个排序的双向链表。要求不能创建任何新的结点，只能调整树中结点指针的指向。 分析：二叉搜索树如上图所示，我们将其转换为配需双向链表。 根据二叉搜索树的特点：左结点的值&amp;lt;根结点的值&amp;lt;右结点的值，我们不难发现，使用二叉树的中序遍历出来的数据的数序，就是排序的顺序。因此，首先，确定了二叉搜索树的遍历方法。">
@@ -280,11 +280,19 @@
                 
               
 
-              <time title="创建时间：2020-01-18 22:44:31 / 修改时间：22:49:18" itemprop="dateCreated datePublished" datetime="2020-01-18T22:44:31+08:00">2020-01-18</time>
+              <time title="创建时间：2020-01-18 22:44:31" itemprop="dateCreated datePublished" datetime="2020-01-18T22:44:31+08:00">2020-01-18</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-01-19 19:05:10" itemprop="dateModified" datetime="2020-01-19T19:05:10+08:00">2020-01-19</time>
+              </span>
             
           
 
@@ -332,8 +340,6 @@
 <li>C++代码：</li>
 </ul>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">struct TreeNode &#123;</span></span><br><span class="line"><span class="comment">	int val;</span></span><br><span class="line"><span class="comment">	struct TreeNode *left;</span></span><br><span class="line"><span class="comment">	struct TreeNode *right;</span></span><br><span class="line"><span class="comment">	TreeNode(int x) :</span></span><br><span class="line"><span class="comment">			val(x), left(NULL), right(NULL) &#123;</span></span><br><span class="line"><span class="comment">	&#125;</span></span><br><span class="line"><span class="comment">&#125;;*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">TreeNode* <span class="title">Convert</span><span class="params">(TreeNode* pRootOfTree)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">//用于记录双向链表尾结点</span></span><br><span class="line">        TreeNode* pLastNodeInList = <span class="literal">NULL</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//开始转换结点</span></span><br><span class="line">        ConvertNode(pRootOfTree, &amp;pLastNodeInList);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//pLastNodeInList指向双向链表的尾结点，我们需要重新返回头结点</span></span><br><span class="line">        TreeNode* pHeadOfList = pLastNodeInList;</span><br><span class="line">        <span class="keyword">while</span>(pHeadOfList != <span class="literal">NULL</span> &amp;&amp; pHeadOfList-&gt;left != <span class="literal">NULL</span>)&#123;</span><br><span class="line">            pHeadOfList = pHeadOfList-&gt;left;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> pHeadOfList;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">ConvertNode</span><span class="params">(TreeNode* pNode, TreeNode** pLastNodeInList)</span></span>&#123;</span><br><span class="line">        <span class="comment">//叶结点直接返回</span></span><br><span class="line">        <span class="keyword">if</span>(pNode == <span class="literal">NULL</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        TreeNode* pCurrent = pNode;</span><br><span class="line">        <span class="comment">//递归左子树</span></span><br><span class="line">        <span class="keyword">if</span>(pCurrent-&gt;left != <span class="literal">NULL</span>)</span><br><span class="line">            ConvertNode(pCurrent-&gt;left, pLastNodeInList);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//左指针</span></span><br><span class="line">        pCurrent-&gt;left = *pLastNodeInList;</span><br><span class="line">        <span class="comment">//右指针</span></span><br><span class="line">        <span class="keyword">if</span>(*pLastNodeInList != <span class="literal">NULL</span>)&#123;</span><br><span class="line">            (*pLastNodeInList)-&gt;right = pCurrent;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//更新双向链表尾结点</span></span><br><span class="line">        *pLastNodeInList = pCurrent;</span><br><span class="line">        <span class="comment">//递归右子树</span></span><br><span class="line">        <span class="keyword">if</span>(pCurrent-&gt;right != <span class="literal">NULL</span>)&#123;</span><br><span class="line">            ConvertNode(pCurrent-&gt;right, pLastNodeInList);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
     </div>
 
     
@@ -377,6 +383,10 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2020/01/21/23字符串的排列/" rel="prev" title="23字符串的排列">
+                  23字符串的排列 <i class="fa fa-chevron-right"></i>
+                </a>
               
             </div>
           </div>
@@ -444,7 +454,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">43</span>
+          <span class="site-state-item-count">44</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
