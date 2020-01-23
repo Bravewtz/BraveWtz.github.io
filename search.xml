@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[27整数中1出现的次数]]></title>
+    <url>%2F2020%2F01%2F23%2F27%E6%95%B4%E6%95%B0%E4%B8%AD1%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0%2F</url>
+    <content type="text"><![CDATA[题目：输入一个整数n，求从1到n这n个整数的十进制表示中1出现的次数。例如输入12，从1到12这些整数中包含1的数字有1，10，11和12，1一共出现了5次。 分析： 两种方法，一种是从1到n遍历，每次通过对10求余数判断整数的个位数字是不是1，大于10的除以10之后再判断。我们对每个数字都要做除法和求余运算以求出该数字中1出现的次数。如果输入数字n，n有O(logn)位，我们需要判断每一位是不是1，那么时间复杂度为O(n*logn)。这样做，计算量大，效率不高。 本文采用数学之美上面提出的方法，设定整数点（如1、10、100等等）作为位置点i（对应n的各位、十位、百位等等），分别对每个数位上有多少包含1的点进行分析。 根据设定的整数位置，对n进行分割，分为两部分，高位n/i，低位n%i当i表示百位，且百位对应的数&gt;=2,如n=31456,i=100，则a=314,b=56，此时百位为1的次数有a/10+1=32（最高两位031），每一次都包含100个连续的点，即共有(a/10+1)*100个点的百位为1当i表示百位，且百位对应的数为1，如n=31156,i=100，则a=311,b=56，此时百位对应的就是1，则共有a/10(最高两位0-30)次是包含100个连续点，当最高两位为31（即a=311），本次只对应局部点0056，共b+1次，所有点加起来共有（a/10*100）+(b+1)，这些点百位对应为1当i表示百位，且百位对应的数为0,如n=31056,i=100，则a=310,b=56，此时百位为1的次数有a/10=31（最高两位0~30）综合以上三种情况，当百位对应0或&gt;=2时，有(a+8)/10次包含所有100个点，还有当百位为1(a%10==1)，需要增加局部点b+1之所以补8，是因为当百位为0，则a/10==(a+8)/10，当百位&gt;=2，补8会产生进位位，效果等同于(a/10+1) C++代码： 123456789101112class Solution &#123;public: int NumberOf1Between1AndN_Solution(int n) &#123; int cnt=0; for(int i=1;i&lt;=n;i*=10)&#123; int a=n/i,b=n%i; cnt+=(a+8)/10*i+(a%10==1)*(b+1); &#125; return cnt; &#125;&#125;; Python代码： 123456789101112# -*- coding:utf-8 -*-class Solution: def NumberOf1Between1AndN_Solution(self, n): # write code here cnt=0 i=1 while i&lt;=n: a=n/i b=n%i cnt+=(a+8)/10*i+(a%10==1)*(b+1) i*=10 return cnt]]></content>
+      <tags>
+        <tag>剑指offer</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[26连续子数组的最大和]]></title>
     <url>%2F2020%2F01%2F23%2F26%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C%2F</url>
     <content type="text"><![CDATA[题目：HZ偶尔会拿些专业问题来忽悠那些非计算机专业的同学。今天测试组开完会后,他又发话了:在古老的一维模式识别中,常常需要计算连续子向量的最大和,当向量全为正数的时候,问题很好解决。但是,如果向量中包含负数,是否应该包含某个负数,并期望旁边的正数会弥补它呢？例如:{6,-3,-2,7,-15,1,2,2},连续子向量的最大和为8(从第0个开始,到第3个为止)。你会不会被他忽悠住？(子向量的长度至少是1) 分析：数组分析：下图是我们计算数组（1，-2，3，10，-4，7，2，-5）中子数组的最大和的过程。通过分析我们发现，累加的子数组和，如果大于零，那么我们继续累加就行；否则，则需要剔除原来的累加和重新开始。 过程如下： C++代码： 12345678910111213141516171819class Solution &#123;public: int FindGreatestSumOfSubArray(vector&lt;int&gt; array) &#123; if(array.empty()) return 0; int maxsum=array[0]; int cursum=0; for(int i=0;i&lt;array.size();i++)&#123; if(cursum&lt;=0) cursum=array[i]; else&#123; cursum+=array[i]; &#125; if(cursum&gt;=maxsum)&#123; maxsum=cursum; &#125; &#125; return maxsum; &#125;&#125;; Python代码： 123456789101112131415# -*- coding:utf-8 -*-class Solution: def FindGreatestSumOfSubArray(self, array): # write code here if len(array)==0: return 0 maxsum,cursum=array[0],0 for num in array[0:]: if cursum&lt;=0: cursum=num else: cursum+=num if cursum&gt;=maxsum: maxsum=cursum return maxsum]]></content>

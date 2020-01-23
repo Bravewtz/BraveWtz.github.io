@@ -55,19 +55,19 @@
   };
 </script>
 
-  <meta name="description" content="题目：输入一颗二叉树和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。 分析：深度优先搜索。使用前序遍历，使用两个全局变量result和tmp，result来存放最终结果，tmp用来存放临时结果。 每次遍历，我们先把root的值压入tmp，然后判断当前root是否同时满足：">
+  <meta name="description" content="题目：输入一个整数n，求从1到n这n个整数的十进制表示中1出现的次数。例如输入12，从1到12这些整数中包含1的数字有1，10，11和12，1一共出现了5次。 分析： 两种方法，一种是从1到n遍历，每次通过对10求余数判断整数的个位数字是不是1，大于10的除以10之后再判断。我们对每个数字都要做除法和求余运算以求出该数字中1出现的次数。如果输入数字n，n有O(logn)位，我们需要判断每一位是不">
 <meta name="keywords" content="剑指offer">
 <meta property="og:type" content="article">
-<meta property="og:title" content="21二叉树中和为某一值的路径">
-<meta property="og:url" content="http://www.bravewtz.top/2020/01/16/21二叉树中和为某一值的路径/index.html">
+<meta property="og:title" content="27整数中1出现的次数">
+<meta property="og:url" content="http://www.bravewtz.top/2020/01/23/27整数中1出现的次数/index.html">
 <meta property="og:site_name" content="Bravewtz">
-<meta property="og:description" content="题目：输入一颗二叉树和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。 分析：深度优先搜索。使用前序遍历，使用两个全局变量result和tmp，result来存放最终结果，tmp用来存放临时结果。 每次遍历，我们先把root的值压入tmp，然后判断当前root是否同时满足：">
+<meta property="og:description" content="题目：输入一个整数n，求从1到n这n个整数的十进制表示中1出现的次数。例如输入12，从1到12这些整数中包含1的数字有1，10，11和12，1一共出现了5次。 分析： 两种方法，一种是从1到n遍历，每次通过对10求余数判断整数的个位数字是不是1，大于10的除以10之后再判断。我们对每个数字都要做除法和求余运算以求出该数字中1出现的次数。如果输入数字n，n有O(logn)位，我们需要判断每一位是不">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-01-16T14:00:01.158Z">
+<meta property="og:updated_time" content="2020-01-23T12:54:11.939Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="21二叉树中和为某一值的路径">
-<meta name="twitter:description" content="题目：输入一颗二叉树和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。 分析：深度优先搜索。使用前序遍历，使用两个全局变量result和tmp，result来存放最终结果，tmp用来存放临时结果。 每次遍历，我们先把root的值压入tmp，然后判断当前root是否同时满足：">
-  <link rel="canonical" href="http://www.bravewtz.top/2020/01/16/21二叉树中和为某一值的路径/">
+<meta name="twitter:title" content="27整数中1出现的次数">
+<meta name="twitter:description" content="题目：输入一个整数n，求从1到n这n个整数的十进制表示中1出现的次数。例如输入12，从1到12这些整数中包含1的数字有1，10，11和12，1一共出现了5次。 分析： 两种方法，一种是从1到n遍历，每次通过对10求余数判断整数的个位数字是不是1，大于10的除以10之后再判断。我们对每个数字都要做除法和求余运算以求出该数字中1出现的次数。如果输入数字n，n有O(logn)位，我们需要判断每一位是不">
+  <link rel="canonical" href="http://www.bravewtz.top/2020/01/23/27整数中1出现的次数/">
 
 
 <script id="page-configurations">
@@ -81,7 +81,7 @@
   };
 </script>
 
-  <title>21二叉树中和为某一值的路径 | Bravewtz</title>
+  <title>27整数中1出现的次数 | Bravewtz</title>
   
 
 
@@ -249,7 +249,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="http://www.bravewtz.top/2020/01/16/21二叉树中和为某一值的路径/">
+    <link itemprop="mainEntityOfPage" href="http://www.bravewtz.top/2020/01/23/27整数中1出现的次数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Bravewtz">
@@ -261,7 +261,7 @@
       <meta itemprop="name" content="Bravewtz">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">21二叉树中和为某一值的路径
+        <h1 class="post-title" itemprop="name headline">27整数中1出现的次数
 
           
         </h1>
@@ -277,7 +277,7 @@
                 
               
 
-              <time title="创建时间：2020-01-16 21:57:52 / 修改时间：22:00:01" itemprop="dateCreated datePublished" datetime="2020-01-16T21:57:52+08:00">2020-01-16</time>
+              <time title="创建时间：2020-01-23 20:49:16 / 修改时间：20:54:11" itemprop="dateCreated datePublished" datetime="2020-01-23T20:49:16+08:00">2020-01-23</time>
             </span>
           
             
@@ -286,7 +286,7 @@
           
 
           
-            <span id="/2020/01/16/21二叉树中和为某一值的路径/" class="post-meta-item leancloud_visitors" data-flag-title="21二叉树中和为某一值的路径" title="阅读次数">
+            <span id="/2020/01/23/27整数中1出现的次数/" class="post-meta-item leancloud_visitors" data-flag-title="27整数中1出现的次数" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -304,7 +304,7 @@
       
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/01/16/21二叉树中和为某一值的路径/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2020/01/16/21二叉树中和为某一值的路径/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2020/01/23/27整数中1出现的次数/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2020/01/23/27整数中1出现的次数/" itemprop="commentCount"></span></a>
   </span>
   
   
@@ -319,20 +319,21 @@
 
       
         <ul>
-<li>题目：输入一颗二叉树和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。</li>
-<li>分析：深度优先搜索。使用前序遍历，使用两个全局变量result和tmp，result来存放最终结果，tmp用来存放临时结果。</li>
-</ul><p>每次遍历，我们先把root的值压入tmp，然后判断当前root是否同时满足：</p><a id="more"></a>
+<li>题目：输入一个整数n，求从1到n这n个整数的十进制表示中1出现的次数。例如输入12，从1到12这些整数中包含1的数字有1，10，11和12，1一共出现了5次。</li>
+<li>分析：</li>
+</ul><p>两种方法，一种是从1到n遍历，每次通过对10求余数判断整数的个位数字是不是1，大于10的除以10之后再判断。我们对每个数字都要做除法和求余运算以求出该数字中1出现的次数。如果输入数字n，n有O(logn)位，我们需要判断每一位是不是1，那么时间复杂度为O(n*logn)。这样做，计算量大，效率不高。</p><a id="more"></a>
 
-<p>与给定数值相减为0；<br>左子树为空；<br>右子树为空。<br>如果满足条件，就将tmp压入result中，否则，依次遍历左右子树。需要注意的是，遍历左右子树的时候，全局变量tmp是不清空的，直到到了根结点才请空tmp。</p>
+<p>本文采用数学之美上面提出的方法，设定整数点（如1、10、100等等）作为位置点i（对应n的各位、十位、百位等等），分别对每个数位上有多少包含1的点进行分析。</p>
+<p>根据设定的整数位置，对n进行分割，分为两部分，高位n/i，低位n%i<br>当i表示百位，且百位对应的数&gt;=2,如n=31456,i=100，则a=314,b=56，此时百位为1的次数有a/10+1=32（最高两位0<del>31），每一次都包含100个连续的点，即共有(a/10+1)*100个点的百位为1<br>当i表示百位，且百位对应的数为1，如n=31156,i=100，则a=311,b=56，此时百位对应的就是1，则共有a/10(最高两位0-30)次是包含100个连续点，当最高两位为31（即a=311），本次只对应局部点00</del>56，共b+1次，所有点加起来共有（a/10*100）+(b+1)，这些点百位对应为1<br>当i表示百位，且百位对应的数为0,如n=31056,i=100，则a=310,b=56，此时百位为1的次数有a/10=31（最高两位0~30）<br>综合以上三种情况，当百位对应0或&gt;=2时，有(a+8)/10次包含所有100个点，还有当百位为1(a%10==1)，需要增加局部点b+1<br>之所以补8，是因为当百位为0，则a/10==(a+8)/10，当百位&gt;=2，补8会产生进位位，效果等同于(a/10+1)</p>
 <ul>
 <li>C++代码：</li>
 </ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">struct TreeNode &#123;</span></span><br><span class="line"><span class="comment">	int val;</span></span><br><span class="line"><span class="comment">	struct TreeNode *left;</span></span><br><span class="line"><span class="comment">	struct TreeNode *right;</span></span><br><span class="line"><span class="comment">	TreeNode(int x) :</span></span><br><span class="line"><span class="comment">			val(x), left(NULL), right(NULL) &#123;</span></span><br><span class="line"><span class="comment">	&#125;</span></span><br><span class="line"><span class="comment">&#125;;*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; FindPath(TreeNode* root,<span class="keyword">int</span> expectNumber) &#123;</span><br><span class="line">        <span class="keyword">if</span>(root==<span class="literal">NULL</span>) <span class="keyword">return</span> res;</span><br><span class="line">        tmp.push_back(root-&gt;val);</span><br><span class="line">        <span class="keyword">if</span>((expectNumber-root-&gt;val)==<span class="number">0</span>&amp;&amp;root-&gt;left==<span class="literal">NULL</span>&amp;&amp;root-&gt;right==<span class="literal">NULL</span>)&#123;</span><br><span class="line">            res.push_back(tmp);</span><br><span class="line">        &#125;</span><br><span class="line">        FindPath(root-&gt;left,expectNumber-root-&gt;val);</span><br><span class="line">        FindPath(root-&gt;right,expectNumber-root-&gt;val);</span><br><span class="line">        </span><br><span class="line">        tmp.pop_back();</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt;res;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; tmp;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">NumberOf1Between1AndN_Solution</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> cnt=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i*=<span class="number">10</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span> a=n/i,b=n%i;</span><br><span class="line">            cnt+=(a+<span class="number">8</span>)/<span class="number">10</span>*i+(a%<span class="number">10</span>==<span class="number">1</span>)*(b+<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> cnt;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>Python代码：</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="comment"># class TreeNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.left = None</span></span><br><span class="line"><span class="comment">#         self.right = None</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="comment"># 返回二维列表，内部每个列表表示找到的路径</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">FindPath</span><span class="params">(self, root, expectNumber)</span>:</span></span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">            <span class="keyword">return</span> []</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> root.left <span class="keyword">and</span> <span class="keyword">not</span> root.right <span class="keyword">and</span> expectNumber == root.val:</span><br><span class="line">            <span class="keyword">return</span> [[root.val]]</span><br><span class="line">        res = []</span><br><span class="line">        left = self.FindPath(root.left, expectNumber-root.val)</span><br><span class="line">        right = self.FindPath(root.right, expectNumber-root.val)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> left+right:</span><br><span class="line">            res.append([root.val]+i)</span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">NumberOf1Between1AndN_Solution</span><span class="params">(self, n)</span>:</span></span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        cnt=<span class="number">0</span></span><br><span class="line">        i=<span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> i&lt;=n:</span><br><span class="line">            a=n/i</span><br><span class="line">            b=n%i</span><br><span class="line">            cnt+=(a+<span class="number">8</span>)/<span class="number">10</span>*i+(a%<span class="number">10</span>==<span class="number">1</span>)*(b+<span class="number">1</span>)</span><br><span class="line">            i*=<span class="number">10</span></span><br><span class="line">        <span class="keyword">return</span> cnt</span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -369,8 +370,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2020/01/16/20二叉搜索树的后序遍历序列/" rel="next" title="20二叉搜索树的后序遍历序列">
-                  <i class="fa fa-chevron-left"></i> 20二叉搜索树的后序遍历序列
+                <a href="/2020/01/23/26连续子数组的最大和/" rel="next" title="26连续子数组的最大和">
+                  <i class="fa fa-chevron-left"></i> 26连续子数组的最大和
                 </a>
               
             </div>
@@ -378,10 +379,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2020/01/18/22二叉搜索树与双向链表/" rel="prev" title="22二叉搜索树与双向链表">
-                  22二叉搜索树与双向链表 <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
