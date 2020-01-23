@@ -55,13 +55,13 @@
   };
 </script>
 
-  <meta name="description" content="（一）本篇文章将在此基础上进行介绍。主要包括： 决策树构建 决策树可视化 使用决策树进行分类预测 决策树的存储和读取 sklearn实战之预测隐形眼睛类型（二）决策树构建 ID3算法ID3算法的核心是在决策树各个结点上对应信息增益准则选择特征，递归地构建决策树。具体方法是：从根结点(root node)开始，对结点计算所有可能的特征的信息增益，选择信息增益最大的特征作为结点的特征，由该特征的不同取">
+  <meta name="description" content="（一）本篇文章将在此基础上进行介绍。主要包括： 决策树构建 决策树可视化 使用决策树进行分类预测 决策树的存储和读取 （二）决策树构建 ID3算法ID3算法的核心是在决策树各个结点上对应信息增益准则选择特征，递归地构建决策树。具体方法是：从根结点(root node)开始，对结点计算所有可能的特征的信息增益，选择信息增益最大的特征作为结点的特征，由该特征的不同取值建立子节点；再对子结点递归地调用以">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="决策树进阶">
 <meta property="og:url" content="http://www.bravewtz.top/2020/01/22/决策树进阶/index.html">
 <meta property="og:site_name" content="Bravewtz">
-<meta property="og:description" content="（一）本篇文章将在此基础上进行介绍。主要包括： 决策树构建 决策树可视化 使用决策树进行分类预测 决策树的存储和读取 sklearn实战之预测隐形眼睛类型（二）决策树构建 ID3算法ID3算法的核心是在决策树各个结点上对应信息增益准则选择特征，递归地构建决策树。具体方法是：从根结点(root node)开始，对结点计算所有可能的特征的信息增益，选择信息增益最大的特征作为结点的特征，由该特征的不同取">
+<meta property="og:description" content="（一）本篇文章将在此基础上进行介绍。主要包括： 决策树构建 决策树可视化 使用决策树进行分类预测 决策树的存储和读取 （二）决策树构建 ID3算法ID3算法的核心是在决策树各个结点上对应信息增益准则选择特征，递归地构建决策树。具体方法是：从根结点(root node)开始，对结点计算所有可能的特征的信息增益，选择信息增益最大的特征作为结点的特征，由该特征的不同取值建立子节点；再对子结点递归地调用以">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.bravewtz.top/images/2020012201.jpg">
 <meta property="og:image" content="http://www.bravewtz.top/images/2020012202.jpg">
@@ -71,10 +71,10 @@
 <meta property="og:image" content="http://www.bravewtz.top/images/2020012206.jpg">
 <meta property="og:image" content="http://www.bravewtz.top/images/2020012207.jpg">
 <meta property="og:image" content="http://www.bravewtz.top/images/2020012208.jpg">
-<meta property="og:updated_time" content="2020-01-22T13:42:21.006Z">
+<meta property="og:updated_time" content="2020-01-23T03:42:22.050Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="决策树进阶">
-<meta name="twitter:description" content="（一）本篇文章将在此基础上进行介绍。主要包括： 决策树构建 决策树可视化 使用决策树进行分类预测 决策树的存储和读取 sklearn实战之预测隐形眼睛类型（二）决策树构建 ID3算法ID3算法的核心是在决策树各个结点上对应信息增益准则选择特征，递归地构建决策树。具体方法是：从根结点(root node)开始，对结点计算所有可能的特征的信息增益，选择信息增益最大的特征作为结点的特征，由该特征的不同取">
+<meta name="twitter:description" content="（一）本篇文章将在此基础上进行介绍。主要包括： 决策树构建 决策树可视化 使用决策树进行分类预测 决策树的存储和读取 （二）决策树构建 ID3算法ID3算法的核心是在决策树各个结点上对应信息增益准则选择特征，递归地构建决策树。具体方法是：从根结点(root node)开始，对结点计算所有可能的特征的信息增益，选择信息增益最大的特征作为结点的特征，由该特征的不同取值建立子节点；再对子结点递归地调用以">
 <meta name="twitter:image" content="http://www.bravewtz.top/images/2020012201.jpg">
   <link rel="canonical" href="http://www.bravewtz.top/2020/01/22/决策树进阶/">
 
@@ -286,11 +286,19 @@
                 
               
 
-              <time title="创建时间：2020-01-22 21:40:24 / 修改时间：21:42:21" itemprop="dateCreated datePublished" datetime="2020-01-22T21:40:24+08:00">2020-01-22</time>
+              <time title="创建时间：2020-01-22 21:40:24" itemprop="dateCreated datePublished" datetime="2020-01-22T21:40:24+08:00">2020-01-22</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-01-23 11:42:22" itemprop="dateModified" datetime="2020-01-23T11:42:22+08:00">2020-01-23</time>
+              </span>
             
           
 
@@ -332,9 +340,10 @@
 <li>决策树可视化</li>
 <li>使用决策树进行分类预测</li>
 <li>决策树的存储和读取</li>
-<li>sklearn实战之预测隐形眼睛类型<h4 id="（二）决策树构建"><a href="#（二）决策树构建" class="headerlink" title="（二）决策树构建"></a>（二）决策树构建</h4></li>
+</ul><h4 id="（二）决策树构建"><a href="#（二）决策树构建" class="headerlink" title="（二）决策树构建"></a>（二）决策树构建</h4><ul>
 <li>ID3算法<br>ID3算法的核心是在决策树各个结点上对应信息增益准则选择特征，递归地构建决策树。具体方法是：从根结点(root node)开始，对结点计算所有可能的特征的信息增益，选择信息增益最大的特征作为结点的特征，由该特征的不同取值建立子节点；再对子结点递归地调用以上方法，构建决策树；直到所有特征的信息增益均很小或没有特征可以选择为止。最后得到一个决策树。ID3相当于用极大似然法进行概率模型的选择。</li>
 </ul><a id="more"></a>
+
 <p>在使用ID3构造决策树之前，我们再分析下数据。<br><img src="/images/2020012201.jpg" alt><br>利用上篇文章求得的结果，由于特征A3(有自己的房子)的信息增益值最大，所以选择特征A3作为根结点的特征。它将训练集D划分为两个子集D1(A3取值为”是”)和D2(A3取值为”否”)。由于D1只有同一类的样本点，所以它成为一个叶结点，结点的类标记为“是”。</p>
 <p>对D2则需要从特征A1(年龄)，A2(有工作)和A4(信贷情况)中选择新的特征，计算各个特征的信息增益：<br><img src="/images/2020012202.jpg" alt><br>根据计算，选择信息增益最大的特征A2(有工作)作为结点的特征。由于A2有两个可能取值，从这一结点引出两个子结点：一个对应”是”(有工作)的子结点，包含3个样本，它们属于同一类，所以这是一个叶结点，类标记为”是”；另一个是对应”否”(无工作)的子结点，包含6个样本，它们也属于同一类，所以这也是一个叶结点，类标记为”否”。</p>
 <p>这样就生成了一个决策树，该决策树只用了两个特征(有两个内部结点)，生成的决策树如下图所示。<br><img src="/images/2020012203.jpg" alt></p>
