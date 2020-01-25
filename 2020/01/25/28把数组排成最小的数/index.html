@@ -55,21 +55,19 @@
   };
 </script>
 
-  <meta name="description" content="题目：大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列的第n项。（n&amp;lt;=39） 斐波那契数列公式为： 分析：这道题递归很好写，但是存在很严重的效率问题。我们以求解f(10)为例类分析递归的求解过程。想求f(10)，需要先求得f(9)和f(8)。同样，想求得f(9)，需要先求的f(8)和f(7)….我们可以用树形结构来表示这种依赖关系，我们不难发现在这棵树中有很多结点是重">
+  <meta name="description" content="题目：输入一个正整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。例如输入数组{3，32，321}，则打印出这三个数字能排成的最小数字为321323。 分析：首先想到全排列的做法，但是时间复杂度为O(n!)，效率并不高。在这里我们自己定义一个规则，对拼接后的字符串进行比较。">
 <meta name="keywords" content="剑指offer">
 <meta property="og:type" content="article">
-<meta property="og:title" content="07斐波那契数列">
-<meta property="og:url" content="http://www.bravewtz.top/2020/01/04/07斐波那契数列/index.html">
+<meta property="og:title" content="28把数组排成最小的数">
+<meta property="og:url" content="http://www.bravewtz.top/2020/01/25/28把数组排成最小的数/index.html">
 <meta property="og:site_name" content="Bravewtz">
-<meta property="og:description" content="题目：大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列的第n项。（n&amp;lt;=39） 斐波那契数列公式为： 分析：这道题递归很好写，但是存在很严重的效率问题。我们以求解f(10)为例类分析递归的求解过程。想求f(10)，需要先求得f(9)和f(8)。同样，想求得f(9)，需要先求的f(8)和f(7)….我们可以用树形结构来表示这种依赖关系，我们不难发现在这棵树中有很多结点是重">
+<meta property="og:description" content="题目：输入一个正整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。例如输入数组{3，32，321}，则打印出这三个数字能排成的最小数字为321323。 分析：首先想到全排列的做法，但是时间复杂度为O(n!)，效率并不高。在这里我们自己定义一个规则，对拼接后的字符串进行比较。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://www.bravewtz.top/images/2020010401.jpg">
-<meta property="og:updated_time" content="2020-01-04T13:15:35.774Z">
+<meta property="og:updated_time" content="2020-01-25T08:04:00.046Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="07斐波那契数列">
-<meta name="twitter:description" content="题目：大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列的第n项。（n&amp;lt;=39） 斐波那契数列公式为： 分析：这道题递归很好写，但是存在很严重的效率问题。我们以求解f(10)为例类分析递归的求解过程。想求f(10)，需要先求得f(9)和f(8)。同样，想求得f(9)，需要先求的f(8)和f(7)….我们可以用树形结构来表示这种依赖关系，我们不难发现在这棵树中有很多结点是重">
-<meta name="twitter:image" content="http://www.bravewtz.top/images/2020010401.jpg">
-  <link rel="canonical" href="http://www.bravewtz.top/2020/01/04/07斐波那契数列/">
+<meta name="twitter:title" content="28把数组排成最小的数">
+<meta name="twitter:description" content="题目：输入一个正整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。例如输入数组{3，32，321}，则打印出这三个数字能排成的最小数字为321323。 分析：首先想到全排列的做法，但是时间复杂度为O(n!)，效率并不高。在这里我们自己定义一个规则，对拼接后的字符串进行比较。">
+  <link rel="canonical" href="http://www.bravewtz.top/2020/01/25/28把数组排成最小的数/">
 
 
 <script id="page-configurations">
@@ -83,7 +81,7 @@
   };
 </script>
 
-  <title>07斐波那契数列 | Bravewtz</title>
+  <title>28把数组排成最小的数 | Bravewtz</title>
   
 
 
@@ -251,7 +249,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="http://www.bravewtz.top/2020/01/04/07斐波那契数列/">
+    <link itemprop="mainEntityOfPage" href="http://www.bravewtz.top/2020/01/25/28把数组排成最小的数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Bravewtz">
@@ -263,7 +261,7 @@
       <meta itemprop="name" content="Bravewtz">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">07斐波那契数列
+        <h1 class="post-title" itemprop="name headline">28把数组排成最小的数
 
           
         </h1>
@@ -279,7 +277,7 @@
                 
               
 
-              <time title="创建时间：2020-01-04 21:10:25 / 修改时间：21:15:35" itemprop="dateCreated datePublished" datetime="2020-01-04T21:10:25+08:00">2020-01-04</time>
+              <time title="创建时间：2020-01-25 16:02:00 / 修改时间：16:04:00" itemprop="dateCreated datePublished" datetime="2020-01-25T16:02:00+08:00">2020-01-25</time>
             </span>
           
             
@@ -288,7 +286,7 @@
           
 
           
-            <span id="/2020/01/04/07斐波那契数列/" class="post-meta-item leancloud_visitors" data-flag-title="07斐波那契数列" title="阅读次数">
+            <span id="/2020/01/25/28把数组排成最小的数/" class="post-meta-item leancloud_visitors" data-flag-title="28把数组排成最小的数" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -306,7 +304,7 @@
       
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/01/04/07斐波那契数列/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2020/01/04/07斐波那契数列/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2020/01/25/28把数组排成最小的数/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2020/01/25/28把数组排成最小的数/" itemprop="commentCount"></span></a>
   </span>
   
   
@@ -321,22 +319,20 @@
 
       
         <ul>
-<li>题目：大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列的第n项。（n&lt;=39）</li>
-</ul><p>斐波那契数列公式为：<br><img src="/images/2020010401.jpg" alt></p><ul>
-<li>分析：这道题递归很好写，但是存在很严重的效率问题。我们以求解f(10)为例类分析递归的求解过程。想求f(10)，需要先求得f(9)和f(8)。同样，想求得f(9)，需要先求的f(8)和f(7)….我们可以用树形结构来表示这种依赖关系，我们不难发现在这棵树中有很多结点是重复的，而且重复的结点数会随着n的增加而急剧增加，这意味计算量会随着n的增加而急剧增大。事实上，递归方法计算的时间复杂度是以n的指数的方式递增的。</li>
+<li>题目：输入一个正整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。例如输入数组{3，32，321}，则打印出这三个数字能排成的最小数字为321323。</li>
+<li>分析：首先想到全排列的做法，但是时间复杂度为O(n!)，效率并不高。在这里我们自己定义一个规则，对拼接后的字符串进行比较。</li>
 </ul><a id="more"></a>
-
-
-<p>所以，使用简单的循环方法来实现。</p>
+<p>排序规则如下：</p>
+<p>若ab &gt; ba 则 a 大于 b，<br>若ab &lt; ba 则 a 小于 b，<br>若ab = ba 则 a 等于 b；<br>根据上述规则，我们需要先将数字转换成字符串再进行比较，因为需要串起来进行比较。比较完之后，按顺序输出即可。</p>
 <ul>
 <li>C++代码：</li>
 </ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">Fibonacci</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> first=<span class="number">0</span>,second=<span class="number">1</span>,third=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++)&#123;</span><br><span class="line">            third=first+second;</span><br><span class="line">            first=second;</span><br><span class="line">            second=third;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> third;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">PrintMinNumber</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; numbers)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len=numbers.size();</span><br><span class="line">        <span class="keyword">if</span>(len==<span class="number">0</span>) <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">        </span><br><span class="line">        sort(numbers.begin(),numbers.end(),cmp);</span><br><span class="line">        <span class="built_in">string</span> res;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++)&#123;</span><br><span class="line">            res+=to_string(numbers[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">        <span class="built_in">string</span> A=to_string(a)+to_string(b);</span><br><span class="line">        <span class="built_in">string</span> B=to_string(b)+to_string(a);</span><br><span class="line">        <span class="keyword">return</span> A&lt;B;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>Python代码：</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">Fibonacci</span><span class="params">(self, n)</span>:</span></span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        <span class="keyword">if</span> n &lt;= <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> n</span><br><span class="line">        first, second, third = <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>, n+<span class="number">1</span>):</span><br><span class="line">            third = first + second</span><br><span class="line">            first = second</span><br><span class="line">            second = third</span><br><span class="line">        <span class="keyword">return</span> third</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">PrintMinNumber</span><span class="params">(self, numbers)</span>:</span></span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        <span class="keyword">if</span> len(numbers)==<span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">''</span></span><br><span class="line">        compare = <span class="keyword">lambda</span> a, b:cmp(str(a)+str(b),str(b)+str(a))</span><br><span class="line">        min_string = sorted(numbers,cmp=compare)</span><br><span class="line">        <span class="keyword">return</span> <span class="string">''</span>.join(str(s) <span class="keyword">for</span> s <span class="keyword">in</span> min_string)</span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -373,8 +369,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2020/01/02/06旋转数组的最小数字/" rel="next" title="06旋转数组的最小数字">
-                  <i class="fa fa-chevron-left"></i> 06旋转数组的最小数字
+                <a href="/2020/01/23/27整数中1出现的次数/" rel="next" title="27整数中1出现的次数">
+                  <i class="fa fa-chevron-left"></i> 27整数中1出现的次数
                 </a>
               
             </div>
@@ -382,10 +378,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2020/01/05/08矩形覆盖/" rel="prev" title="08矩形覆盖">
-                  08矩形覆盖 <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
