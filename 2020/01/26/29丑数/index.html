@@ -55,19 +55,19 @@
   };
 </script>
 
-  <meta name="description" content="题目：输入一颗二叉树和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。 分析：深度优先搜索。使用前序遍历，使用两个全局变量result和tmp，result来存放最终结果，tmp用来存放临时结果。 每次遍历，我们先把root的值压入tmp，然后判断当前root是否同时满足：">
+  <meta name="description" content="题目：把只包含因子2、3和5的数称作丑数（Ugly Number）。例如6、8都是丑数，但14不是，因为它包含因子7。 习惯上我们把1当做是第一个丑数。求按从小到大的顺序的第N个丑数。 分析：说下思路，如果p是丑数，那么p=2^x * 3^y * 5^z，那么只要赋予x,y,z不同的值就能得到不同的丑数。如果要顺序找出丑数，要知道下面几个特（fei）点（hua）。对于任何丑数p：a.那么2p,3">
 <meta name="keywords" content="剑指offer">
 <meta property="og:type" content="article">
-<meta property="og:title" content="21二叉树中和为某一值的路径">
-<meta property="og:url" content="http://www.bravewtz.top/2020/01/16/21二叉树中和为某一值的路径/index.html">
+<meta property="og:title" content="29丑数">
+<meta property="og:url" content="http://www.bravewtz.top/2020/01/26/29丑数/index.html">
 <meta property="og:site_name" content="Bravewtz">
-<meta property="og:description" content="题目：输入一颗二叉树和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。 分析：深度优先搜索。使用前序遍历，使用两个全局变量result和tmp，result来存放最终结果，tmp用来存放临时结果。 每次遍历，我们先把root的值压入tmp，然后判断当前root是否同时满足：">
+<meta property="og:description" content="题目：把只包含因子2、3和5的数称作丑数（Ugly Number）。例如6、8都是丑数，但14不是，因为它包含因子7。 习惯上我们把1当做是第一个丑数。求按从小到大的顺序的第N个丑数。 分析：说下思路，如果p是丑数，那么p=2^x * 3^y * 5^z，那么只要赋予x,y,z不同的值就能得到不同的丑数。如果要顺序找出丑数，要知道下面几个特（fei）点（hua）。对于任何丑数p：a.那么2p,3">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-01-16T14:00:01.158Z">
+<meta property="og:updated_time" content="2020-01-26T13:16:25.346Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="21二叉树中和为某一值的路径">
-<meta name="twitter:description" content="题目：输入一颗二叉树和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。 分析：深度优先搜索。使用前序遍历，使用两个全局变量result和tmp，result来存放最终结果，tmp用来存放临时结果。 每次遍历，我们先把root的值压入tmp，然后判断当前root是否同时满足：">
-  <link rel="canonical" href="http://www.bravewtz.top/2020/01/16/21二叉树中和为某一值的路径/">
+<meta name="twitter:title" content="29丑数">
+<meta name="twitter:description" content="题目：把只包含因子2、3和5的数称作丑数（Ugly Number）。例如6、8都是丑数，但14不是，因为它包含因子7。 习惯上我们把1当做是第一个丑数。求按从小到大的顺序的第N个丑数。 分析：说下思路，如果p是丑数，那么p=2^x * 3^y * 5^z，那么只要赋予x,y,z不同的值就能得到不同的丑数。如果要顺序找出丑数，要知道下面几个特（fei）点（hua）。对于任何丑数p：a.那么2p,3">
+  <link rel="canonical" href="http://www.bravewtz.top/2020/01/26/29丑数/">
 
 
 <script id="page-configurations">
@@ -81,7 +81,7 @@
   };
 </script>
 
-  <title>21二叉树中和为某一值的路径 | Bravewtz</title>
+  <title>29丑数 | Bravewtz</title>
   
 
 
@@ -249,7 +249,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="http://www.bravewtz.top/2020/01/16/21二叉树中和为某一值的路径/">
+    <link itemprop="mainEntityOfPage" href="http://www.bravewtz.top/2020/01/26/29丑数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Bravewtz">
@@ -261,7 +261,7 @@
       <meta itemprop="name" content="Bravewtz">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">21二叉树中和为某一值的路径
+        <h1 class="post-title" itemprop="name headline">29丑数
 
           
         </h1>
@@ -277,7 +277,7 @@
                 
               
 
-              <time title="创建时间：2020-01-16 21:57:52 / 修改时间：22:00:01" itemprop="dateCreated datePublished" datetime="2020-01-16T21:57:52+08:00">2020-01-16</time>
+              <time title="创建时间：2020-01-26 21:13:21 / 修改时间：21:16:25" itemprop="dateCreated datePublished" datetime="2020-01-26T21:13:21+08:00">2020-01-26</time>
             </span>
           
             
@@ -286,7 +286,7 @@
           
 
           
-            <span id="/2020/01/16/21二叉树中和为某一值的路径/" class="post-meta-item leancloud_visitors" data-flag-title="21二叉树中和为某一值的路径" title="阅读次数">
+            <span id="/2020/01/26/29丑数/" class="post-meta-item leancloud_visitors" data-flag-title="29丑数" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -304,7 +304,7 @@
       
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/01/16/21二叉树中和为某一值的路径/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2020/01/16/21二叉树中和为某一值的路径/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2020/01/26/29丑数/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2020/01/26/29丑数/" itemprop="commentCount"></span></a>
   </span>
   
   
@@ -319,20 +319,16 @@
 
       
         <ul>
-<li>题目：输入一颗二叉树和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。</li>
-<li>分析：深度优先搜索。使用前序遍历，使用两个全局变量result和tmp，result来存放最终结果，tmp用来存放临时结果。</li>
-</ul><p>每次遍历，我们先把root的值压入tmp，然后判断当前root是否同时满足：</p><a id="more"></a>
+<li>题目：把只包含因子2、3和5的数称作丑数（Ugly Number）。例如6、8都是丑数，但14不是，因为它包含因子7。 习惯上我们把1当做是第一个丑数。求按从小到大的顺序的第N个丑数。</li>
+<li>分析：说下思路，如果p是丑数，那么p=2^x * 3^y * 5^z，那么只要赋予x,y,z不同的值就能得到不同的丑数。<br>如果要顺序找出丑数，要知道下面几个特（fei）点（hua）。<br>对于任何丑数p：<br>a.那么2<em>p,3</em>p,5<em>p都是丑数，并且2</em>p&lt;3<em>p&lt;5</em>p<br>b.如果p&lt;q, 那么2<em>p&lt;2</em>q,3<em>p&lt;3</em>q,5<em>p&lt;5</em>q<br>现在说说算法思想：<br>  由于1是最小的丑数，那么从1开始，把2<em>1，3</em>1，5<em>1，进行比较，得出最小的就是1的下一个丑数，也就是2</em>1，<br>  这个时候，多了一个丑数‘2’，也就又多了3个可以比较的丑数，2<em>2，3</em>2，5<em>2，这个时候就把之前‘1’生成的丑数和‘2’生成的丑数加进来也就是(3</em>1,5<em>1,2</em>2，3<em>2，5</em>2)进行比较，找出最小的。。。。如此循环下去就会发现，每次选进来一个丑数，该丑数又会生成3个新的丑数进行比较。上面的暴力方法也应该能解决，但是如果在面试官用这种方法，估计面试官只会摇头吧。下面说一个O（n）的算法。在上面的特（fei）点（hua）中，既然有p&lt;q, 那么2<em>p&lt;2</em>q，那么“我”在前面比你小的数都没被选上，你后面生成新的丑数一定比“我”大吧，那么你乘2生成的丑数一定比我乘2的大吧，那么在我选上之后你才有机会选上。其实每次我们只用比较3个数：用于乘2的最小的数、用于乘3的最小的数，用于乘5的最小的数。也就是比较(2<em>x , 3</em>y, 5*z) ，x&gt;=y&gt;=z的.<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">GetUglyNumber_Solution</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(index&lt;=<span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(index==<span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; res(index);</span><br><span class="line">        res[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> t2=<span class="number">0</span>,t3=<span class="number">0</span>,t5=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;index;i++)&#123;</span><br><span class="line">            res[i]=min(res[t2]*<span class="number">2</span>,min(res[t3]*<span class="number">3</span>,res[t5]*<span class="number">5</span>));</span><br><span class="line">            <span class="keyword">if</span>(res[i]==res[t2]*<span class="number">2</span>) t2++;</span><br><span class="line">            <span class="keyword">if</span>(res[i]==res[t3]*<span class="number">3</span>) t3++;</span><br><span class="line">            <span class="keyword">if</span>(res[i]==res[t5]*<span class="number">5</span>) t5++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res[index<span class="number">-1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<p>与给定数值相减为0；<br>左子树为空；<br>右子树为空。<br>如果满足条件，就将tmp压入result中，否则，依次遍历左右子树。需要注意的是，遍历左右子树的时候，全局变量tmp是不清空的，直到到了根结点才请空tmp。</p>
-<ul>
-<li>C++代码：</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">struct TreeNode &#123;</span></span><br><span class="line"><span class="comment">	int val;</span></span><br><span class="line"><span class="comment">	struct TreeNode *left;</span></span><br><span class="line"><span class="comment">	struct TreeNode *right;</span></span><br><span class="line"><span class="comment">	TreeNode(int x) :</span></span><br><span class="line"><span class="comment">			val(x), left(NULL), right(NULL) &#123;</span></span><br><span class="line"><span class="comment">	&#125;</span></span><br><span class="line"><span class="comment">&#125;;*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; FindPath(TreeNode* root,<span class="keyword">int</span> expectNumber) &#123;</span><br><span class="line">        <span class="keyword">if</span>(root==<span class="literal">NULL</span>) <span class="keyword">return</span> res;</span><br><span class="line">        tmp.push_back(root-&gt;val);</span><br><span class="line">        <span class="keyword">if</span>((expectNumber-root-&gt;val)==<span class="number">0</span>&amp;&amp;root-&gt;left==<span class="literal">NULL</span>&amp;&amp;root-&gt;right==<span class="literal">NULL</span>)&#123;</span><br><span class="line">            res.push_back(tmp);</span><br><span class="line">        &#125;</span><br><span class="line">        FindPath(root-&gt;left,expectNumber-root-&gt;val);</span><br><span class="line">        FindPath(root-&gt;right,expectNumber-root-&gt;val);</span><br><span class="line">        </span><br><span class="line">        tmp.pop_back();</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt;res;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; tmp;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul><a id="more"></a>
+<p>还有一种分析<br>思想就是用已知的丑数去生成丑数，然后把丑数排序就好了。先来一发毫无技巧的代码：生成第i个丑数时，都从第一个丑数往后扫描，分别用2, 3, 5去乘，如果结果大于arr[i - 1]，就维护一个最小值，扫描完后，这个最小值就是第i个丑数。<br>时间复杂度：O(n^2)。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">GetUglyNumber_Solution</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(index==<span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; res(index,<span class="number">0x3f3f3f3f</span>);</span><br><span class="line">        res[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;index;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;i;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(<span class="number">2</span>*res[j]&gt;res[i<span class="number">-1</span>]) res[i]=min(res[i],<span class="number">2</span>*res[j]);</span><br><span class="line">                <span class="keyword">if</span>(<span class="number">3</span>*res[j]&gt;res[i<span class="number">-1</span>]) res[i]=min(res[i],<span class="number">3</span>*res[j]);</span><br><span class="line">                <span class="keyword">if</span>(<span class="number">5</span>*res[j]&gt;res[i<span class="number">-1</span>]) res[i]=min(res[i],<span class="number">5</span>*res[j]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res[index<span class="number">-1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>Python代码：</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="comment"># class TreeNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.left = None</span></span><br><span class="line"><span class="comment">#         self.right = None</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="comment"># 返回二维列表，内部每个列表表示找到的路径</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">FindPath</span><span class="params">(self, root, expectNumber)</span>:</span></span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">            <span class="keyword">return</span> []</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> root.left <span class="keyword">and</span> <span class="keyword">not</span> root.right <span class="keyword">and</span> expectNumber == root.val:</span><br><span class="line">            <span class="keyword">return</span> [[root.val]]</span><br><span class="line">        res = []</span><br><span class="line">        left = self.FindPath(root.left, expectNumber-root.val)</span><br><span class="line">        right = self.FindPath(root.right, expectNumber-root.val)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> left+right:</span><br><span class="line">            res.append([root.val]+i)</span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
+<p>还有更优的方法，不知你注意到了没，我们要寻找一个数乘以2, 3, 5大于arr[i - 1]且这个数最小，这个操作是不需要每次都从数组头开始找的，而且也不要每次都找到i - 1处。现在把问题简化一下，只考虑用2去乘，那么我们总可以在数组中找到一个位置pos，这个位置上的数乘2刚好大于arr[i - 1]，往后的数字就不需要去计算了，因为越往后数字越大，乘起来的结果也就越大，故不满足该数最小这个条件，因此pos处的数乘2就是arr[i]，现在把pos记录下来，下一次扫描的时候就要求arr[i + 1]了，这时候就要寻找一个数乘以2大于arr[i]且这个数最小，而arr[pos] * 2 = arr[i]，所以满足条件的当然就是arr[i + 1] = arr[pos + 1] * 2，这样子查找的时间复杂度就降到了O(1)O(1)；<br>现在再把那个简化的问题恢复为原问题，用2, 3, 5去乘，那么不是就维护三个pos分别对应2, 3, 5就行了吗，每次都去比较这三个位置乘出来的结果，取最小的就行了，然后用这个最小的结果取和这三个位置乘出来的结果比较，如果相等就往后移动对应的pos。<br>时间复杂度：O(n)。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">GetUglyNumber_Solution</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (index == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; arr(index, <span class="number">1</span>), ptr(<span class="number">3</span>, <span class="number">0</span>), num(&#123;<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>&#125;);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> cnt = <span class="number">1</span>, min_value; cnt &lt; index; arr[cnt++] = min_value) &#123;</span><br><span class="line">            <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; result(<span class="number">3</span>);</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; result[i] = arr[ptr[i]] * num[i], ++i);</span><br><span class="line">            min_value = *min_element(result.begin(), result.end());</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; ptr[i] += min_value == result[i], ++i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> arr[index - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -369,8 +365,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2020/01/16/20二叉搜索树的后序遍历序列/" rel="next" title="20二叉搜索树的后序遍历序列">
-                  <i class="fa fa-chevron-left"></i> 20二叉搜索树的后序遍历序列
+                <a href="/2020/01/25/28把数组排成最小的数/" rel="next" title="28把数组排成最小的数">
+                  <i class="fa fa-chevron-left"></i> 28把数组排成最小的数
                 </a>
               
             </div>
@@ -378,10 +374,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2020/01/18/22二叉搜索树与双向链表/" rel="prev" title="22二叉搜索树与双向链表">
-                  22二叉搜索树与双向链表 <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
