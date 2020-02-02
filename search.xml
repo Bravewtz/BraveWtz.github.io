@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[39和为S的两个数字]]></title>
+    <url>%2F2020%2F02%2F02%2F39%E5%92%8C%E4%B8%BAS%E7%9A%84%E4%B8%A4%E4%B8%AA%E6%95%B0%E5%AD%97%2F</url>
+    <content type="text"><![CDATA[题目：输入一个递增排序的数组和一个数字S，在数组中查找两个数，是的他们的和正好是S，如果有多对数字的和等于S，输出两个数的乘积最小的。 分析：对于一个数组，我们可以定义两个指针，一个从左往右遍历（pleft），另一个从右往左遍历（pright）。首先，我们比较第一个数字和最后一个数字的和curSum与给定数字sum，如果curSum &lt; sum，那么我们就要加大输入值，所以，pleft向右移动一位，重复之前的计算；如果curSum &gt; sum，那么我们就要减小输入值，所以，pright向左移动一位，重复之前的计算；如果相等，那么这两个数字就是我们要找的数字，直接输出即可。 这么做的好处是，也保证了乘积最小。 C++代码： 1234567891011121314151617181920class Solution &#123;public: vector&lt;int&gt; FindNumbersWithSum(vector&lt;int&gt; array,int sum) &#123; vector&lt;int&gt; res; int len=array.size(); if(len&lt;1) return res; int pleft=0,pright=len-1; while(pright&gt;pleft)&#123; int cursum=array[pleft]+array[pright]; if(cursum==sum)&#123; res.push_back(array[pleft]); res.push_back(array[pright]); break; &#125; else if(cursum&lt;sum) pleft++; else pright--; &#125; return res; &#125;&#125;; Python代码： 123456789101112131415# -*- coding:utf-8 -*-class Solution: def FindNumbersWithSum(self, array, tsum): # write code here if len(array) &lt;= 1: return [] left, right = 0, len(array)-1 while left &lt; right: if array[left] + array[right] == tsum: return array[left], array[right] elif array[left] + array[right] &lt; tsum: left += 1 else: right -= 1 return []]]></content>
+      <tags>
+        <tag>剑指offer</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[38左旋转字符串]]></title>
     <url>%2F2020%2F02%2F02%2F38%E5%B7%A6%E6%97%8B%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2%2F</url>
     <content type="text"><![CDATA[题目：汇编语言中有一种移位指令叫做循环左移（ROL），现在有个简单的任务，就是用字符串模拟这个指令的运算结果。对于一个给定的字符序列S，请你把其循环左移K位后的序列输出。例如，字符序列S=”abcXYZdef”,要求输出循环左移3位后的结果，即“XYZdefabc”。 分析：例如：输入字符串”abcdefg”和数字2，该函数将返回左旋转2位得到的结果”cdefgab”; 第一步：翻转字符串“ab”，得到”ba”； 第二步：翻转字符串”cdefg”，得到”gfedc”； 第三步：翻转字符串”bagfedc”，得到”cdefgab”； 或者： 第一步：翻转整个字符串”abcdefg”,得到”gfedcba” 第二步：翻转字符串“gfedc”，得到”cdefg” 第三步：翻转字符串”ba”,得到”ab” C++代码： 12345678910111213141516171819202122class Solution &#123;public: string LeftRotateString(string str, int n) &#123; string res=str; int len=str.size(); if(len&lt;0) return NULL; if(n&gt;=0&amp;&amp;n&lt;=len)&#123; int L=0,R=n-1; int LL=n,RR=len-1; ReverseString(res,L,R); ReverseString(res,LL,RR); ReverseString(res,L,RR); &#125; return res; &#125;private: void ReverseString(string &amp;str,int _begin,int _end)&#123; while(_begin&lt;_end)&#123; swap(str[_begin++],str[_end--]); &#125; &#125;&#125;; Python代码： 12345678910# -*- coding:utf-8 -*-class Solution: def LeftRotateString(self, s, n): # write code here length=len(s) if n&lt;=0 or length==0: return s if n&gt;length: n=n%length return s[n:]+s[:n]]]></content>
