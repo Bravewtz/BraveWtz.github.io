@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[40翻转单词顺序序列]]></title>
+    <url>%2F2020%2F02%2F03%2F40%E7%BF%BB%E8%BD%AC%E5%8D%95%E8%AF%8D%E9%A1%BA%E5%BA%8F%E5%BA%8F%E5%88%97%2F</url>
+    <content type="text"><![CDATA[题目：牛客最近来了一个新员工Fish，每天早晨总是会拿着一本英文杂志，写些句子在本子上。同事Cat对Fish写的内容颇感兴趣，有一天他向Fish借来翻看，但却读不懂它的意思。例如，“student. a am I”。后来才意识到，这家伙原来把句子单词的顺序翻转了，正确的句子应该是“I am a student.”。Cat对一一的翻转这些单词顺序可不在行，你能帮助他么？ 分析：观察字符串变化规律，你会发现这道题很简单。只需要对每个单词做翻转，然后再整体做翻转就得到了正确的结果。 C++代码： 12345678910111213141516171819202122232425class Solution &#123;public: string ReverseSentence(string str) &#123; string res=str; int len=res.size(); if(len==0) return ""; res+=' '; int mark=0; for(int i=0;i&lt;len+1;i++)&#123; if(res[i]==' ')&#123; Reverse(res,mark,i-1); mark=i+1; &#125; &#125; res=res.substr(0,len); Reverse(res,0,len-1); return res; &#125;private: void Reverse(string &amp;str,int begin,int end)&#123; while(begin&lt;end)&#123; swap(str[begin++],str[end--]); &#125; &#125;&#125;; Python代码： 123456# -*- coding:utf-8 -*-class Solution: def ReverseSentence(self, s): # write code here s_list=s.split(' ') return ' '.join(s_list[::-1])]]></content>
+      <tags>
+        <tag>剑指offer</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[39和为S的两个数字]]></title>
     <url>%2F2020%2F02%2F02%2F39%E5%92%8C%E4%B8%BAS%E7%9A%84%E4%B8%A4%E4%B8%AA%E6%95%B0%E5%AD%97%2F</url>
     <content type="text"><![CDATA[题目：输入一个递增排序的数组和一个数字S，在数组中查找两个数，是的他们的和正好是S，如果有多对数字的和等于S，输出两个数的乘积最小的。 分析：对于一个数组，我们可以定义两个指针，一个从左往右遍历（pleft），另一个从右往左遍历（pright）。首先，我们比较第一个数字和最后一个数字的和curSum与给定数字sum，如果curSum &lt; sum，那么我们就要加大输入值，所以，pleft向右移动一位，重复之前的计算；如果curSum &gt; sum，那么我们就要减小输入值，所以，pright向左移动一位，重复之前的计算；如果相等，那么这两个数字就是我们要找的数字，直接输出即可。 这么做的好处是，也保证了乘积最小。 C++代码： 1234567891011121314151617181920class Solution &#123;public: vector&lt;int&gt; FindNumbersWithSum(vector&lt;int&gt; array,int sum) &#123; vector&lt;int&gt; res; int len=array.size(); if(len&lt;1) return res; int pleft=0,pright=len-1; while(pright&gt;pleft)&#123; int cursum=array[pleft]+array[pright]; if(cursum==sum)&#123; res.push_back(array[pleft]); res.push_back(array[pright]); break; &#125; else if(cursum&lt;sum) pleft++; else pright--; &#125; return res; &#125;&#125;; Python代码： 123456789101112131415# -*- coding:utf-8 -*-class Solution: def FindNumbersWithSum(self, array, tsum): # write code here if len(array) &lt;= 1: return [] left, right = 0, len(array)-1 while left &lt; right: if array[left] + array[right] == tsum: return array[left], array[right] elif array[left] + array[right] &lt; tsum: left += 1 else: right -= 1 return []]]></content>
