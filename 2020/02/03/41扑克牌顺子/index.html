@@ -55,24 +55,19 @@
   };
 </script>
 
-  <meta name="description" content="OpenCV提供了两种图片变换的方式：仿射变换和透视变换，两者的区别很容易区分 前者是将矩形的图片变成平行四边形 后者是将图片变成梯形 这两种变换虽然都有各自的应用场景，但在实际的图片变换中由于透视效应的存在，后者的使用更加普遍，本文为大家详解OpenCV透视变换的透视变换原理及实例展示。简介透视变换(Perspective Transformation)是将成像投影到一个新的视平面(Viewin">
+  <meta name="description" content="题目：LL今天心情特别好,因为他去买了一副扑克牌,发现里面居然有2个大王,2个小王(一副牌原本是54张😊)…他随机从中抽出了5张牌,想测测自己的手气,看看能不能抽到顺子,如果抽到的话,他决定去买体育彩票,嘿嘿！！“红心A,黑桃3,小王,大王,方片5”,“Oh My God!”不是顺子…..LL不高兴了,他想了想,决定大\小 王可以看成任何数字,并且A看作1,J为11,Q为12,K为13。上面的">
+<meta name="keywords" content="剑指offer">
 <meta property="og:type" content="article">
-<meta property="og:title" content="OpenCv透视变换原理及实现">
-<meta property="og:url" content="http://www.bravewtz.top/2019/10/31/OpenCv透视变换原理及实现/index.html">
+<meta property="og:title" content="41扑克牌顺子">
+<meta property="og:url" content="http://www.bravewtz.top/2020/02/03/41扑克牌顺子/index.html">
 <meta property="og:site_name" content="Bravewtz">
-<meta property="og:description" content="OpenCV提供了两种图片变换的方式：仿射变换和透视变换，两者的区别很容易区分 前者是将矩形的图片变成平行四边形 后者是将图片变成梯形 这两种变换虽然都有各自的应用场景，但在实际的图片变换中由于透视效应的存在，后者的使用更加普遍，本文为大家详解OpenCV透视变换的透视变换原理及实例展示。简介透视变换(Perspective Transformation)是将成像投影到一个新的视平面(Viewin">
+<meta property="og:description" content="题目：LL今天心情特别好,因为他去买了一副扑克牌,发现里面居然有2个大王,2个小王(一副牌原本是54张😊)…他随机从中抽出了5张牌,想测测自己的手气,看看能不能抽到顺子,如果抽到的话,他决定去买体育彩票,嘿嘿！！“红心A,黑桃3,小王,大王,方片5”,“Oh My God!”不是顺子…..LL不高兴了,他想了想,决定大\小 王可以看成任何数字,并且A看作1,J为11,Q为12,K为13。上面的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://www.bravewtz.top/images/2019103101.png">
-<meta property="og:image" content="http://www.bravewtz.top/images/2019103102.png">
-<meta property="og:image" content="http://www.bravewtz.top/images/2019103103.png">
-<meta property="og:image" content="http://www.bravewtz.top/images/2019103104.png">
-<meta property="og:image" content="http://www.bravewtz.top/images/2019103105.png">
-<meta property="og:updated_time" content="2019-10-31T07:05:13.007Z">
+<meta property="og:updated_time" content="2020-02-03T06:42:10.063Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="OpenCv透视变换原理及实现">
-<meta name="twitter:description" content="OpenCV提供了两种图片变换的方式：仿射变换和透视变换，两者的区别很容易区分 前者是将矩形的图片变成平行四边形 后者是将图片变成梯形 这两种变换虽然都有各自的应用场景，但在实际的图片变换中由于透视效应的存在，后者的使用更加普遍，本文为大家详解OpenCV透视变换的透视变换原理及实例展示。简介透视变换(Perspective Transformation)是将成像投影到一个新的视平面(Viewin">
-<meta name="twitter:image" content="http://www.bravewtz.top/images/2019103101.png">
-  <link rel="canonical" href="http://www.bravewtz.top/2019/10/31/OpenCv透视变换原理及实现/">
+<meta name="twitter:title" content="41扑克牌顺子">
+<meta name="twitter:description" content="题目：LL今天心情特别好,因为他去买了一副扑克牌,发现里面居然有2个大王,2个小王(一副牌原本是54张😊)…他随机从中抽出了5张牌,想测测自己的手气,看看能不能抽到顺子,如果抽到的话,他决定去买体育彩票,嘿嘿！！“红心A,黑桃3,小王,大王,方片5”,“Oh My God!”不是顺子…..LL不高兴了,他想了想,决定大\小 王可以看成任何数字,并且A看作1,J为11,Q为12,K为13。上面的">
+  <link rel="canonical" href="http://www.bravewtz.top/2020/02/03/41扑克牌顺子/">
 
 
 <script id="page-configurations">
@@ -86,7 +81,7 @@
   };
 </script>
 
-  <title>OpenCv透视变换原理及实现 | Bravewtz</title>
+  <title>41扑克牌顺子 | Bravewtz</title>
   
 
 
@@ -254,7 +249,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="http://www.bravewtz.top/2019/10/31/OpenCv透视变换原理及实现/">
+    <link itemprop="mainEntityOfPage" href="http://www.bravewtz.top/2020/02/03/41扑克牌顺子/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Bravewtz">
@@ -266,7 +261,7 @@
       <meta itemprop="name" content="Bravewtz">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">OpenCv透视变换原理及实现
+        <h1 class="post-title" itemprop="name headline">41扑克牌顺子
 
           
         </h1>
@@ -282,7 +277,7 @@
                 
               
 
-              <time title="创建时间：2019-10-31 14:56:37 / 修改时间：15:05:13" itemprop="dateCreated datePublished" datetime="2019-10-31T14:56:37+08:00">2019-10-31</time>
+              <time title="创建时间：2020-02-03 14:40:23 / 修改时间：14:42:10" itemprop="dateCreated datePublished" datetime="2020-02-03T14:40:23+08:00">2020-02-03</time>
             </span>
           
             
@@ -291,7 +286,7 @@
           
 
           
-            <span id="/2019/10/31/OpenCv透视变换原理及实现/" class="post-meta-item leancloud_visitors" data-flag-title="OpenCv透视变换原理及实现" title="阅读次数">
+            <span id="/2020/02/03/41扑克牌顺子/" class="post-meta-item leancloud_visitors" data-flag-title="41扑克牌顺子" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -309,7 +304,7 @@
       
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2019/10/31/OpenCv透视变换原理及实现/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/10/31/OpenCv透视变换原理及实现/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2020/02/03/41扑克牌顺子/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2020/02/03/41扑克牌顺子/" itemprop="commentCount"></span></a>
   </span>
   
   
@@ -323,34 +318,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>OpenCV提供了两种图片变换的方式：仿射变换和透视变换，两者的区别很容易区分</p><ul>
-<li>前者是将矩形的图片变成平行四边形</li>
-<li>后者是将图片变成梯形</li>
-</ul><p>这两种变换虽然都有各自的应用场景，但在实际的图片变换中由于透视效应的存在，后者的使用更加普遍，本文为大家详解OpenCV透视变换的透视变换原理及实例展示。</p><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>透视变换(Perspective Transformation)是将成像投影到一个新的视平面(Viewing Plane)，也称作投影映射(Projective Mapping)。如图所示<br><img src="/images/2019103101.png" alt="pp"></p><a id="more"></a>
-
-
-
-<h2 id="函数原型"><a href="#函数原型" class="headerlink" title="函数原型"></a>函数原型</h2><p>OpenCV提供了warpPerspective( )函数来实现图片的透视变换，只需要输入梯形四个顶点的坐标和目标画布四个角的坐标，即可自动完成转换。核心代码只有两行：首先读取两个坐标数组，计算变换矩阵；然后根据变换矩阵对原图进行透视变换，并输出到目标画布。</p>
-<blockquote>
-<p>cv2.getPerspectiveTransform(src, dst) → retval</p>
-</blockquote>
-<p>参数说明</p>
+        <ul>
+<li>题目：LL今天心情特别好,因为他去买了一副扑克牌,发现里面居然有2个大王,2个小王(一副牌原本是54张😊)…他随机从中抽出了5张牌,想测测自己的手气,看看能不能抽到顺子,如果抽到的话,他决定去买体育彩票,嘿嘿！！“红心A,黑桃3,小王,大王,方片5”,“Oh My God!”不是顺子…..LL不高兴了,他想了想,决定大\小 王可以看成任何数字,并且A看作1,J为11,Q为12,K为13。上面的5张牌就可以变成“1,2,3,4,5”(大小王分别看作2和4),“So Lucky!”。LL决定去买体育彩票啦。 现在,要求你使用这幅牌模拟上面的过程,然后告诉我们LL的运气如何。为了方便起见,你可以认为大小王是0。</li>
+<li>分析：这题说了一堆，提取主要信息，我们不难整理出，满足如下条件才可以认为是顺子：</li>
+</ul><a id="more"></a>
+<p>输入数据个数为5；<br>输入数据都在0-13之间；<br>没有相同的数字；<br>最大值与最小值的差值不大于5。<br>这里隐含信息就是如果连续，那肯定最大和最小差值为4</p>
+<p>还有一点是，如果数字重复，那么返回错误即可。</p>
+<p>最后就需要判断0的个数，去除0以后的数组，进行排序，最大和最小的差值必须小于4即可（因为0可能充当头尾数）。</p>
 <ul>
-<li>src：源图像中待测矩形的四点坐标</li>
-<li>sdt：目标图像中矩形的四点坐标<br>原图像的四个坐标顺序应与目标图像中的四个坐标一 一随影，若都是顺时针则都是顺时针，若都是 Z 字型，则都是 Z 字型。<br>返回由源图像中矩形到目标图像矩形变换的矩阵，得到矩阵得有用才行啊，所以引出下面这个函数</li>
+<li>C++代码：</li>
 </ul>
-<blockquote>
-<p>cv2.warpPerspective(src, M, dsize[, dst[, flags[, borderMode[, borderValue]]]]) → dst<br>参数为：</p>
-</blockquote>
-<p>src：输入图像<br>M：变换矩阵<br>dsize：目标图像shape<br>flags：插值方式，interpolation方法INTER_LINEAR或INTER_NEAREST<br>borderMode：边界补偿方式，BORDER_CONSTANT or BORDER_REPLICATE<br>borderValue：边界补偿大小，常值，默认为0<br>或者</p>
-<blockquote>
-<p>cv2.perspectiveTransform(src, m[, dst]) → dst</p>
-</blockquote>
-<p>参数解释</p>
-<ul>
-<li>src：输入的2通道或者3通道的图片</li>
-<li>m：变换矩阵<h2 id="实例1-图片矫正"><a href="#实例1-图片矫正" class="headerlink" title="实例1 图片矫正"></a>实例1 图片矫正</h2>我们在给报纸、杂志、身份证、银行卡等矩形目标拍照时，受相机角度和高度的影响往往会拍出梯形的照片（如下图），这样的照片不仅不够美观而且给文字识别带来较大难度，将梯形的图片转换成标准的矩形就要对图片进行透视变换。<h3 id="原始图像"><a href="#原始图像" class="headerlink" title="原始图像"></a>原始图像</h3>效果如下：<br><img src="/images/2019103102.png" alt="pp"><br>转换后的效果如下图所示，效果还是很让人满意的。<br><img src="/images/2019103103.png" alt="pp"><h2 id="实例-2-头像替换广告牌"><a href="#实例-2-头像替换广告牌" class="headerlink" title="实例 2 头像替换广告牌"></a>实例 2 头像替换广告牌</h2>在实际应用中我们不仅需要将梯形矫正为矩形，有时还需要将矩形转换成梯形，warpPerspective( )当然也能胜任，下面我们再用一个例子来演示。<br><img src="/images/2019103104.png" alt="pp"><h2 id="实际效果"><a href="#实际效果" class="headerlink" title="实际效果"></a>实际效果</h2><img src="/images/2019103105.png" alt="pp"></li>
-</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">IsContinuous</span><span class="params">( <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; numbers )</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(numbers.size()!=<span class="number">5</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; mp;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(numbers[i]!=<span class="number">0</span>)&#123;</span><br><span class="line">                mp[numbers[i]]+=<span class="number">1</span>;</span><br><span class="line">                <span class="keyword">if</span>(mp[numbers[i]]==<span class="number">2</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        sort(numbers.begin(),numbers.end());</span><br><span class="line">        <span class="keyword">int</span> cnt=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(numbers[i]==<span class="number">0</span>) cnt++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(numbers[<span class="number">4</span>]-numbers[cnt]&lt;=<span class="number">4</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
 
     </div>
 
@@ -371,14 +350,23 @@
       
 
       <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/剑指offer/" rel="tag"># 剑指offer</a>
+            
+          </div>
+        
 
         
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/10/22/双线型插值法及其py缩放实现/" rel="next" title="双线型插值法及其py缩放实现">
-                  <i class="fa fa-chevron-left"></i> 双线型插值法及其py缩放实现
+                <a href="/2020/02/03/40翻转单词顺序序列/" rel="next" title="40翻转单词顺序序列">
+                  <i class="fa fa-chevron-left"></i> 40翻转单词顺序序列
                 </a>
               
             </div>
@@ -386,10 +374,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/11/03/Shell模拟考勤程序/" rel="prev" title="Shell模拟考勤程序">
-                  Shell模拟考勤程序 <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -441,8 +425,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数原型"><span class="nav-number">2.</span> <span class="nav-text">函数原型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例1-图片矫正"><span class="nav-number">3.</span> <span class="nav-text">实例1 图片矫正</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原始图像"><span class="nav-number">3.1.</span> <span class="nav-text">原始图像</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例-2-头像替换广告牌"><span class="nav-number">4.</span> <span class="nav-text">实例 2 头像替换广告牌</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实际效果"><span class="nav-number">5.</span> <span class="nav-text">实际效果</span></a></li></ol></div>
-        
       </div>
       <!--/noindex-->
 
