@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[44不用加减乘除的加法]]></title>
+    <url>%2F2020%2F02%2F05%2F44%E4%B8%8D%E7%94%A8%E5%8A%A0%E5%87%8F%E4%B9%98%E9%99%A4%E7%9A%84%E5%8A%A0%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[题目：写一个函数，求两个整数之和，要求在函数体内不得使用+、-、*、/四则运算符号。 分析：首先看十进制是如何做的： 5+7=12， 可以使用三步走：第一步：相加各位的值，不算进位，得到2。第二步：计算进位值，得到10. 如果这一步的进位值为0，那么第一步得到的值就是最终结果。第三步：重复上述两步，只是相加的值变成上述两步的得到的结果2和10，得到12。 同样我们可以 三步走的方式计算二进制值相加： 5-101，7-111 第一步：相加各位的值，不算进位，得到010，二进制每位相加就相当于各位做异或操作，101^111。 第二步：计算进位值，得到1010，相当于各位做与操作得到101，再向左移一位得到1010，(101&amp;111)&lt;&lt;1。 第三步：重复上述两步， 各位相加 010^1010=1000，进位值为100=(010&amp;1010)&lt;&lt;1。 继续重复上述两步：1000^100 = 1100，进位值为0，跳出循环，1100为最终结果。 C++代码： 1234567class Solution &#123;public: int Add(int num1, int num2) &#123; return num2?(num1^num2,(num1&amp;num2)&lt;&lt;1):num1; &#125;&#125;; Python代码： 1234567891011# -*- coding:utf-8 -*-class Solution: def Add(self, num1, num2): # write code here _max=0x7fffffff mask=0xffffffff while num2!=0: num1,num2=(num1^num2),((num1&amp;num2)&lt;&lt;1) num1=num1&amp;mask num2=num2&amp;mask return num1 if num1 &lt;= _max else ~(num1^mask)]]></content>
+      <tags>
+        <tag>剑指offer</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[43求1+2+3+...n]]></title>
     <url>%2F2020%2F02%2F04%2F43%E6%B1%821-2-3-n%2F</url>
     <content type="text"><![CDATA[题目：求1+2+3+…+n，要求不能使用乘除法、for、while、if、else、switch、case等关键字及条件判断语句（A?B:C）。 分析：递归！ C++代码： 123456789class Solution &#123;public: int Sum_Solution(int n) &#123; int ans = n; // &amp;&amp;就是逻辑与，逻辑与有个短路特点，前面为假，后面不计算。即递归终止条件 ans &amp;&amp; (ans += Sum_Solution(n - 1)); return ans; &#125;&#125;;]]></content>
