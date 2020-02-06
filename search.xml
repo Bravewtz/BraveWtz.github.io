@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[45把字符串转换成整数]]></title>
+    <url>%2F2020%2F02%2F05%2F45%E6%8A%8A%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E6%88%90%E6%95%B4%E6%95%B0%2F</url>
+    <content type="text"><![CDATA[题目：将一个字符串转换成一个整数，要求不能使用字符串转换整数的库函数。 数值为0或者字符串不是一个合法的数值则返回0。 输入描述： 输入一个字符串,包括数字字母符号,可以为空 输出描述： 如果是合法的数值表达则返回该数字，否则返回012345678910111213示例1输入+21474836471a33输出21474836470 分析：对于这个题目，需要注意的要点有： 指针是否为空指针以及字符串是否为空字符串；字符串对于正负号的处理；输入值是否为合法值，即小于等于’9’，大于等于’0’；int为32位，需要判断是否溢出；使用错误标志，区分合法值0和非法值0。代码中用两个函数来实现该功能，其中标志位g_nStatus用来表示是否为异常输出，minus标志位用来表示是否为负数。 C++代码： 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152class Solution &#123;public: enum Status&#123;kValid = 0, kInValid&#125;; int g_nStatus = kValid; int StrToInt(string str) &#123; g_nStatus = kInValid; long long num = 0; const char* cstr = str.c_str(); // 判断是否为指针和是否为空字符串 if(cstr != NULL &amp;&amp; *cstr != '\0')&#123; // 正负号标志位，默认是加号 bool minus = false; if(*cstr == '+')&#123; cstr++; &#125; else if(*cstr == '-')&#123; minus = true; cstr++; &#125; if(*cstr != '\0')&#123; num = StrToIntCore(cstr, minus); &#125; &#125; return (int)num; &#125;private: long long StrToIntCore(const char* cstr, bool minus)&#123; long long num = 0; while(*cstr != '\0')&#123; // 判断是否是非法值 if(*cstr &gt;= '0' &amp;&amp; *cstr &lt;= '9')&#123; int flag = minus ? -1 : 1; num = num * 10 + flag * (*cstr - '0'); // 判断是否溢出,32位 if((!minus &amp;&amp; num &gt; 0x7fffffff) || (minus &amp;&amp; num &lt; (signed int)0x80000000))&#123; num = 0; break; &#125; cstr++; &#125; else&#123; num = 0; break; &#125; &#125; // 判断是否正常结束 if(*cstr == '\0')&#123; g_nStatus = kValid; &#125; return num; &#125;&#125;;]]></content>
+      <tags>
+        <tag>剑指offer</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[44不用加减乘除的加法]]></title>
     <url>%2F2020%2F02%2F05%2F44%E4%B8%8D%E7%94%A8%E5%8A%A0%E5%87%8F%E4%B9%98%E9%99%A4%E7%9A%84%E5%8A%A0%E6%B3%95%2F</url>
     <content type="text"><![CDATA[题目：写一个函数，求两个整数之和，要求在函数体内不得使用+、-、*、/四则运算符号。 分析：首先看十进制是如何做的： 5+7=12， 可以使用三步走：第一步：相加各位的值，不算进位，得到2。第二步：计算进位值，得到10. 如果这一步的进位值为0，那么第一步得到的值就是最终结果。第三步：重复上述两步，只是相加的值变成上述两步的得到的结果2和10，得到12。 同样我们可以 三步走的方式计算二进制值相加： 5-101，7-111 第一步：相加各位的值，不算进位，得到010，二进制每位相加就相当于各位做异或操作，101^111。 第二步：计算进位值，得到1010，相当于各位做与操作得到101，再向左移一位得到1010，(101&amp;111)&lt;&lt;1。 第三步：重复上述两步， 各位相加 010^1010=1000，进位值为100=(010&amp;1010)&lt;&lt;1。 继续重复上述两步：1000^100 = 1100，进位值为0，跳出循环，1100为最终结果。 C++代码： 1234567class Solution &#123;public: int Add(int num1, int num2) &#123; return num2?(num1^num2,(num1&amp;num2)&lt;&lt;1):num1; &#125;&#125;; Python代码： 1234567891011# -*- coding:utf-8 -*-class Solution: def Add(self, num1, num2): # write code here _max=0x7fffffff mask=0xffffffff while num2!=0: num1,num2=(num1^num2),((num1&amp;num2)&lt;&lt;1) num1=num1&amp;mask num2=num2&amp;mask return num1 if num1 &lt;= _max else ~(num1^mask)]]></content>
