@@ -55,17 +55,22 @@
   };
 </script>
 
-  <meta name="description" content="但我知道鼓起勇气往前走会让我成为更好的人">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Bravewtz">
-<meta property="og:url" content="http://www.bravewtz.top/tags/方舟编译器/index.html">
+  <meta name="description" content="题目：给定一个数组A[0,1,…,n-1],请构建一个数组B[0,1,…,n-1],其中B中的元素B[i]=A[0]A[1]…A[i-1]*A[i+1]…*A[n-1]。不能使用除法。 分析：观察下公式，你会发现，B[i]公式中没有A[i]项，也就是说如果可以使用除法，就可以用公式B[i]=A[0]A[1]…..*A[n-1]/A[i]来计算B[i]，但是题目要求不能使用，因此我们只能另想办法。">
+<meta name="keywords" content="剑指offer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="47构建乘积数组">
+<meta property="og:url" content="http://www.bravewtz.top/2020/02/07/47构建乘积数组/index.html">
 <meta property="og:site_name" content="Bravewtz">
-<meta property="og:description" content="但我知道鼓起勇气往前走会让我成为更好的人">
+<meta property="og:description" content="题目：给定一个数组A[0,1,…,n-1],请构建一个数组B[0,1,…,n-1],其中B中的元素B[i]=A[0]A[1]…A[i-1]*A[i+1]…*A[n-1]。不能使用除法。 分析：观察下公式，你会发现，B[i]公式中没有A[i]项，也就是说如果可以使用除法，就可以用公式B[i]=A[0]A[1]…..*A[n-1]/A[i]来计算B[i]，但是题目要求不能使用，因此我们只能另想办法。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://www.bravewtz.top/images/2020020701.png">
+<meta property="og:image" content="http://www.bravewtz.top/images/2020020702.png">
+<meta property="og:updated_time" content="2020-02-07T10:01:37.351Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bravewtz">
-<meta name="twitter:description" content="但我知道鼓起勇气往前走会让我成为更好的人">
-  <link rel="canonical" href="http://www.bravewtz.top/tags/方舟编译器/">
+<meta name="twitter:title" content="47构建乘积数组">
+<meta name="twitter:description" content="题目：给定一个数组A[0,1,…,n-1],请构建一个数组B[0,1,…,n-1],其中B中的元素B[i]=A[0]A[1]…A[i-1]*A[i+1]…*A[n-1]。不能使用除法。 分析：观察下公式，你会发现，B[i]公式中没有A[i]项，也就是说如果可以使用除法，就可以用公式B[i]=A[0]A[1]…..*A[n-1]/A[i]来计算B[i]，但是题目要求不能使用，因此我们只能另想办法。">
+<meta name="twitter:image" content="http://www.bravewtz.top/images/2020020701.png">
+  <link rel="canonical" href="http://www.bravewtz.top/2020/02/07/47构建乘积数组/">
 
 
 <script id="page-configurations">
@@ -73,13 +78,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false,
+    isPost: true,
     isPage: false,
     isArchive: false
   };
 </script>
 
-  <title>标签: 方舟编译器 | Bravewtz</title>
+  <title>47构建乘积数组 | Bravewtz</title>
   
 
 
@@ -238,82 +243,166 @@
         <div class="content-wrap">
             
 
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-  
-
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block tag">
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1 class="collection-header">方舟编译器<small>标签</small>
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://www.bravewtz.top/2020/02/07/47构建乘积数组/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bravewtz">
+      <meta itemprop="description" content="但我知道<br>鼓起勇气往前走<br>会让我成为更好的人">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bravewtz">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">47构建乘积数组
+
+          
         </h1>
-      </div>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2020-02-07 17:59:15 / 修改时间：18:01:37" itemprop="dateCreated datePublished" datetime="2020-02-07T17:59:15+08:00">2020-02-07</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+            <span id="/2020/02/07/47构建乘积数组/" class="post-meta-item leancloud_visitors" data-flag-title="47构建乘积数组" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/02/07/47构建乘积数组/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2020/02/07/47构建乘积数组/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+        <ul>
+<li>题目：给定一个数组A[0,1,…,n-1],请构建一个数组B[0,1,…,n-1],其中B中的元素B[i]=A[0]<em>A[1]</em>…<em>A[i-1]*A[i+1]</em>…*A[n-1]。不能使用除法。</li>
+<li>分析：观察下公式，你会发现，B[i]公式中没有A[i]项，也就是说如果可以使用除法，就可以用公式B[i]=A[0]<em>A[1]</em>…..*A[n-1]/A[i]来计算B[i]，但是题目要求不能使用，因此我们只能另想办法。</li>
+</ul><a id="more"></a>
+<p>现在要求不能使用除法，只能用其他方法。一个直观的解法是用连乘n-1个数字得到B[i]。显然这个方法需要O(n*n)的时间复杂度。</p>
+<p>好在还有更高效的算法。可以把B[i]=A[0]<em>A[1]</em>…..<em>A[i-1]*A[i+1]</em>…..<em>A[n-1]。看成A[0]*A[1]</em>…..<em>A[i-1]和A[i+1]</em>…..A[n-2]*A[n-1]两部分的乘积。</p>
+<p>即通过A[i]项将B[i]分为两部分的乘积。效果如下图所示：<br><img src="/images/2020020701.png" alt><br>不妨设定C[i]=A[0]<em>A[1]</em>…<em>A[i-1]，D[i]=A[i+1]</em>…<em>A[n-2]</em>A[n-1]。C[i]可以用自上而下的顺序计算出来，即C[i]=C[i-1]<em>A[i-1]。类似的，D[i]可以用自下而上的顺序计算出来，即D[i]=D[i+1]</em>A[i+1]。</p>
+<p>如果还是不明白，没有关系，直接看下代码，细细体会下就懂了。<br><img src="/images/2020020702.png" alt></p>
+<ul>
+<li>C++代码：</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; multiply(<span class="keyword">const</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; A) &#123;</span><br><span class="line">        <span class="keyword">int</span> len=A.size()；</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; B(len);</span><br><span class="line">        <span class="keyword">if</span>(len&lt;=<span class="number">0</span>) <span class="keyword">return</span> B;</span><br><span class="line">        B[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;len;i++)&#123;</span><br><span class="line">            B[i]=B[i<span class="number">-1</span>]*A[i<span class="number">-1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> tmp=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=len<span class="number">-2</span>;i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">            tmp*=A[i+<span class="number">1</span>];</span><br><span class="line">            B[i]*=tmp;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> B;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-  
-  
+<ul>
+<li>Python代码：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">multiply</span><span class="params">(self, A)</span>:</span></span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        B=[]</span><br><span class="line">        <span class="keyword">if</span> len(A)==<span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> B</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(len(A)):</span><br><span class="line">                tmp=A[i]</span><br><span class="line">                A[i]=<span class="number">1</span></span><br><span class="line">                B.append( reduce(<span class="keyword">lambda</span> x, y : x*y, A) )</span><br><span class="line">                A[i]=tmp</span><br><span class="line">            <span class="keyword">return</span> B</span><br></pre></td></tr></table></figure>
 
-  
+
+    </div>
+
     
-    <div class="collection-year">
-      <h1 class="collection-header">2019</h1>
+    
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
     </div>
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
         
-          <a class="post-title-link" href="/2019/09/25/方舟编译器编译及其执行/" itemprop="url">
-            <span itemprop="name">方舟编译器编译及其执行</span>
-          </a>
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/剑指offer/" rel="tag"># 剑指offer</a>
+            
+          </div>
         
-      </h2>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-09-25T23:04:39+08:00"
-              content="2019-09-25">
-          09-25
-        </time>
-      </div>
+        
 
-    </header>
-  </article>
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2020/02/06/46数组中重复的数字/" rel="next" title="46数组中重复的数字">
+                  <i class="fa fa-chevron-left"></i> 46数组中重复的数字
+                </a>
+              
+            </div>
 
+            <span class="post-nav-divider"></span>
 
-
-    </div>
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
   </div>
   
   
   
+  </article>
 
-  
-
+  </div>
 
 
           </div>
           
+    
+    <div class="comments" id="comments"></div>
+  
 
         </div>
           
@@ -328,6 +417,11 @@
 
   <aside class="sidebar">
     <div class="sidebar-inner">
+        
+        
+        
+        
+      
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
