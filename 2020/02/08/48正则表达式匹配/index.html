@@ -55,24 +55,19 @@
   };
 </script>
 
-  <meta name="description" content="OpenCV提供了两种图片变换的方式：仿射变换和透视变换，两者的区别很容易区分 前者是将矩形的图片变成平行四边形 后者是将图片变成梯形 这两种变换虽然都有各自的应用场景，但在实际的图片变换中由于透视效应的存在，后者的使用更加普遍，本文为大家详解OpenCV透视变换的透视变换原理及实例展示。简介透视变换(Perspective Transformation)是将成像投影到一个新的视平面(Viewin">
+  <meta name="description" content="题目：请实现一个函数用来匹配包括’.’和’‘的正则表达式。模式中的字符’.’表示任意一个字符，而’‘表示它前面的字符可以出现任意次（包含0次）。 在本题中，匹配是指字符串的所有字符匹配整个模式。例如，字符串”aaa”与模式”a.a”和”abaca”匹配，但是与”aa.a”和”ab*a”均不匹配  分析：   当模式中第二个字符不是*，若字符串对应的字符与模式中对应的字符匹配（相同或者模式中为.）">
+<meta name="keywords" content="剑指offer">
 <meta property="og:type" content="article">
-<meta property="og:title" content="OpenCv透视变换原理及实现">
-<meta property="og:url" content="http://www.bravewtz.top/2019/10/31/OpenCv透视变换原理及实现/index.html">
+<meta property="og:title" content="48正则表达式匹配">
+<meta property="og:url" content="http://www.bravewtz.top/2020/02/08/48正则表达式匹配/index.html">
 <meta property="og:site_name" content="Bravewtz">
-<meta property="og:description" content="OpenCV提供了两种图片变换的方式：仿射变换和透视变换，两者的区别很容易区分 前者是将矩形的图片变成平行四边形 后者是将图片变成梯形 这两种变换虽然都有各自的应用场景，但在实际的图片变换中由于透视效应的存在，后者的使用更加普遍，本文为大家详解OpenCV透视变换的透视变换原理及实例展示。简介透视变换(Perspective Transformation)是将成像投影到一个新的视平面(Viewin">
+<meta property="og:description" content="题目：请实现一个函数用来匹配包括’.’和’‘的正则表达式。模式中的字符’.’表示任意一个字符，而’‘表示它前面的字符可以出现任意次（包含0次）。 在本题中，匹配是指字符串的所有字符匹配整个模式。例如，字符串”aaa”与模式”a.a”和”abaca”匹配，但是与”aa.a”和”ab*a”均不匹配  分析：   当模式中第二个字符不是*，若字符串对应的字符与模式中对应的字符匹配（相同或者模式中为.）">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://www.bravewtz.top/images/2019103101.png">
-<meta property="og:image" content="http://www.bravewtz.top/images/2019103102.png">
-<meta property="og:image" content="http://www.bravewtz.top/images/2019103103.png">
-<meta property="og:image" content="http://www.bravewtz.top/images/2019103104.png">
-<meta property="og:image" content="http://www.bravewtz.top/images/2019103105.png">
-<meta property="og:updated_time" content="2019-10-31T07:05:13.007Z">
+<meta property="og:updated_time" content="2020-02-08T08:03:06.225Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="OpenCv透视变换原理及实现">
-<meta name="twitter:description" content="OpenCV提供了两种图片变换的方式：仿射变换和透视变换，两者的区别很容易区分 前者是将矩形的图片变成平行四边形 后者是将图片变成梯形 这两种变换虽然都有各自的应用场景，但在实际的图片变换中由于透视效应的存在，后者的使用更加普遍，本文为大家详解OpenCV透视变换的透视变换原理及实例展示。简介透视变换(Perspective Transformation)是将成像投影到一个新的视平面(Viewin">
-<meta name="twitter:image" content="http://www.bravewtz.top/images/2019103101.png">
-  <link rel="canonical" href="http://www.bravewtz.top/2019/10/31/OpenCv透视变换原理及实现/">
+<meta name="twitter:title" content="48正则表达式匹配">
+<meta name="twitter:description" content="题目：请实现一个函数用来匹配包括’.’和’‘的正则表达式。模式中的字符’.’表示任意一个字符，而’‘表示它前面的字符可以出现任意次（包含0次）。 在本题中，匹配是指字符串的所有字符匹配整个模式。例如，字符串”aaa”与模式”a.a”和”abaca”匹配，但是与”aa.a”和”ab*a”均不匹配  分析：   当模式中第二个字符不是*，若字符串对应的字符与模式中对应的字符匹配（相同或者模式中为.）">
+  <link rel="canonical" href="http://www.bravewtz.top/2020/02/08/48正则表达式匹配/">
 
 
 <script id="page-configurations">
@@ -86,7 +81,7 @@
   };
 </script>
 
-  <title>OpenCv透视变换原理及实现 | Bravewtz</title>
+  <title>48正则表达式匹配 | Bravewtz</title>
   
 
 
@@ -254,7 +249,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="http://www.bravewtz.top/2019/10/31/OpenCv透视变换原理及实现/">
+    <link itemprop="mainEntityOfPage" href="http://www.bravewtz.top/2020/02/08/48正则表达式匹配/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Bravewtz">
@@ -266,7 +261,7 @@
       <meta itemprop="name" content="Bravewtz">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">OpenCv透视变换原理及实现
+        <h1 class="post-title" itemprop="name headline">48正则表达式匹配
 
           
         </h1>
@@ -282,7 +277,7 @@
                 
               
 
-              <time title="创建时间：2019-10-31 14:56:37 / 修改时间：15:05:13" itemprop="dateCreated datePublished" datetime="2019-10-31T14:56:37+08:00">2019-10-31</time>
+              <time title="创建时间：2020-02-08 16:00:30 / 修改时间：16:03:06" itemprop="dateCreated datePublished" datetime="2020-02-08T16:00:30+08:00">2020-02-08</time>
             </span>
           
             
@@ -291,7 +286,7 @@
           
 
           
-            <span id="/2019/10/31/OpenCv透视变换原理及实现/" class="post-meta-item leancloud_visitors" data-flag-title="OpenCv透视变换原理及实现" title="阅读次数">
+            <span id="/2020/02/08/48正则表达式匹配/" class="post-meta-item leancloud_visitors" data-flag-title="48正则表达式匹配" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -309,7 +304,7 @@
       
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2019/10/31/OpenCv透视变换原理及实现/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/10/31/OpenCv透视变换原理及实现/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2020/02/08/48正则表达式匹配/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2020/02/08/48正则表达式匹配/" itemprop="commentCount"></span></a>
   </span>
   
   
@@ -323,34 +318,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>OpenCV提供了两种图片变换的方式：仿射变换和透视变换，两者的区别很容易区分</p><ul>
-<li>前者是将矩形的图片变成平行四边形</li>
-<li>后者是将图片变成梯形</li>
-</ul><p>这两种变换虽然都有各自的应用场景，但在实际的图片变换中由于透视效应的存在，后者的使用更加普遍，本文为大家详解OpenCV透视变换的透视变换原理及实例展示。</p><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>透视变换(Perspective Transformation)是将成像投影到一个新的视平面(Viewing Plane)，也称作投影映射(Projective Mapping)。如图所示<br><img src="/images/2019103101.png" alt="pp"></p><a id="more"></a>
+        <ul>
+<li><p>题目：请实现一个函数用来匹配包括’.’和’<em>‘的正则表达式。模式中的字符’.’表示任意一个字符，而’</em>‘表示它前面的字符可以出现任意次（包含0次）。 在本题中，匹配是指字符串的所有字符匹配整个模式。例如，字符串”aaa”与模式”a.a”和”ab<em>ac</em>a”匹配，但是与”aa.a”和”ab*a”均不匹配</p>
+</li>
+<li><p>分析：</p>
+</li>
+<li><input disabled type="checkbox"> <p>当模式中第二个字符不是*，若字符串对应的字符与模式中对应的字符匹配（相同或者模式中为.），字符串和模式各向后移动一个字符，然后匹配剩余的字符串和模式。否则直接返回False</p>
+</li>
+<li><input disabled type="checkbox"> <p>当模式中第二个字符为*，①模式直接向后移动两个字符，②字符串对应的字符与模式中对应的字符匹配，字符向后移动一个，模式可以保持不动或者向后移动两个</p>
+</li>
+<li><p>C++代码：</p>
+</li>
+</ul><a id="more"></a>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">match</span><span class="params">(<span class="keyword">char</span>* str, <span class="keyword">char</span>* pattern)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(str==<span class="literal">NULL</span>||pattern==<span class="literal">NULL</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">return</span> matchCore(str,pattern);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">matchCore</span><span class="params">(<span class="keyword">char</span> *str,<span class="keyword">char</span> *pattern)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(*str==<span class="string">'\0'</span>&amp;&amp;*pattern==<span class="string">'\0'</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">if</span>(*str!=<span class="string">'\0'</span>&amp;&amp;*pattern==<span class="string">'\0'</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">if</span>(*(pattern+<span class="number">1</span>)==<span class="string">'*'</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(*pattern==*str||(*str!=<span class="string">'\0'</span>&amp;&amp;*pattern==<span class="string">'.'</span>))&#123;</span><br><span class="line">                <span class="keyword">return</span> matchCore(str+<span class="number">1</span>,pattern+<span class="number">2</span>)||matchCore(str+<span class="number">1</span>,pattern)||matchCore(str,pattern+<span class="number">2</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">return</span> matchCore(str,pattern+<span class="number">2</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(*str==*pattern||(*pattern==<span class="string">'.'</span>&amp;&amp;*str!=<span class="string">'\0'</span>))&#123;</span><br><span class="line">            <span class="keyword">return</span> matchCore(str+<span class="number">1</span>,pattern+<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-
-
-<h2 id="函数原型"><a href="#函数原型" class="headerlink" title="函数原型"></a>函数原型</h2><p>OpenCV提供了warpPerspective( )函数来实现图片的透视变换，只需要输入梯形四个顶点的坐标和目标画布四个角的坐标，即可自动完成转换。核心代码只有两行：首先读取两个坐标数组，计算变换矩阵；然后根据变换矩阵对原图进行透视变换，并输出到目标画布。</p>
-<blockquote>
-<p>cv2.getPerspectiveTransform(src, dst) → retval</p>
-</blockquote>
-<p>参数说明</p>
 <ul>
-<li>src：源图像中待测矩形的四点坐标</li>
-<li>sdt：目标图像中矩形的四点坐标<br>原图像的四个坐标顺序应与目标图像中的四个坐标一 一随影，若都是顺时针则都是顺时针，若都是 Z 字型，则都是 Z 字型。<br>返回由源图像中矩形到目标图像矩形变换的矩阵，得到矩阵得有用才行啊，所以引出下面这个函数</li>
+<li>Python代码：</li>
 </ul>
-<blockquote>
-<p>cv2.warpPerspective(src, M, dsize[, dst[, flags[, borderMode[, borderValue]]]]) → dst<br>参数为：</p>
-</blockquote>
-<p>src：输入图像<br>M：变换矩阵<br>dsize：目标图像shape<br>flags：插值方式，interpolation方法INTER_LINEAR或INTER_NEAREST<br>borderMode：边界补偿方式，BORDER_CONSTANT or BORDER_REPLICATE<br>borderValue：边界补偿大小，常值，默认为0<br>或者</p>
-<blockquote>
-<p>cv2.perspectiveTransform(src, m[, dst]) → dst</p>
-</blockquote>
-<p>参数解释</p>
-<ul>
-<li>src：输入的2通道或者3通道的图片</li>
-<li>m：变换矩阵<h2 id="实例1-图片矫正"><a href="#实例1-图片矫正" class="headerlink" title="实例1 图片矫正"></a>实例1 图片矫正</h2>我们在给报纸、杂志、身份证、银行卡等矩形目标拍照时，受相机角度和高度的影响往往会拍出梯形的照片（如下图），这样的照片不仅不够美观而且给文字识别带来较大难度，将梯形的图片转换成标准的矩形就要对图片进行透视变换。<h3 id="原始图像"><a href="#原始图像" class="headerlink" title="原始图像"></a>原始图像</h3>效果如下：<br><img src="/images/2019103102.png" alt="pp"><br>转换后的效果如下图所示，效果还是很让人满意的。<br><img src="/images/2019103103.png" alt="pp"><h2 id="实例-2-头像替换广告牌"><a href="#实例-2-头像替换广告牌" class="headerlink" title="实例 2 头像替换广告牌"></a>实例 2 头像替换广告牌</h2>在实际应用中我们不仅需要将梯形矫正为矩形，有时还需要将矩形转换成梯形，warpPerspective( )当然也能胜任，下面我们再用一个例子来演示。<br><img src="/images/2019103104.png" alt="pp"><h2 id="实际效果"><a href="#实际效果" class="headerlink" title="实际效果"></a>实际效果</h2><img src="/images/2019103105.png" alt="pp"></li>
-</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="comment"># s, pattern都是字符串</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">match</span><span class="params">(self, s, pattern)</span>:</span></span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        <span class="keyword">return</span> self.matchCore(s, pattern, <span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">matchCore</span><span class="params">(self, s, pattern, i, j)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> i == len(s) <span class="keyword">and</span> j == len(pattern):</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">if</span> j &gt;= len(pattern) <span class="keyword">or</span> i &gt; len(s):</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        <span class="keyword">if</span> j &lt; len(pattern)<span class="number">-1</span> <span class="keyword">and</span> pattern[j+<span class="number">1</span>] == <span class="string">'*'</span>:</span><br><span class="line">            <span class="keyword">if</span> i == len(s) <span class="keyword">or</span> pattern[j] == s[i] <span class="keyword">or</span> pattern[j] == <span class="string">'.'</span>:</span><br><span class="line">                <span class="keyword">return</span> self.matchCore(s,pattern,i,j+<span class="number">2</span>) <span class="keyword">or</span> self.matchCore(s,pattern,i+<span class="number">1</span>,j) <span class="keyword">or</span> self.matchCore(s,pattern,i+<span class="number">1</span>,j+<span class="number">2</span>)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">return</span> self.matchCore(s,pattern,i,j+<span class="number">2</span>)</span><br><span class="line">        <span class="keyword">if</span> i == len(s) <span class="keyword">or</span> pattern[j] == s[i] <span class="keyword">or</span> pattern[j] == <span class="string">'.'</span>:</span><br><span class="line">            <span class="keyword">return</span> self.matchCore(s,pattern,i+<span class="number">1</span>,j+<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+
 
     </div>
 
@@ -371,14 +357,23 @@
       
 
       <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/剑指offer/" rel="tag"># 剑指offer</a>
+            
+          </div>
+        
 
         
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/10/22/双线型插值法及其py缩放实现/" rel="next" title="双线型插值法及其py缩放实现">
-                  <i class="fa fa-chevron-left"></i> 双线型插值法及其py缩放实现
+                <a href="/2020/02/07/47构建乘积数组/" rel="next" title="47构建乘积数组">
+                  <i class="fa fa-chevron-left"></i> 47构建乘积数组
                 </a>
               
             </div>
@@ -386,10 +381,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/11/03/Shell模拟考勤程序/" rel="prev" title="Shell模拟考勤程序">
-                  Shell模拟考勤程序 <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -441,8 +432,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数原型"><span class="nav-number">2.</span> <span class="nav-text">函数原型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例1-图片矫正"><span class="nav-number">3.</span> <span class="nav-text">实例1 图片矫正</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原始图像"><span class="nav-number">3.1.</span> <span class="nav-text">原始图像</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例-2-头像替换广告牌"><span class="nav-number">4.</span> <span class="nav-text">实例 2 头像替换广告牌</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实际效果"><span class="nav-number">5.</span> <span class="nav-text">实际效果</span></a></li></ol></div>
-        
       </div>
       <!--/noindex-->
 
